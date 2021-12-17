@@ -1,0 +1,12 @@
+.pre__loader {
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.pre__loader img {
+  height: 20vh;
+  width: 20vw;
+}

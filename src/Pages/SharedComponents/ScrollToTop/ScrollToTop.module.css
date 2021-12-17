@@ -1,0 +1,22 @@
+.scroll__false {
+  display: none;
+  transition: all 0.5s;
+}
+
+.scroll__true {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 13px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #fff;
+  transition: all 0.5s;
+  outline: 0;
+}

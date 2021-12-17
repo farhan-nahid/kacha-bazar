@@ -30,7 +30,7 @@ const FeaturedCategories = () => {
       <Container>
         <h3>Featured Categories</h3>
         <p>Choose your necessary products from this feature categories.</p>
-        <Row>
+        <Row className='my-5 pb-5'>
           {
             // map category data
             categories.map((category) => (

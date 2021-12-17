@@ -1,0 +1,41 @@
+.card {
+  background-color: #fff;
+  box-shadow: 0 0 1px #333;
+  text-align: left;
+}
+
+.card img {
+  height: 150px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.card .card__content {
+  padding: 20px 15px;
+}
+
+.card .card__content h6 {
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.card .card__content h4 {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.card .card__content button img {
+  height: 20px;
+  width: 20px;
+}
+
+.card .card__content button {
+  border: 1px solid #10b981;
+  padding: 4px 5px;
+  outline: 0;
+  background-color: #fff;
+}

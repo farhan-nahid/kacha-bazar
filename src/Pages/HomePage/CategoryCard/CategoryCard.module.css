@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 1px #333;
+  height: 60px;
+  padding: 10px;
+}
+
+.card img {
+  height: 35px;
+  width: 35px;
+  margin: 0 10px;
+}
+
+.card h6 {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #4b5563;
+  margin: 0;
+  text-align: left;
+}

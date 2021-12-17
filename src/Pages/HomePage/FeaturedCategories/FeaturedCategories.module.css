@@ -1,0 +1,20 @@
+#categories {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#categories h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: #000;
+}
+
+#categories p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  margin-top: 20px;
+  color: #4b5563;
+  margin-bottom: 40px;
+}

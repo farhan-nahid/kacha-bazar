@@ -1,0 +1,12 @@
+.loading__spinner {
+  height: 40vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.loading__spinner img {
+  height: 10vh;
+  width: 10vw;
+}

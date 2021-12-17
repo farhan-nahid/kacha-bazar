@@ -1,0 +1,53 @@
+.banner {
+  margin-top: 30px;
+}
+
+.banner .carousel__item {
+  position: relative;
+}
+
+.banner .carousel__item img {
+  border-radius: 6px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.banner .carousel__item .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  width: 60%;
+}
+
+.banner .carousel__item .overlay h3 {
+  font-weight: 700;
+  color: #1f2937;
+  size: 30px;
+  line-height: 36px;
+}
+
+.banner .carousel__item .overlay p {
+  color: #4b5563;
+  size: 16px;
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.banner .carousel__item .overlay button {
+  border-radius: 9px;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  background-color: #059669;
+  padding: 10px 15px;
+  margin-top: 15px;
+}
+
+.banner .banner__side img {
+  height: 142px;
+}
+
+.banner .banner__side img:nth-child(1) {
+  margin-bottom: 16px;
+}

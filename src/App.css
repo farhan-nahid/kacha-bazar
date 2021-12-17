@@ -59,3 +59,16 @@ h6,
 strong {
   font-family: 'Inter', sans-serif;
 }
+
+#banner .carousel-indicators button {
+  background-color: #10b981a8 !important;
+  width: 3px !important;
+  padding: 3px !important;
+  border-radius: 50% !important;
+  border: 1px solid #10b981 !important;
+}
+
+#banner .carousel-control-prev,
+#banner .carousel-control-next {
+  display: none !important;
+}

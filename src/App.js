@@ -62,6 +62,7 @@ function App() {
           >
             <Route path='/dashboard' element={<Profile />} />
             <Route path='/dashboard/profile' element={<Profile />} />
+            <Route path='/dashboard/edit-profile' element={<Profile />} />
             <Route path='/dashboard/review' element={<Profile />} />
             <Route path='/dashboard/my-orders' element={<Profile />} />
             <Route

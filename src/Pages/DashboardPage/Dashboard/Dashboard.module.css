@@ -2,3 +2,31 @@
   padding: 50px 0;
   background-color: #f9fafb;
 }
+
+#dashboard aside {
+  background-color: #fff;
+  padding: 20px;
+}
+
+#dashboard aside a {
+  display: block;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #4b5563;
+  transition: all linear 0.3s;
+}
+
+#dashboard aside a:hover {
+  color: #10b981;
+  background-color: #f9fafb;
+}
+
+#dashboard aside .active {
+  color: #10b981;
+  background-color: #f9fafb;
+}
+
+#dashboard aside a span {
+  margin: 0 20px;
+}

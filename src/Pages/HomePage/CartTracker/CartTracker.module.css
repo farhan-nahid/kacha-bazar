@@ -1,0 +1,31 @@
+#cart__tracker {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 1px #333;
+  position: fixed;
+  flex-direction: column;
+  background-color: #e1e6eb;
+  padding: 10px 0 0 0;
+  cursor: pointer;
+}
+
+#cart__tracker p {
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+#cart__tracker h6 {
+  width: 100%;
+  padding: 7px 0;
+  text-align: center;
+  background-color: #059669;
+  color: #fff;
+  font-weight: 600;
+}

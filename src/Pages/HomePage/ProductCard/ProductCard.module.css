@@ -39,3 +39,9 @@
   outline: 0;
   background-color: #fff;
 }
+
+.card .card__content button:disabled {
+  border: 1px solid #10b98149;
+  cursor: not-allowed;
+  background-color: #10b98149;
+}

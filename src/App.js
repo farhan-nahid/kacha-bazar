@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -18,24 +18,40 @@ const Login = lazy(() => import('./Pages/AuthPage/LogIn/Login'));
 const AboutUs = lazy(() => import('./Pages/AboutUsPage/AboutUs/AboutUs'));
 const Register = lazy(() => import('./Pages/AuthPage/Register/Register'));
 const Dashboard = lazy(() => import('./Pages/DashboardPage/Dashboard/Dashboard'));
+const CheckOutPage = lazy(() => import('./Pages/CheckOutPage/CheckOutPage'));
 const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 const ResetPassword = lazy(() => import('./Pages/AuthPage/ResetPassword/ResetPassword'));
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleAddToCart = (item) => setCart([...cart, item]);
+
   return (
     <AuthProvider>
       <ScrollToTop />
       <Toaster />
-      <TopNavigation />
+      <TopNavigation cart={cart} show={show} handleClose={handleClose} handleShow={handleShow} />
       <RouteNavigation />
       <Suspense fallback={<PreLoader />}>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/register' element={<Register />} />
           <Route path='/reset-password' element={<ResetPassword />} />
+          <Route
+            path='/checkout'
+            element={
+              <RequiredAuth>
+                <CheckOutPage />
+              </RequiredAuth>
+            }
+          />
           <Route
             path='/dashboard'
             element={
@@ -46,7 +62,6 @@ function App() {
           >
             <Route path='/dashboard' element={<Profile />} />
             <Route path='/dashboard/profile' element={<Profile />} />
-            <Route path='/dashboard/place-order' element={<Profile />} />
             <Route path='/dashboard/review' element={<Profile />} />
             <Route path='/dashboard/my-orders' element={<Profile />} />
             <Route

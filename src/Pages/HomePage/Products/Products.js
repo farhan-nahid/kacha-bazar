@@ -6,7 +6,7 @@ import shrimp from '../../../assets/images/products/Blackberries-1-25-qt.webp';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './Products.module.css';
 
-const Products = () => {
+const Products = ({ handleAddToCart }) => {
   const products = [
     {
       _id: 1,
@@ -51,15 +51,14 @@ const Products = () => {
       <Container>
         <h3>Popular Products for Daily Shopping</h3>
         <p>
-          See all our popular products in this week. You can choose your daily
-          needs products from this list and get some special offer with free
-          shipping.
+          See all our popular products in this week. You can choose your daily needs products from this list and get
+          some special offer with free shipping.
         </p>
         <div className={styles.products__container}>
           {
             // map category data
             products.map((product) => (
-              <ProductCard key={product._id} product={product} />
+              <ProductCard key={product._id} product={product} handleAddToCart={handleAddToCart} />
             ))
           }
         </div>

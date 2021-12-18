@@ -35,15 +35,36 @@
 
 #header__top .top__nav__icon {
   color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+#header__top .top__nav__icon li {
+  margin-left: 40px;
+}
+
+#header__top .top__nav__icon li:nth-child(1) {
+  margin-left: 0;
 }
 
 #header__top .top__nav__icon img {
   height: 30px;
   width: 25px;
-  margin-left: 40px;
   cursor: pointer;
 }
 
-#header__top .top__nav__icon:nth-child(1) {
-  margin-left: 0;
+.cart__icon {
+  position: relative;
+}
+
+.cart__icon span {
+  position: absolute;
+  top: -10px;
+  background-color: #ef4444;
+  color: #fff;
+  font-weight: 700;
+  padding: 1px 5px;
+  right: -10px;
+  border-radius: 50%;
+  font-size: 14px;
 }

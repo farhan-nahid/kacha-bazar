@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
+import category from '../../../assets/images/icons/category.svg';
+import price from '../../../assets/images/icons/price.svg';
+import product from '../../../assets/images/icons/product.svg';
+import upload from '../../../assets/images/upload.png';
 import styles from './AddProduct.module.css';
 
 const AddProduct = () => {
@@ -60,7 +64,61 @@ const AddProduct = () => {
 
   return (
     <section id={styles.add__product}>
-      <h1>Add Product</h1>
+      <h3>Add Product</h3>
+      <form onSubmit={handleProductSubmit}>
+        <span className={styles.inputs}>
+          <input
+            type='text'
+            placeholder='Product Name'
+            id='pdName'
+            onBlur={handelBlur}
+            autoComplete='off'
+            name='name'
+          />
+          <label htmlFor='pdName'>
+            <img src={product} alt='product' />
+          </label>
+        </span>
+
+        <span className={styles.inputs}>
+          <input
+            type='number'
+            placeholder='Product Price'
+            id='pdPrice'
+            onBlur={handelBlur}
+            autoComplete='off'
+            name='price'
+          />
+          <label htmlFor='pdPrice'>
+            <img src={price} alt='price' />
+          </label>
+        </span>
+
+        <span className={styles.inputs}>
+          <input
+            type='text'
+            placeholder='Product Category'
+            id='pdCategory'
+            onBlur={handelBlur}
+            autoComplete='off'
+            name='category'
+          />
+          <label htmlFor='pdCategory'>
+            <img src={category} alt='category' />
+          </label>
+        </span>
+
+        <span className={styles.upload__btn__wrapper}>
+          <label htmlFor='pdImage'>
+            <img src={upload} alt='upload' />
+          </label>
+          <input type='file' name='image' id='pdImage' onChange={handleImageUpload} />
+        </span>
+
+        <span className={styles.btn__wrapper}>
+          <button type='submit'>Add Product</button>
+        </span>
+      </form>
     </section>
   );
 };

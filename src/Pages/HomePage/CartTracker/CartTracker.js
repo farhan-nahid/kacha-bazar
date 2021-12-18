@@ -5,7 +5,7 @@ const CartTracker = ({ cart, handleShow }) => {
   let totalCost = 0.0;
 
   for (const pd of cart) {
-    totalCost = totalCost + pd.price;
+    totalCost = totalCost + Number(pd.price);
   }
 
   return (
@@ -13,7 +13,7 @@ const CartTracker = ({ cart, handleShow }) => {
       <svg
         stroke='#059669'
         fill='currentColor'
-        strokeWidth='0'
+        strokewidth='0'
         viewBox='0 0 512 512'
         height='30px'
         width='30px'

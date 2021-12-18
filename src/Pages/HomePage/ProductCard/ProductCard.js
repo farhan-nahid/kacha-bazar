@@ -3,7 +3,7 @@ import buttonIcon from '../../../assets/images/buttonIcon.svg';
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product, handleAddToCart }) => {
-  const { images, name, price } = product;
+  const { image, name, price } = product;
   const [isDisable, setIsDisable] = useState(false);
 
   const handleClick = (item) => {
@@ -13,7 +13,9 @@ const ProductCard = ({ product, handleAddToCart }) => {
 
   return (
     <div className={styles.card}>
-      <img src={images} alt={name} />
+      <span className={styles.card__img}>
+        <img src={image} alt={name} />
+      </span>
       <div className={styles.card__content}>
         <h6>{name}</h6>
         <span className='d-flex justify-content-between align-self-center mt-3'>

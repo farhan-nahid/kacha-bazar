@@ -1,0 +1,101 @@
+#add__product form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 20px;
+  width: 95%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 50px 30px;
+  box-shadow: 0 0 1px #333;
+  border-radius: 10px;
+}
+
+#add__product form .inputs {
+  position: relative;
+}
+
+#add__product form .inputs label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#add__product form input {
+  width: 100%;
+  padding: 9px 50px;
+  border: 1px solid #10b981;
+  border-radius: 5px;
+  outline: 0;
+  font-family: inherit;
+}
+
+#add__product form input::-webkit-outer-spin-button,
+#add__product form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#add__product form input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+#add__product form input::placeholder {
+  color: rgba(51, 51, 51, 0.411);
+  font-family: inherit;
+}
+
+#add__product .upload__btn__wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload__btn__wrapper label {
+  border: 1px solid #10b981;
+  background-color: white;
+  padding: 10px 40px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.upload__btn__wrapper label img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.upload__btn__wrapper input[type='file'] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#add__product form .btn__wrapper {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add__product form .btn__wrapper button {
+  padding: 8px 40px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  background-color: #10b981;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 10px;
+  font-weight: 700;
+}

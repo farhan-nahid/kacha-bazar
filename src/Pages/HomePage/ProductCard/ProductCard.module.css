@@ -1,7 +1,27 @@
 .card {
   background-color: #fff;
-  box-shadow: 0 0 1px #333;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 1px 3px 7px #0000002e;
   text-align: left;
+  cursor: pointer;
+  transition: all linear 0.3s;
+}
+
+.card__img {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all linear 0.3s;
+}
+
+.card:hover .card__img {
+  transform: scale(1.1);
+}
+
+.card:hover {
+  box-shadow: 1px 3px 20px #0000002e;
 }
 
 .card img {

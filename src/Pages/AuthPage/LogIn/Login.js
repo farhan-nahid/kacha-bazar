@@ -2,12 +2,13 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import emailIcon from '../../../assets/images/login/email.svg';
 import facebookIcon from '../../../assets/images/login/facebook.svg';
 import gitHubIcon from '../../../assets/images/login/gitHub.svg';
 import googleIcon from '../../../assets/images/login/google.svg';
 import passwordIcon from '../../../assets/images/login/password.svg';
+import useAuth from '../../../hooks/useAuth';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -16,6 +17,10 @@ const Login = () => {
     // e.target.reset()
   };
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { googleSignIn, gitHubSignIn } = useAuth();
+
   return (
     <section id={styles.login}>
       <Container>
@@ -23,7 +28,7 @@ const Login = () => {
 
         <Row className={styles.third__party}>
           <Col lg={4} className='g-4'>
-            <div className={styles.method1}>
+            <div className={styles.method1} onClick={() => googleSignIn(navigate, location)}>
               <img src={googleIcon} alt='googleIcon' />
               <h5>Google</h5>
             </div>
@@ -35,7 +40,7 @@ const Login = () => {
             </div>
           </Col>
           <Col lg={4} className='g-4'>
-            <div className={styles.method3}>
+            <div className={styles.method3} onClick={() => gitHubSignIn(navigate, location)}>
               <img src={gitHubIcon} alt='gitHubIcon' />
               <h5>GitHub</h5>
             </div>

@@ -6,15 +6,17 @@ import headerLogo from '../../../assets/images/headerLogo.svg';
 import notifyIcon from '../../../assets/images/notifyIcon.svg';
 import searchIcon from '../../../assets/images/search.svg';
 import userIcon from '../../../assets/images/user.svg';
+// import useAuth from '../../../hooks/useAuth';
 import styles from './TopNavigation.module.css';
 
 const TopNavigation = () => {
+  // const { loggedInUser } = useAuth();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
-
+  // console.log(loggedInUser);
   return (
     <header id={styles.header__top}>
       <Container>

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AuthProvider from './contexts/AuthProvider';
 import Footer from './Pages/SharedComponents/Footer/Footer';
 import PreLoader from './Pages/SharedComponents/PreLoader/PreLoader';
 import RouteNavigation from './Pages/SharedComponents/RouteNavigation/RouteNavigation';
@@ -17,7 +18,7 @@ const ResetPassword = lazy(() => import('./Pages/AuthPage/ResetPassword/ResetPas
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <ScrollToTop />
       <Toaster />
       <TopNavigation />
@@ -36,7 +37,7 @@ function App() {
         </Routes>
       </Suspense>
       <Footer />
-    </>
+    </AuthProvider>
   );
 }
 

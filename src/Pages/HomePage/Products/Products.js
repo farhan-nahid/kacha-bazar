@@ -11,7 +11,7 @@ const Products = ({ handleAddToCart }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/all-products')
+      .get('https://kacha-bazar.herokuapp.com/all-products')
       .then((res) => setProducts(res.data))
       .catch((err) => toast.error(err.message));
   }, []);

@@ -26,43 +26,43 @@ const Dashboard = () => {
           <Row>
             <Col lg={3}>
               <aside>
-                <NavLink to='/dashboard/profile' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/profile' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faUserTie} />
                   </span>
                   Profile
                 </NavLink>
-                <NavLink to='/dashboard/my-orders' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/my-orders' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faTasks} />
                   </span>
                   My Orders
                 </NavLink>
-                <NavLink to='/dashboard/review' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/review' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faQuoteLeft} />
                   </span>
                   Review
                 </NavLink>
-                <NavLink to='/dashboard/add-product' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/add-product' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faPlus} />
                   </span>
                   Add Product
                 </NavLink>
-                <NavLink to='/dashboard/manage-orders' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/manage-orders' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faClipboardList} />
                   </span>
                   Manage Orders
                 </NavLink>
-                <NavLink to='/dashboard/make-admin' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/make-admin' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faUserPlus} />
                   </span>
                   Add Admin
                 </NavLink>
-                <NavLink to='/dashboard/edit-profile' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/dashboard/edit-profile' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faUserEdit} />
                   </span>
@@ -74,7 +74,7 @@ const Dashboard = () => {
                   </span>
                   Log Out
                 </NavLink>
-                <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
+                <NavLink to='/' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                   <span>
                     <FontAwesomeIcon icon={faHome} />
                   </span>

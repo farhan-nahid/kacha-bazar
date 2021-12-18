@@ -39,7 +39,7 @@ function App() {
       <Suspense fallback={<PreLoader />}>
         <Routes>
           <Route path='/' element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/home' element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/register' element={<Register />} />

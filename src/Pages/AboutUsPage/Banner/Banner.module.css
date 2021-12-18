@@ -1,0 +1,14 @@
+#about__banner {
+  background: url('../../../assets/images/page-header-bg.jpg') no-repeat center / cover;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#about__banner h1 {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+  color: #000;
+}

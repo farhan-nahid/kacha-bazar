@@ -9,6 +9,9 @@ import RouteNavigation from './Pages/SharedComponents/RouteNavigation/RouteNavig
 import ScrollToTop from './Pages/SharedComponents/ScrollToTop/ScrollToTop';
 import TopNavigation from './Pages/SharedComponents/TopNavigation/TopNavigation';
 const Home = lazy(() => import('./Pages/HomePage/Home/Home'));
+const AboutUs = lazy(() => import('./Pages/AboutUsPage/AboutUs/AboutUs'));
+const Dashboard = lazy(() => import('./Pages/DashboardPage/Dashboard/Dashboard'));
+const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 
 function App() {
   return (
@@ -21,6 +24,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/about-us' element={<AboutUs />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/not-found' element={<NotFoundPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Suspense>
       <DailyNeeds />

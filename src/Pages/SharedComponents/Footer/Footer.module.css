@@ -110,3 +110,28 @@
   padding: 5px 10px;
   border-radius: 50%;
 }
+
+.footer .footer__column h5 {
+  color: #000;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.footer .footer__column ul {
+  margin-top: 20px;
+}
+
+.footer .footer__column ul li {
+  line-height: 35px;
+}
+
+.footer .footer__column ul li a {
+  font-size: 14px;
+  color: #4b5563;
+  transition: all linear 0.3s;
+}
+
+.footer .footer__column ul li a:hover {
+  color: #10b981;
+}

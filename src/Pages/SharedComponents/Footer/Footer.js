@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import footerLogo from '../../../assets/images/footerLogo.svg';
 import paymentLogo from '../../../assets/images/payment-logo.webp';
 import styles from './Footer.module.css';
@@ -80,9 +81,66 @@ const Footer = () => {
                 </li>
               </ul>
             </Col>
-            <Col lg={2}></Col>
-            <Col lg={2}></Col>
-            <Col lg={2}></Col>
+            <Col lg={2} className={styles.footer__column}>
+              <h5>Company</h5>
+              <ul>
+                <li>
+                  <NavLink to='/'>About Us</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Contact us</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Careers</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Latest news</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Latest Discount</NavLink>
+                </li>
+              </ul>
+            </Col>
+            <Col lg={2} className={styles.footer__column}>
+              <h5>Top Category</h5>
+              <ul>
+                <li>
+                  <NavLink to='/'>Fish & Meat</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Soft Drinks</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Baby Care</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Beauty & Health</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Fruits & Vegetable</NavLink>
+                </li>
+              </ul>
+            </Col>
+            <Col lg={2} className={styles.footer__column}>
+              <h5>My Account</h5>
+              <ul>
+                <li>
+                  <NavLink to='/'>Dashboard</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>My Orders</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Recent Orders</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Updated Profile</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/'>Change Password</NavLink>
+                </li>
+              </ul>
+            </Col>
           </Row>
         </Container>
       </footer>

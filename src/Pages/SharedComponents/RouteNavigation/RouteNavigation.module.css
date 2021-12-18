@@ -24,6 +24,10 @@
   color: #059669;
 }
 
+.nav__items .active {
+  color: #059669 !important;
+}
+
 .nav__items .right__item {
   display: flex;
   align-items: center;

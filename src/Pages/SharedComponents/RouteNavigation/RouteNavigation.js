@@ -21,19 +21,23 @@ const RouteNavigation = () => {
           <Col lg={6}>
             <ul className={styles.left__item}>
               <li>
-                <NavLink to='/about-us'>About Us</NavLink>
-                <NavLink to='/contact-us'>Contact Us</NavLink>
+                <NavLink to='/about-us' className={(navInfo) => navInfo.isActive && styles.active}>
+                  About Us
+                </NavLink>
+                <NavLink to='/contact-us' className={(navInfo) => navInfo.isActive && styles.active}>
+                  Contact Us
+                </NavLink>
                 <NavLink to='/' className={styles.dropdown}>
                   Pages <FontAwesomeIcon icon={faChevronDown} />
                   <ul>
                     <li>
-                      <NavLink to='/offer'>
+                      <NavLink to='/offer' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={offerIcon} alt='offerIcon' /> Offer
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={checkoutIcon} alt='checkoutIcon' />
                         Checkout
@@ -41,21 +45,21 @@ const RouteNavigation = () => {
                     </li>
 
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={faqIcon} alt='faqIcon' /> FAQ
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={aboutUsIcon} alt='aboutUsIcon' /> About Us
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={contactUsIcon} alt='contactUsIcon' />
                         Contact Us
@@ -63,7 +67,7 @@ const RouteNavigation = () => {
                     </li>
 
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={privacyIcon} alt='privacyIcon' />
                         Privacy Policy
@@ -71,7 +75,7 @@ const RouteNavigation = () => {
                     </li>
 
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={termsIcon} alt='termsIcon' />
                         Terms & Conditions
@@ -79,22 +83,31 @@ const RouteNavigation = () => {
                     </li>
 
                     <li>
-                      <NavLink to='/'>
+                      <NavLink to='/not-found' className={(navInfo) => navInfo.isActive && styles.active}>
                         {' '}
                         <img src={errorIcon} alt='errorIcon' /> 404
                       </NavLink>
                     </li>
                   </ul>
                 </NavLink>
-                <NavLink to='/offers'>Offers</NavLink>
+                <NavLink to='/offers' className={(navInfo) => navInfo.isActive && styles.active}>
+                  Offers
+                </NavLink>
+                <NavLink to='/dashboard' className={(navInfo) => navInfo.isActive && styles.active}>
+                  Dashboard
+                </NavLink>
               </li>
             </ul>
           </Col>
           <Col lg={6}>
             <ul className={styles.right__item}>
               <li>
-                <NavLink to='/privacy-policy'>Privacy Policy</NavLink>
-                <NavLink to='/terms-and-conditions'>Terms & Conditions</NavLink>
+                <NavLink to='/privacy-policy' className={(navInfo) => navInfo.isActive && styles.active}>
+                  Privacy Policy
+                </NavLink>
+                <NavLink to='/terms-and-conditions' className={(navInfo) => navInfo.isActive && styles.active}>
+                  Terms & Conditions
+                </NavLink>
               </li>
             </ul>
           </Col>

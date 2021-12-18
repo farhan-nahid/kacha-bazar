@@ -131,10 +131,12 @@ const useFirebase = () => {
       .catch((err) => toast.error(err.message));
   };
 
+  // Reset Password Function
+
   const resetPassword = (email, e) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        toast.success('Check your mail box. We send an verification email');
+        toast.success('Check your gmail inbox. We send an verification email');
         e.target.reset();
       })
       .catch((err) => toast.error(err.message))

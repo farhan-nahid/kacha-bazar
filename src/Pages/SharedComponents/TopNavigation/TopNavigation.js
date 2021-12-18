@@ -6,17 +6,17 @@ import headerLogo from '../../../assets/images/headerLogo.svg';
 import notifyIcon from '../../../assets/images/notifyIcon.svg';
 import searchIcon from '../../../assets/images/search.svg';
 import userIcon from '../../../assets/images/user.svg';
-// import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 import styles from './TopNavigation.module.css';
 
 const TopNavigation = () => {
-  // const { loggedInUser } = useAuth();
+  const { loggedInUser } = useAuth();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
-  // console.log(loggedInUser);
+
   return (
     <header id={styles.header__top}>
       <Container>
@@ -43,7 +43,16 @@ const TopNavigation = () => {
             <div className={styles.top__nav__icon}>
               <img src={notifyIcon} alt='notifyIcon' />
               <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
-              <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} />
+              {!loggedInUser ? (
+                <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} />
+              ) : (
+                <img
+                  src={loggedInUser.photoURL}
+                  alt={loggedInUser.displayName}
+                  className='rounded-circle'
+                  onClick={() => navigate('/dashboard/profile')}
+                />
+              )}
               <Offcanvas show={show} onHide={handleClose} placement='end'>
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Shopping Cart</Offcanvas.Title>

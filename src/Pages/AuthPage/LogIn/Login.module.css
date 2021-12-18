@@ -127,6 +127,23 @@
   outline: 0;
 }
 
+#login form .options {
+  display: flex;
+  margin: 10px 0 20px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login form .options a {
+  font-size: 14px;
+  color: #4b5563;
+  transition: all linear 0.3s;
+}
+
+#login form .options a:hover {
+  color: #10b981;
+}
+
 #login form button {
   background-color: #21263b;
   border: 2px solid transparent;

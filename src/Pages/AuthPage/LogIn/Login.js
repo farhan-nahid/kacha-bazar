@@ -2,6 +2,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import emailIcon from '../../../assets/images/login/email.svg';
 import facebookIcon from '../../../assets/images/login/facebook.svg';
 import gitHubIcon from '../../../assets/images/login/gitHub.svg';
@@ -14,6 +15,7 @@ const Login = () => {
     e.preventDefault();
     // e.target.reset()
   };
+
   return (
     <section id={styles.login}>
       <Container>
@@ -50,6 +52,7 @@ const Login = () => {
               autoComplete='off'
               spellCheck='false'
               placeholder='Enter Your Email Address'
+              required
             />
             <label htmlFor='email'>
               <img src={emailIcon} alt='emailIcon' />
@@ -63,10 +66,15 @@ const Login = () => {
               autoComplete='off'
               spellCheck='false'
               placeholder='Enter Your Secret Password'
+              required
             />
             <label htmlFor='password'>
               <img src={passwordIcon} alt='passwordIcon' />
             </label>
+          </span>
+          <span className={styles.options}>
+            <NavLink to='/reset-password'>Forget Password?</NavLink>
+            <NavLink to='/register'>New User?</NavLink>
           </span>
           <button type='submit'>
             Sign In <FontAwesomeIcon icon={faArrowRight} />

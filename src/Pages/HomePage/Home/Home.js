@@ -1,4 +1,5 @@
 import React from 'react';
+import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Banner from '../Banner/Banner';
 import FeaturedCategories from '../FeaturedCategories/FeaturedCategories';
 import Products from '../Products/Products';
@@ -9,6 +10,7 @@ const Home = () => {
       <Banner />
       <FeaturedCategories />
       <Products />
+      <DailyNeeds />
     </>
   );
 };

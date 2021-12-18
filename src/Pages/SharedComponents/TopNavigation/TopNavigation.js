@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Container, Offcanvas, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import cartIcon from '../../../assets/images/cart.svg';
 import headerLogo from '../../../assets/images/headerLogo.svg';
 import notifyIcon from '../../../assets/images/notifyIcon.svg';
@@ -13,6 +13,7 @@ const TopNavigation = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
 
   return (
     <header id={styles.header__top}>
@@ -40,14 +41,14 @@ const TopNavigation = () => {
             <div className={styles.top__nav__icon}>
               <img src={notifyIcon} alt='notifyIcon' />
               <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
-              <img src={userIcon} alt='userIcon' />
+              <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} />
               <Offcanvas show={show} onHide={handleClose} placement='end'>
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  Some text as placeholder. In real life you can have the
-                  elements you have chosen. Like, text, images, lists, etc.
+                  Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
+                  lists, etc.
                 </Offcanvas.Body>
               </Offcanvas>
             </div>

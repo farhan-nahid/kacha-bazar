@@ -1,0 +1,161 @@
+#login {
+  margin: 100px auto;
+  width: 600px;
+}
+
+#login h3 {
+  color: #21263b;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 36px;
+}
+
+#login .third__party {
+  margin: 20px 0;
+}
+
+#login .method1,
+#login .method2,
+#login .method3 {
+  display: flex;
+  padding: 16px;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all linear 0.3s;
+}
+
+#login .method1 {
+  border: 1px solid #f02290;
+}
+
+#login .method1:hover {
+  background: rgba(240, 34, 144, 0.1);
+}
+
+#login .method2 {
+  border: 1px solid #0b86ee;
+}
+
+#login .method2:hover {
+  background: rgba(11, 134, 238, 0.1);
+}
+
+#login .method3 {
+  border: 1px solid #21263b;
+}
+
+#login .method3:hover {
+  background: rgba(33, 38, 59, 0.1);
+}
+
+#login .method1 h5,
+#login .method2 h5,
+#login .method3 h5 {
+  margin-left: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #21263bea;
+}
+
+#login .another {
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+  color: #21263b7c;
+}
+
+#login .another::after,
+#login .another::before {
+  content: '';
+  position: absolute;
+  width: 44%;
+  height: 1px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #21263b42;
+}
+
+#login .another::before {
+  left: 0;
+}
+
+#login .another::after {
+  right: 0;
+}
+
+#login form {
+  margin: 50px 0;
+}
+
+#login .inputs {
+  position: relative;
+  width: 100%;
+}
+
+#login .inputs input {
+  border: 1px solid #21263b7c;
+  outline: 0;
+  border-radius: 10px;
+  padding: 15px 60px;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#login .inputs input::placeholder {
+  color: rgba(51, 51, 51, 0.411);
+  font-family: inherit;
+}
+
+#login .inputs label {
+  position: absolute;
+  top: 35%;
+  left: 20px;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+}
+
+#login .inputs label img {
+  border: 0;
+  background: transparent;
+  outline: 0;
+}
+
+#login form button {
+  background-color: #21263b;
+  border: 2px solid transparent;
+  color: #fff;
+  outline: 0;
+  padding: 15px 35px;
+  width: 100%;
+  border-radius: 10px;
+  transition: all linear 0.3s;
+  font-family: inherit;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login .fa-arrow-right {
+  width: 150px;
+}
+
+#login form button:hover {
+  border: 2px solid #21263b;
+  color: #21263b;
+  background: #fff;
+  font-weight: 900;
+}
+
+@media only screen and (max-width: 700px) {
+  #login {
+    width: 100%;
+  }
+}

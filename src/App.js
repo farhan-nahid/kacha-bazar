@@ -7,6 +7,7 @@ import IsAdmin from './Pages/AuthPage/IsAdmin/IsAdmin';
 import RequiredAuth from './Pages/AuthPage/RequiredAuth/RequiredAuth';
 import AddProduct from './Pages/DashboardPage/AddProduct/AddProduct';
 import ManageProduct from './Pages/DashboardPage/ManageProduct/ManageProduct';
+import MyOrders from './Pages/DashboardPage/MyOrders/MyOrders';
 import Profile from './Pages/DashboardPage/Profile/Profile';
 import Footer from './Pages/SharedComponents/Footer/Footer';
 import PreLoader from './Pages/SharedComponents/PreLoader/PreLoader';
@@ -93,6 +94,7 @@ function App() {
               <RequiredAuth>
                 <CheckOutPage
                   cart={cart}
+                  setCart={setCart}
                   totalPrice={totalPrice}
                   handleDecrease={handleDecrease}
                   handleIncrease={handleIncrease}
@@ -113,7 +115,7 @@ function App() {
             <Route path='/dashboard/profile' element={<Profile />} />
             <Route path='/dashboard/edit-profile' element={<Profile />} />
             <Route path='/dashboard/review' element={<Profile />} />
-            <Route path='/dashboard/my-orders' element={<Profile />} />
+            <Route path='/dashboard/my-orders' element={<MyOrders />} />
             <Route
               path='/dashboard/manage-product'
               element={

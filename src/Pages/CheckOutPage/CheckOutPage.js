@@ -1,16 +1,19 @@
 import { faFedex, faUps } from '@fortawesome/free-brands-svg-icons';
 import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
 import Cart from '../SharedComponents/Cart/Cart';
 import styles from './CheckoutPage.module.css';
 
-const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handleCancelOrder }) => {
+const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handleCancelOrder, setCart }) => {
   const [data, setData] = useState({});
   const { loggedInUser } = useAuth();
-
+  const navigate = useNavigate();
   const handelBlur = (e) => {
     const newData = { ...data };
     newData[e.target.name] = e.target.value;
@@ -21,6 +24,7 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
   const total = totalPrice + Number(shipping);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     const month = [
       'January',
       'February',
@@ -39,14 +43,25 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
     const year = date.getFullYear();
     const day = date.getDate();
     const monthName = month[date.getMonth()];
-    data.orderTime = `${day}-${monthName}-${year}`;
+    data.name = loggedInUser.displayName;
     data.email = loggedInUser.email;
-    data.status = 'Pending';
     data.totalPrice = total;
     data.productInfo = cart;
-    e.preventDefault();
-    // e.target.reset();
-    console.log(data);
+    data.orderTime = `${day}-${monthName}-${year}`;
+    data.status = 'Pending';
+    axios.post('http://localhost:5000/order', data).then((res) => {
+      if (res.status === 200) {
+        swal({
+          title: `Well Done ${loggedInUser.displayName}!!`,
+          text: `You Have To Pay Us ${total}$!`,
+          icon: 'success',
+          button: 'OK!',
+          position: 'center',
+        });
+        navigate('/dashboard/my-orders');
+        setCart([]);
+      }
+    });
   };
 
   return (

@@ -108,7 +108,7 @@ const useFirebase = () => {
   const saveUserForEmail = (email, displayName) => {
     const user = { email, displayName };
     axios
-      .post('https://mobiles--store.herokuapp.com/users', user)
+      .post('http://localhost:5000/user', user)
       .then((res) => {
         if (res.data.upsertedId) {
           toast.success('User Added in our Database Successfully!');
@@ -122,7 +122,7 @@ const useFirebase = () => {
   const saveUserForOthers = (email, displayName) => {
     const user = { email, displayName };
     axios
-      .put('https://mobiles--store.herokuapp.com/users', user)
+      .put('http://localhost:5000/user', user)
       .then((res) => {
         if (res.data.upsertedId) {
           toast.success('User Added in our Database Successfully!');
@@ -176,7 +176,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mobiles--store.herokuapp.com/user/${loggedInUser?.email}`)
+      .get(`http://localhost:5000/user/${loggedInUser?.email}`)
       .then((res) => setIsAdmin(res.data.admin))
       .catch((err) => toast.error(err.message))
       .finally(() => setIsLoading(false));

@@ -7,9 +7,11 @@ import notifyIcon from '../../../assets/images/notifyIcon.svg';
 import searchIcon from '../../../assets/images/search.svg';
 import userIcon from '../../../assets/images/user.svg';
 import useAuth from '../../../hooks/useAuth';
+import Cart from '../Cart/Cart';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './TopNavigation.module.css';
 
-const TopNavigation = ({ cart, handleShow, handleClose, show }) => {
+const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, handleIncrease, totalPrice }) => {
   const { loggedInUser } = useAuth();
   const navigate = useNavigate();
 
@@ -89,7 +91,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show }) => {
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <div className={styles.placeholder__text}>
+                  {/*  <div className={styles.placeholder__text}>
                     <span className={styles.placeholder__image}>
                       <svg
                         stroke='currentColor'
@@ -105,10 +107,29 @@ const TopNavigation = ({ cart, handleShow, handleClose, show }) => {
                     </span>
                     <h6>Your cart is empty</h6>
                     <p>No items added in your cart. Please add product to your cart list.</p>
-                  </div>
+                  </div> */}
+                  {cart.length ? (
+                    <div>
+                      {
+                        // map category data
+                        cart.map((pd) => (
+                          <Cart
+                            key={pd._id}
+                            pd={pd}
+                            totalPrice={totalPrice}
+                            handleDecrease={handleDecrease}
+                            handleIncrease={handleIncrease}
+                          />
+                        ))
+                      }
+                    </div>
+                  ) : (
+                    <LoadingSpinner />
+                  )}
+
                   <button className={styles.cart__button}>
                     Proceed To Checkout
-                    <span>$00</span>
+                    <span>${totalPrice}.00</span>
                   </button>
                 </Offcanvas.Body>
               </Offcanvas>

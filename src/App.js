@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -26,20 +26,69 @@ function App() {
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
 
+  const handleIncrease = (id) => {
+    const selected = cart.find((pd) => pd._id === id);
+    selected.quantity = selected.quantity + 1;
+    selected.totalPrice = Number(selected.quantity) * Number(selected.price);
+    const rest = cart.filter((pd) => pd._id !== id);
+    setCart([selected, ...rest]);
+  };
+
+  const handleDecrease = (id) => {
+    const selected = cart.find((pd) => pd._id === id);
+    if (selected.quantity > 1) {
+      selected.quantity = selected.quantity - 1;
+      selected.totalPrice = Number(selected.quantity) * Number(selected.price);
+    }
+    const rest = cart.filter((pd) => pd._id !== id);
+    setCart([selected, ...rest]);
+  };
+
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const handleAddToCart = (item) => setCart([...cart, item]);
+
+  let totalPrice = 0;
+
+  useEffect(() => {
+    for (const pd of cart) {
+      pd.quantity = !pd.quantity ? 1 : pd.quantity;
+    }
+  }, [cart]);
+
+  for (const pd of cart) {
+    pd.quantity = !pd.quantity ? 1 : pd.quantity;
+    totalPrice = (Number(totalPrice) + Number(pd.price)) * pd.quantity;
+  }
 
   return (
     <AuthProvider>
       <ScrollToTop />
       <Toaster />
-      <TopNavigation cart={cart} show={show} handleClose={handleClose} handleShow={handleShow} />
+      <TopNavigation
+        cart={cart}
+        show={show}
+        handleClose={handleClose}
+        handleShow={handleShow}
+        totalPrice={totalPrice}
+        handleIncrease={handleIncrease}
+        handleDecrease={handleDecrease}
+      />
       <RouteNavigation />
       <Suspense fallback={<PreLoader />}>
         <Routes>
-          <Route path='/' element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} />} />
-          <Route path='/home' element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} />} />
+          <Route
+            path='/'
+            element={
+              <Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} totalPrice={totalPrice} />
+            }
+          />
+          <Route
+            path='/home'
+            element={
+              <Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} totalPrice={totalPrice} />
+            }
+          />
           <Route path='/login' element={<Login />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/register' element={<Register />} />
@@ -87,3 +136,51 @@ function App() {
 }
 
 export default App;
+/* 
+    // for (const pd of newCart) {
+    //   // console.log(pd._id);
+    //   // console.log(id);
+    //   if (pd._id !== id) {
+    //     newCart = [...rest, selected];
+    //     // console.log(newCart);
+    //   } else {
+    //     newCart = [selected];
+    //     // console.log(newCart);
+    //   }
+    // }
+
+      // let shipping = 0;
+  // let totalQuantity = 0;
+  // const [totalPrice, setTotalPrice] = useState(0);
+    // setCart(newCart);
+    // selected.quantity = selected.quantity + 1;
+    // console.log(selected.quantity);
+    // setCart([...cart, selected]);
+    //  setTotalPrice(selected.price * productCount);
+
+      // useEffect(() => {
+  //   for (const pd of cart) {
+  //     setTotalPrice(totalPrice + pd.price * productCount);
+  //   }
+  // }, [cart, productCount]);
+  // const handleDecrease = (id) => (productCount > 1 ? setProductCount(productCount - 1) : productCount);
+
+
+    // for (const pd of cart) {
+  //   quantity = pd.quantity === 0 ? 1 : pd.quantity;
+  //   price = pd.price;
+  //   const oldPrice = totalPrice;
+  //   const newPrice = quantity * price;
+  //   console.log(oldPrice, newPrice);
+  //   // setTotalPrice(totalPrice + quantity * price);
+  // }
+
+    // for (const pd of cart) {
+  //   // pd.quantity = !pd.quantity ? 1 : pd.quantity;
+  //   // const newPrice = pd.quantity * Number(pd.price);
+  //   console.log(totalPrice);
+  //   setTotalPrice(totalPrice + Number(pd.totalPrice));
+  //   console.log(totalPrice);
+  // }
+
+*/

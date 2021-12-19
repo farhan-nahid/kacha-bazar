@@ -7,6 +7,8 @@ const ProductCard = ({ product, handleAddToCart }) => {
   const [isDisable, setIsDisable] = useState(false);
 
   const handleClick = (item) => {
+    item.quantity = 1;
+    item.totalPrice = price;
     handleAddToCart(item);
     setIsDisable(true);
   };

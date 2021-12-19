@@ -5,6 +5,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  user-select: none;
 }
 
 a,
@@ -71,4 +72,24 @@ strong {
 #banner .carousel-control-prev,
 #banner .carousel-control-next {
   display: none !important;
+}
+
+.offCanvas__header {
+  background-color: #eef2ff;
+  position: relative;
+}
+
+.offCanvas__header .offcanvas-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000;
+  align-self: center;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.offCanvas__header .offcanvas-title svg {
+  margin-right: 10px;
 }

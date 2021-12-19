@@ -67,7 +67,7 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         updateProfile(auth.currentUser, {
-          photoURL: 'https://i.ibb.co/G31TsrC/user.png',
+          photoURL: 'https://i.ibb.co/7CzR0Dg/users.jpg',
           displayName: name,
         });
         saveUserForEmail(email, name);

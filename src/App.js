@@ -6,6 +6,7 @@ import AuthProvider from './contexts/AuthProvider';
 import IsAdmin from './Pages/AuthPage/IsAdmin/IsAdmin';
 import RequiredAuth from './Pages/AuthPage/RequiredAuth/RequiredAuth';
 import AddProduct from './Pages/DashboardPage/AddProduct/AddProduct';
+import ManageOrders from './Pages/DashboardPage/ManageOrders/ManageOrders';
 import ManageProduct from './Pages/DashboardPage/ManageProduct/ManageProduct';
 import MyOrders from './Pages/DashboardPage/MyOrders/MyOrders';
 import Profile from './Pages/DashboardPage/Profile/Profile';
@@ -125,7 +126,7 @@ function App() {
               }
             />
             <Route path='/dashboard/add-product' element={<AddProduct />} />
-            <Route path='/dashboard/manage-orders' element={<Profile />} />
+            <Route path='/dashboard/manage-orders' element={<ManageOrders />} />
             <Route path='/dashboard/make-admin' element={<Profile />} />
           </Route>
           <Route path='/not-found' element={<NotFoundPage />} />

@@ -97,7 +97,12 @@ function App() {
             path='/checkout'
             element={
               <RequiredAuth>
-                <CheckOutPage />
+                <CheckOutPage
+                  cart={cart}
+                  totalPrice={totalPrice}
+                  handleDecrease={handleDecrease}
+                  handleIncrease={handleIncrease}
+                />
               </RequiredAuth>
             }
           />

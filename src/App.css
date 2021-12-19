@@ -93,3 +93,8 @@ strong {
 .offCanvas__header .offcanvas-title svg {
   margin-right: 10px;
 }
+
+.fa-fedex,
+.fa-ups {
+  font-size: 27px !important;
+}

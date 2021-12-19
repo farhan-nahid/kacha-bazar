@@ -10,7 +10,7 @@ const Cart = ({ pd, handleIncrease, handleDecrease }) => {
         <img src={pd.image} alt={pd.name} />
         <span className='ms-3'>
           <h6>{pd.name}</h6>
-          <small>{pd.price}</small>
+          <small>${pd.price}</small>
           <h5>{pd.totalPrice ? pd.totalPrice : pd.price}</h5>
         </span>
       </div>

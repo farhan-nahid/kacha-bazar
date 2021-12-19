@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 3.5fr 1.5fr 1fr;
   padding: 10px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #21263b36;
   gap: 10px;
-
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .cart__item img {

@@ -1,0 +1,139 @@
+#checkout {
+  padding: 50px 0;
+  background-color: #f9fafb;
+}
+
+#checkout h4 {
+  color: #374151;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+#checkout form {
+  margin: 20px 0 50px 0;
+}
+
+#checkout form input {
+  border: 1px solid #21263b36;
+  outline: 0;
+  border-radius: 5px;
+  padding: 7px 20px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+}
+
+#checkout form input::-webkit-outer-spin-button,
+#checkout form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#checkout form input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+#checkout form input:focus {
+  border: 1px solid #10b981;
+}
+
+#checkout form label {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#checkout .shipping__methods,
+.payment__methods {
+  border: 1px solid #21263b36;
+  padding: 12px 20px;
+  width: 45%;
+  margin-right: 25px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#checkout .shipping__methods input,
+.payment__methods input {
+  width: 20px !important;
+}
+
+#checkout .shipping__methods label,
+.payment__methods label {
+  margin: 0 !important;
+}
+
+.payment__methods {
+  padding: 22px 20px !important;
+}
+
+#checkout button {
+  margin-top: 50px;
+  border: 0;
+  outline: 0;
+  background-color: #10b981;
+  padding: 12px 50px;
+  text-align: center;
+  font-family: inherit;
+  border-radius: 7px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.order__summery {
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 0 0 1px #333;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.product__container {
+  max-height: 200px;
+  overflow: auto;
+  padding-right: 20px;
+}
+
+.product__container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.product__container::-webkit-scrollbar-thumb {
+  background: #10b981a6;
+  border-radius: 2px;
+}
+
+.product__container::-webkit-scrollbar-track {
+  background: #f6f1f1;
+}
+
+.total__cost {
+  margin-top: 50px;
+}
+
+.total__cost li {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total__cost li span {
+  font-size: 14px;
+}
+
+.total__cost li span:nth-child(2) {
+  font-weight: 600;
+}
+
+.total__cost li:nth-child(3) {
+  border-top: 1px solid #21263b36;
+}

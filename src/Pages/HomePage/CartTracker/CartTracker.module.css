@@ -15,17 +15,28 @@
   cursor: pointer;
 }
 
+#cart__tracker span {
+  position: relative;
+}
+
 #cart__tracker p {
-  padding: 5px;
-  text-align: center;
-  width: 100%;
+  position: absolute;
+  top: 0px;
+  background-color: #ef4444;
+  color: #fff;
+  font-weight: 700;
+  padding: 1px 6px;
+  right: -3px;
+  border-radius: 50%;
+  font-size: 14px;
 }
 
 #cart__tracker h6 {
   width: 100%;
-  padding: 7px 0;
+  padding: 2px 0;
   text-align: center;
   background-color: #059669;
   color: #fff;
   font-weight: 600;
+  margin-top: 10px;
 }

@@ -109,7 +109,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                     <p>No items added in your cart. Please add product to your cart list.</p>
                   </div> */}
                   {cart.length ? (
-                    <div>
+                    <>
                       {
                         // map category data
                         cart.map((pd) => (
@@ -122,12 +122,12 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                           />
                         ))
                       }
-                    </div>
+                    </>
                   ) : (
                     <LoadingSpinner />
                   )}
 
-                  <button className={styles.cart__button}>
+                  <button className={styles.cart__button} onClick={() => navigate('/checkout')}>
                     Proceed To Checkout
                     <span>${totalPrice}.00</span>
                   </button>

@@ -86,6 +86,12 @@
   cursor: pointer;
 }
 
+#checkout button:disabled {
+  cursor: not-allowed;
+  background-color: #10b98171;
+  /* color: #10b981; */
+}
+
 .order__summery {
   width: 80%;
   margin: 0 auto;
@@ -112,6 +118,31 @@
 
 .product__container::-webkit-scrollbar-track {
   background: #f6f1f1;
+}
+
+.placeholder__text {
+  text-align: center;
+}
+
+.placeholder__text .placeholder__image {
+  padding: 23px 25px;
+  border-radius: 50%;
+  background-color: #d1fae5;
+}
+
+.placeholder__text h6 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #374151;
+  margin: 15px 0 10px 0;
+}
+
+.placeholder__text p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6b7280;
 }
 
 .total__cost {

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styles from './Cart.module.css';
 
-const Cart = ({ pd, handleIncrease, handleDecrease }) => {
+const Cart = ({ pd, handleIncrease, handleDecrease, handleCancelOrder }) => {
   return (
     <div className={styles.cart__item}>
       <div className='d-flex align-self-center'>
@@ -23,7 +23,7 @@ const Cart = ({ pd, handleIncrease, handleDecrease }) => {
           <FontAwesomeIcon icon={faPlus} />
         </span>
       </div>
-      <div className={styles.delete__icon}>
+      <div className={styles.delete__icon} onClick={() => handleCancelOrder(pd._id)}>
         <FontAwesomeIcon icon={faTrashAlt} />
       </div>
     </div>

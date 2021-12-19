@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -44,21 +44,18 @@ function App() {
     setCart([selected, ...rest]);
   };
 
+  const handleCancelOrder = (id) => {
+    const restProduct = cart.filter((pd) => pd._id !== id);
+    setCart(restProduct);
+  };
+
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const handleAddToCart = (item) => setCart([...cart, item]);
 
   let totalPrice = 0;
-
-  useEffect(() => {
-    for (const pd of cart) {
-      pd.quantity = !pd.quantity ? 1 : pd.quantity;
-    }
-  }, [cart]);
-
   for (const pd of cart) {
-    pd.quantity = !pd.quantity ? 1 : pd.quantity;
-    totalPrice = (Number(totalPrice) + Number(pd.price)) * pd.quantity;
+    totalPrice = totalPrice + Number(pd.totalPrice);
   }
 
   return (
@@ -73,21 +70,18 @@ function App() {
         totalPrice={totalPrice}
         handleIncrease={handleIncrease}
         handleDecrease={handleDecrease}
+        handleCancelOrder={handleCancelOrder}
       />
       <RouteNavigation />
       <Suspense fallback={<PreLoader />}>
         <Routes>
           <Route
             path='/'
-            element={
-              <Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} totalPrice={totalPrice} />
-            }
+            element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} totalPrice={totalPrice} />}
           />
           <Route
             path='/home'
-            element={
-              <Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} totalPrice={totalPrice} />
-            }
+            element={<Home handleAddToCart={handleAddToCart} cart={cart} handleShow={handleShow} totalPrice={totalPrice} />}
           />
           <Route path='/login' element={<Login />} />
           <Route path='/about-us' element={<AboutUs />} />
@@ -102,6 +96,7 @@ function App() {
                   totalPrice={totalPrice}
                   handleDecrease={handleDecrease}
                   handleIncrease={handleIncrease}
+                  handleCancelOrder={handleCancelOrder}
                 />
               </RequiredAuth>
             }
@@ -169,6 +164,13 @@ export default App;
   //   }
   // }, [cart, productCount]);
   // const handleDecrease = (id) => (productCount > 1 ? setProductCount(productCount - 1) : productCount);
+
+  
+  // useEffect(() => {
+  //   for (const pd of cart) {
+  //     pd.quantity = !pd.quantity ? 1 : pd.quantity;
+  //   }
+  // }, [cart]);
 
 
     // for (const pd of cart) {

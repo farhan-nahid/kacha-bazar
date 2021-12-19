@@ -124,3 +124,22 @@
   padding: 5px 15px;
   border-radius: 5px;
 }
+
+.cart__item__container {
+  max-height: 75vh;
+  overflow: auto;
+  padding-right: 20px;
+}
+
+.cart__item__container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cart__item__container::-webkit-scrollbar-thumb {
+  background: #10b981a6;
+  border-radius: 2px;
+}
+
+.cart__item__container::-webkit-scrollbar-track {
+  background: #f6f1f1;
+}

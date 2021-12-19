@@ -5,10 +5,9 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import Cart from '../SharedComponents/Cart/Cart';
-import LoadingSpinner from '../SharedComponents/LoadingSpinner/LoadingSpinner';
-import styles from './Checkout.module.css';
+import styles from './CheckoutPage.module.css';
 
-const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
+const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handleCancelOrder }) => {
   const [data, setData] = useState({});
   const { loggedInUser } = useAuth();
 
@@ -18,12 +17,35 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
     setData(newData);
   };
 
-  const shipping = data.shipping ? data.shipping : '0.00';
+  const shipping = data.shipping ? data.shipping : 0;
   const total = totalPrice + Number(shipping);
 
   const handleSubmit = (e) => {
+    const month = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const date = new Date();
+    const year = date.getFullYear();
+    const day = date.getDate();
+    const monthName = month[date.getMonth()];
+    data.orderTime = `${day}-${monthName}-${year}`;
+    data.email = loggedInUser.email;
+    data.status = 'Pending';
+    data.totalPrice = total;
+    data.productInfo = cart;
     e.preventDefault();
-    e.target.reset();
+    // e.target.reset();
     console.log(data);
   };
 
@@ -45,23 +67,11 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
                 </Col>
                 <Col lg={6}>
                   <label htmlFor='loginTime'>Last Login Time</label>
-                  <input
-                    type='text'
-                    name='loginTime'
-                    id='loginTime'
-                    value={loggedInUser.metadata.lastSignInTime.slice(0, 16)}
-                    readOnly
-                  />
+                  <input type='text' name='loginTime' id='loginTime' value={loggedInUser.metadata.lastSignInTime.slice(0, 16)} readOnly />
                 </Col>
                 <Col lg={6}>
                   <label htmlFor='cratedTime'>Created Account At</label>
-                  <input
-                    type='text'
-                    name='cratedTime'
-                    id='cratedTime'
-                    value={loggedInUser.metadata.creationTime.slice(0, 16)}
-                    readOnly
-                  />
+                  <input type='text' name='cratedTime' id='cratedTime' value={loggedInUser.metadata.creationTime.slice(0, 16)} readOnly />
                 </Col>
               </Row>
             </form>
@@ -83,15 +93,7 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
                 </Col>
                 <Col lg={4} className='mt-4'>
                   <label htmlFor='city'>Your City</label>
-                  <input
-                    type='text'
-                    name='city'
-                    id='city'
-                    placeholder='Los Angeles'
-                    autoComplete='off'
-                    required
-                    onBlur={handelBlur}
-                  />
+                  <input type='text' name='city' id='city' placeholder='Los Angeles' autoComplete='off' required onBlur={handelBlur} />
                 </Col>
                 <Col lg={4} className='mt-4'>
                   <label htmlFor='country'>Your Country</label>
@@ -107,15 +109,7 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
                 </Col>
                 <Col lg={4} className='mt-4'>
                   <label htmlFor='zip'>Country Code</label>
-                  <input
-                    type='number'
-                    name='zip'
-                    id='zip'
-                    placeholder='12345'
-                    autoComplete='off'
-                    required
-                    onBlur={handelBlur}
-                  />
+                  <input type='number' name='zip' id='zip' placeholder='12345' autoComplete='off' required onBlur={handelBlur} />
                 </Col>
               </Row>
               <h4 className='my-5'>03. Shipping method</h4>
@@ -155,7 +149,9 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
                 </Col>
               </Row>
               <span className='d-flex justify-content-center'>
-                <button type='submit'>Confirm Order</button>
+                <button type='submit' disabled={totalPrice ? false : true}>
+                  Confirm Order
+                </button>
               </span>
             </form>
           </Col>
@@ -173,22 +169,39 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease }) => {
                         totalPrice={totalPrice}
                         handleDecrease={handleDecrease}
                         handleIncrease={handleIncrease}
+                        handleCancelOrder={handleCancelOrder}
                       />
                     ))
                   }
                 </div>
               ) : (
-                <LoadingSpinner />
+                <div className={styles.placeholder__text}>
+                  <span className={styles.placeholder__image}>
+                    <svg
+                      stroke='currentColor'
+                      fill='#10b981 '
+                      strokeWidth='0'
+                      viewBox='0 0 512 512'
+                      height='30px'
+                      width='30px'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path d='M454.65 169.4A31.82 31.82 0 00432 160h-64v-16a112 112 0 00-224 0v16H80a32 32 0 00-32 32v216c0 39 33 72 72 72h272a72.22 72.22 0 0050.48-20.55 69.48 69.48 0 0021.52-50.2V192a31.75 31.75 0 00-9.35-22.6zM176 144a80 80 0 01160 0v16H176zm192 96a112 112 0 01-224 0v-16a16 16 0 0132 0v16a80 80 0 00160 0v-16a16 16 0 0132 0z'></path>
+                    </svg>
+                  </span>
+                  <h6>Your cart is empty</h6>
+                  <p>No items added in your cart. Please add product to your cart list.</p>
+                </div>
               )}
               <ul className={styles.total__cost}>
                 <li>
-                  <span>Subtotal</span> <span>${totalPrice}</span>
+                  <span>Subtotal</span> <span>${totalPrice}.00</span>
                 </li>
                 <li>
-                  <span>Shipping Cost</span> <span>${shipping}</span>
+                  <span>Shipping Cost</span> <span>${shipping}.00</span>
                 </li>
                 <li>
-                  <span>TOTAL COST</span> <span>${total}</span>
+                  <span>TOTAL COST</span> <span>${total}.00</span>
                 </li>
               </ul>
             </div>

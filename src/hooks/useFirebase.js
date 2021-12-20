@@ -162,7 +162,7 @@ const useFirebase = () => {
       if (user) {
         setLoggedInUser(user);
         getIdToken(user).then((idToken) => {
-          localStorage.setItem('id_token', idToken);
+          localStorage.setItem('kacha_bazar_token', idToken);
         });
       } else {
         setLoggedInUser(null);

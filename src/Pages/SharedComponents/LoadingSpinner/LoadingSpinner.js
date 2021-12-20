@@ -1,11 +1,19 @@
 import React from 'react';
-import loader from '../../../assets/images/loader.svg';
 import styles from './LoadingSpinner.module.css';
 
 const LoadingSpinner = () => {
   return (
     <section className={styles.loading__spinner}>
-      <img src={loader} alt='loaderImage' />
+      <div className={styles.loading__spinner__container}>
+        <div className={styles.spinner}>
+          <div>
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

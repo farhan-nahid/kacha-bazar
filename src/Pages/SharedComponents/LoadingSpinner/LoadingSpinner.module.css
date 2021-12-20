@@ -1,12 +1,71 @@
 .loading__spinner {
-  height: 40vh;
+  height: 30vh;
   width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.loading__spinner img {
-  height: 10vh;
-  width: 10vw;
+.loading__spinner__container {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+}
+
+@keyframes animation {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  33.33% {
+    transform: translate(102px, 2px);
+  }
+  66.66% {
+    transform: translate(42px, 102px);
+  }
+  100% {
+    transform: translate(2px, 2px);
+  }
+}
+
+.spinner > div {
+  transform: scale(0.8);
+  transform-origin: 100px 100px;
+}
+
+.spinner > div > div {
+  animation: animation 1.5384615384615383s linear infinite;
+  position: absolute;
+}
+
+.spinner > div > div div:nth-child(1) {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 12px solid #10b981;
+  background: #10b981bb;
+}
+
+.spinner > div > div div:nth-child(2) {
+  width: 17px;
+  height: 51px;
+  transform: rotate(-45deg);
+  background: #10b981;
+  border-radius: 0 0 8px 8px;
+  position: absolute;
+  top: 68px;
+  left: 85px;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.spinner div {
+  box-sizing: content-box;
 }

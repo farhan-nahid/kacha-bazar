@@ -61,6 +61,26 @@ strong {
   font-family: 'Inter', sans-serif;
 }
 
+.order__pending {
+  color: #f97316 !important;
+  font-weight: 500;
+}
+
+.order__rejected {
+  color: #ef4444 !important;
+  font-weight: 500;
+}
+
+.order__shipped {
+  color: #10b981 !important;
+  font-weight: 500;
+}
+
+.order__processing {
+  color: #6366f1 !important;
+  font-weight: 500;
+}
+
 #banner .carousel-indicators button {
   background-color: #10b981a8 !important;
   width: 3px !important;
@@ -97,4 +117,16 @@ strong {
 .fa-fedex,
 .fa-ups {
   font-size: 27px !important;
+}
+
+table {
+  text-align: center;
+}
+
+table tbody {
+  border-top: 1px solid currentColor !important;
+}
+
+table tbody tr td {
+  padding: 11px 0 !important;
 }

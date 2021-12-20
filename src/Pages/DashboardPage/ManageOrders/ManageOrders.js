@@ -92,13 +92,20 @@ const ManageOrders = () => {
                 <td>
                   <select
                     className={
-                      order.status === 'Pending' ? 'btn btn-warning' : order.status === 'Shipped' ? 'btn btn-success' : 'btn btn-danger'
+                      order.status === 'Pending'
+                        ? 'btn btn-warning'
+                        : order.status === 'Shipped'
+                        ? 'btn btn-success'
+                        : order.status === 'Processing'
+                        ? 'btn btn-primary'
+                        : 'btn btn-danger'
                     }
                     defaultValue={order.status}
                     onChange={(e) => handleStatusChange(order._id, e.target.value)}
                   >
                     <option className='bg-white text-muted'>Pending</option>
                     <option className='bg-white text-muted'>Rejected</option>
+                    <option className='bg-white text-muted'>Processing</option>
                     <option className='bg-white text-muted'>Shipped</option>
                   </select>
                 </td>

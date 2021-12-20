@@ -5,6 +5,7 @@ import './App.css';
 import AuthProvider from './contexts/AuthProvider';
 import IsAdmin from './Pages/AuthPage/IsAdmin/IsAdmin';
 import RequiredAuth from './Pages/AuthPage/RequiredAuth/RequiredAuth';
+import AddAdmin from './Pages/DashboardPage/AddAdmin/AddAdmin';
 import AddProduct from './Pages/DashboardPage/AddProduct/AddProduct';
 import ManageOrders from './Pages/DashboardPage/ManageOrders/ManageOrders';
 import ManageProduct from './Pages/DashboardPage/ManageProduct/ManageProduct';
@@ -60,11 +61,7 @@ function App() {
     });
   };
 
-  const handleCancelOrder = (id) => {
-    const restProduct = cart.filter((pd) => pd._id !== id);
-    setCart(restProduct);
-  };
-
+  const handleCancelOrder = (id) => setCart(cart.filter((pd) => pd._id !== id));
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const handleAddToCart = (item) => setCart([...cart, item]);
@@ -122,7 +119,7 @@ function App() {
             path='/dashboard'
             element={
               <RequiredAuth>
-                <Dashboard />
+                <Dashboard setCart={setCart} />
               </RequiredAuth>
             }
           >
@@ -139,9 +136,30 @@ function App() {
                 </IsAdmin>
               }
             />
-            <Route path='/dashboard/add-product' element={<AddProduct />} />
-            <Route path='/dashboard/manage-orders' element={<ManageOrders />} />
-            <Route path='/dashboard/make-admin' element={<Profile />} />
+            <Route
+              path='/dashboard/add-product'
+              element={
+                <IsAdmin>
+                  <AddProduct />
+                </IsAdmin>
+              }
+            />
+            <Route
+              path='/dashboard/manage-orders'
+              element={
+                <IsAdmin>
+                  <ManageOrders />
+                </IsAdmin>
+              }
+            />
+            <Route
+              path='/dashboard/make-admin'
+              element={
+                <IsAdmin>
+                  <AddAdmin />
+                </IsAdmin>
+              }
+            />
           </Route>
           <Route path='/not-found' element={<NotFoundPage />} />
           <Route path='*' element={<NotFoundPage />} />
@@ -153,124 +171,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-  /*   const handleIncrease = (id) => {
-    const selected = cart.find((pd) => pd._id === id);
-    selected.quantity = selected.quantity + 1;
-    selected.totalPrice = ;
-    const rest = cart.filter((pd) => pd._id !== id);
-    setCart([selected, ...rest]);
-
-
-         // { ...item, quantity: item.quantity + 1, totalPrice: Number(item.quantity) * Number(item.price) }
-            // : item;
-            // a = { ...item, quantity: item.quantity + 1, totalPrice: Number(a.quantity) * Number(item.price) };
-  }; 
-
-
-    /*  const selected = cart.find((pd) => pd._id === id);
-    if (selected.quantity > 1) {
-      selected.quantity = selected.quantity - 1;
-      selected.totalPrice = Number(selected.quantity) * Number(selected.price);
-    }
-    const rest = cart.filter((pd) => pd._id !== id);
-    setCart([selected, ...rest]); 
-
-
-  // const handleIncrease = (pd) => {
-  //   setCart(() => {
-  //     // 1 is the item already added in the cart?
-  //     const isItemInCart = cart.find((item) => item._id === pd.id);
-
-  //     if (isItemInCart) {
-  //       return cart.map((item) => (item._id === pd._id ? { ...item, amount: item.amount + 1 } : item));
-  //     }
-  //   });
-  //   // const selected = cart.find((pd) => pd._id === id);
-  //   // selected.quantity = selected.quantity + 1;
-  //   // selected.totalPrice = Number(selected.quantity) * Number(selected.price);
-  //   // const rest = cart.filter((pd) => pd._id !== id);
-  //   // setCart([...rest, selected]);
-  //   // cart.map((pd) => {
-  //   //   if (pd.id === selected._id) {
-  //   //     return selected;
-  //   //   }
-  //   //   return pd;
-  //   // });
-  // };
-
-  // const handleIncrease = (pd) => {
-  //   setCart((prev) => {
-  //     // 1 is the item already added in the cart?
-  //     const isItemInCart = prev.find((item) => item._id === pd._id);
-  //     console.log(prev);
-  //     if (isItemInCart) {
-  //       return prev.map((item) => {
-  //         console.log('item', item, 'isItemInCart', pd);
-  //         return item._id === pd._id ? { ...item, quantity: item.quantity + 1 } : item;
-  //       });
-  //     } else {
-  //       // first time the item is added
-  //       return [...prev, { ...pd, quantity: 1 }];
-  //     }
-  //   });
-  // };
-
-
-
-    // for (const pd of newCart) {
-    //   // console.log(pd._id);
-    //   // console.log(id);
-    //   if (pd._id !== id) {
-    //     newCart = [...rest, selected];
-    //     // console.log(newCart);
-    //   } else {
-    //     newCart = [selected];
-    //     // console.log(newCart);
-    //   }
-    // }
-
-      // let shipping = 0;
-  // let totalQuantity = 0;
-  // const [totalPrice, setTotalPrice] = useState(0);
-    // setCart(newCart);
-    // selected.quantity = selected.quantity + 1;
-    // console.log(selected.quantity);
-    // setCart([...cart, selected]);
-    //  setTotalPrice(selected.price * productCount);
-
-      // useEffect(() => {
-  //   for (const pd of cart) {
-  //     setTotalPrice(totalPrice + pd.price * productCount);
-  //   }
-  // }, [cart, productCount]);
-  // const handleDecrease = (id) => (productCount > 1 ? setProductCount(productCount - 1) : productCount);
-
-  
-  // useEffect(() => {
-  //   for (const pd of cart) {
-  //     pd.quantity = !pd.quantity ? 1 : pd.quantity;
-  //   }
-  // }, [cart]);
-
-
-    // for (const pd of cart) {
-  //   quantity = pd.quantity === 0 ? 1 : pd.quantity;
-  //   price = pd.price;
-  //   const oldPrice = totalPrice;
-  //   const newPrice = quantity * price;
-  //   console.log(oldPrice, newPrice);
-  //   // setTotalPrice(totalPrice + quantity * price);
-  // }
-
-    // for (const pd of cart) {
-  //   // pd.quantity = !pd.quantity ? 1 : pd.quantity;
-  //   // const newPrice = pd.quantity * Number(pd.price);
-  //   console.log(totalPrice);
-  //   setTotalPrice(totalPrice + Number(pd.totalPrice));
-  //   console.log(totalPrice);
-  // }
-
-*/

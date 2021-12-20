@@ -1,24 +1,19 @@
-import {
-  faClipboardList,
-  faHome,
-  faPlus,
-  faQuoteLeft,
-  faSignOutAlt,
-  faTasks,
-  faUserEdit,
-  faUserPlus,
-  faUserTie,
-} from '@fortawesome/free-solid-svg-icons';
+import { faClipboardList, faHome, faPlus, faQuoteLeft, faSignOutAlt, faTasks, faUserEdit, faUserPlus, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import useRedux from '../../../hooks/useRedux';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
+import Footer from '../../SharedComponents/Footer/Footer';
+import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
+import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Dashboard.module.css';
 
-const Dashboard = ({ setCart }) => {
+const Dashboard = () => {
   const { logOut, isAdmin } = useAuth();
+  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
 
   const signOut = () => {
     logOut();
@@ -31,6 +26,18 @@ const Dashboard = ({ setCart }) => {
 
   return (
     <>
+      <TopNavigation
+        cart={cart}
+        setCart={setCart}
+        show={show}
+        handleClose={handleClose}
+        handleShow={handleShow}
+        totalPrice={totalPrice}
+        handleIncrease={handleIncrease}
+        handleDecrease={handleDecrease}
+        handleCancelOrder={handleCancelOrder}
+      />
+      <RouteNavigation />
       <section id={styles.dashboard}>
         <Container>
           <Row>
@@ -107,6 +114,7 @@ const Dashboard = ({ setCart }) => {
         </Container>
       </section>
       <DailyNeeds />
+      <Footer />
     </>
   );
 };

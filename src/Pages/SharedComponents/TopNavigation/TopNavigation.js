@@ -47,13 +47,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                 <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
                 <span>{cart.length}</span>
               </li>
-              <li>
-                {!loggedInUser ? (
-                  <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} />
-                ) : (
-                  <ProfileDetails setCart={setCart} />
-                )}
-              </li>
+              <li>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails setCart={setCart} />}</li>
               <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true}>
                 <Offcanvas.Header closeButton className='offCanvas__header'>
                   <Offcanvas.Title>
@@ -67,13 +61,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                       width='1em'
                       xmlns='http://www.w3.org/2000/svg'
                     >
-                      <path
-                        fill='none'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='32'
-                        d='M320 264l-89.6 112-38.4-44.88'
-                      ></path>
+                      <path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M320 264l-89.6 112-38.4-44.88'></path>
                       <path
                         fill='none'
                         strokeLinecap='round'

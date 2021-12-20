@@ -11,12 +11,17 @@ import googleIcon from '../../../assets/images/login/google.svg';
 import passwordIcon from '../../../assets/images/login/password.svg';
 import userIcon from '../../../assets/images/login/user.svg';
 import useAuth from '../../../hooks/useAuth';
+import useRedux from '../../../hooks/useRedux';
+import Footer from '../../SharedComponents/Footer/Footer';
+import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
+import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Register.module.css';
 
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { googleSignIn, gitHubSignIn, emailSignup } = useAuth();
+  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,90 +52,82 @@ const Register = () => {
   }, []);
 
   return (
-    <section id={styles.register}>
-      <Container>
-        <h3>Get started for free!</h3>
+    <>
+      <TopNavigation
+        cart={cart}
+        setCart={setCart}
+        show={show}
+        handleClose={handleClose}
+        handleShow={handleShow}
+        totalPrice={totalPrice}
+        handleIncrease={handleIncrease}
+        handleDecrease={handleDecrease}
+        handleCancelOrder={handleCancelOrder}
+      />
+      <RouteNavigation />
 
-        <Row className={styles.third__party}>
-          <Col lg={4} className='g-4'>
-            <div className={styles.method1} onClick={() => googleSignIn(navigate, location)}>
-              <img src={googleIcon} alt='googleIcon' />
-              <h5>Google</h5>
-            </div>
-          </Col>
-          <Col lg={4} className='g-4'>
-            <div className={styles.method2}>
-              <img src={facebookIcon} alt='facebookIcon' />
-              <h5>Facebook</h5>
-            </div>
-          </Col>
-          <Col lg={4} className='g-4'>
-            <div className={styles.method3} onClick={() => gitHubSignIn(navigate, location)}>
-              <img src={gitHubIcon} alt='gitHubIcon' />
-              <h5>GitHub</h5>
-            </div>
-          </Col>
-        </Row>
+      <section id={styles.register}>
+        <Container>
+          <h3>Get started for free!</h3>
 
-        <p className={styles.another}>OR</p>
-        <form onSubmit={handleSubmit} autoComplete='off'>
-          <span className={styles.inputs}>
-            <input type='text' name='name' id='name1' autoComplete='off' spellCheck='false' placeholder='Enter Your Full Name' required />
-            <label htmlFor='name1'>
-              <img src={userIcon} alt='userIcon' />
-            </label>
-          </span>
-          <span className={styles.inputs}>
-            <input
-              type='email'
-              name='email'
-              id='email2'
-              autoComplete='new-password'
-              spellCheck='false'
-              placeholder='Enter Your Email Address'
-              required
-            />
-            <label htmlFor='email2'>
-              <img src={emailIcon} alt='emailIcon' />
-            </label>
-          </span>
-          <span className={styles.inputs}>
-            <input
-              type='password'
-              name='password'
-              id='password1'
-              autoComplete='off'
-              spellCheck='false'
-              placeholder='Enter Your Password'
-              required
-            />
-            <label htmlFor='password1'>
-              <img src={passwordIcon} alt='passwordIcon' />
-            </label>
-          </span>
-          <span className={styles.inputs}>
-            <input
-              type='password'
-              name='confirmPassword'
-              id='password2'
-              autoComplete='off'
-              spellCheck='false'
-              placeholder='Confirm Your Password'
-              required
-            />
-            <label htmlFor='password2'>
-              <img src={passwordIcon} alt='passwordIcon' />
-            </label>
-          </span>
-          <span className={styles.options}>
-            <NavLink to='/login'>Already Have Account?</NavLink>
-          </span>
-          <button type='submit'>
-            Get Started Now <FontAwesomeIcon icon={faArrowRight} />
-          </button>
-        </form>
-      </Container>
-    </section>
+          <Row className={styles.third__party}>
+            <Col lg={4} className='g-4'>
+              <div className={styles.method1} onClick={() => googleSignIn(navigate, location)}>
+                <img src={googleIcon} alt='googleIcon' />
+                <h5>Google</h5>
+              </div>
+            </Col>
+            <Col lg={4} className='g-4'>
+              <div className={styles.method2}>
+                <img src={facebookIcon} alt='facebookIcon' />
+                <h5>Facebook</h5>
+              </div>
+            </Col>
+            <Col lg={4} className='g-4'>
+              <div className={styles.method3} onClick={() => gitHubSignIn(navigate, location)}>
+                <img src={gitHubIcon} alt='gitHubIcon' />
+                <h5>GitHub</h5>
+              </div>
+            </Col>
+          </Row>
+
+          <p className={styles.another}>OR</p>
+          <form onSubmit={handleSubmit} autoComplete='off'>
+            <span className={styles.inputs}>
+              <input type='text' name='name' id='name1' autoComplete='off' spellCheck='false' placeholder='Enter Your Full Name' required />
+              <label htmlFor='name1'>
+                <img src={userIcon} alt='userIcon' />
+              </label>
+            </span>
+            <span className={styles.inputs}>
+              <input type='email' name='email' id='email2' autoComplete='new-password' spellCheck='false' placeholder='Enter Your Email Address' required />
+              <label htmlFor='email2'>
+                <img src={emailIcon} alt='emailIcon' />
+              </label>
+            </span>
+            <span className={styles.inputs}>
+              <input type='password' name='password' id='password1' autoComplete='off' spellCheck='false' placeholder='Enter Your Password' required />
+              <label htmlFor='password1'>
+                <img src={passwordIcon} alt='passwordIcon' />
+              </label>
+            </span>
+            <span className={styles.inputs}>
+              <input type='password' name='confirmPassword' id='password2' autoComplete='off' spellCheck='false' placeholder='Confirm Your Password' required />
+              <label htmlFor='password2'>
+                <img src={passwordIcon} alt='passwordIcon' />
+              </label>
+            </span>
+            <span className={styles.options}>
+              <NavLink to='/login'>Already Have Account?</NavLink>
+            </span>
+            <button type='submit'>
+              Get Started Now <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </form>
+        </Container>
+      </section>
+      <Footer />
+    </>
   );
 };
 

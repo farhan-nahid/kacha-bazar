@@ -95,8 +95,9 @@ const MyOrders = () => {
                     <th>#</th>
                     <th>Order Time</th>
                     <th>Method</th>
+                    <th>City</th>
                     <th>Status</th>
-                    <th>Total Price</th>
+                    <th>Total</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -106,6 +107,7 @@ const MyOrders = () => {
                       <td className='fw-bold'>{idx + 1}</td>
                       <td>{order.orderTime}</td>
                       <td>{order.payment}</td>
+                      <td>{order.city}</td>
                       <td className={`order__${order.status.toLowerCase()}`}>{order.status}</td>
                       <td>{order.totalPrice}</td>
                       <td>

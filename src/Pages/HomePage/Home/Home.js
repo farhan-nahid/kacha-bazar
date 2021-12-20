@@ -11,7 +11,7 @@ import Products from '../Products/Products';
 import Testimonials from '../Testimonials/Testimonials';
 
 const Home = () => {
-  const { handleAddToCart, cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
+  const { handleAddToCart, cart, totalPrice, handleShow } = useRedux();
 
   useEffect(() => {
     document.title = 'Home | Kacha Bazar';
@@ -19,17 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <TopNavigation
-        cart={cart}
-        setCart={setCart}
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        totalPrice={totalPrice}
-        handleIncrease={handleIncrease}
-        handleDecrease={handleDecrease}
-        handleCancelOrder={handleCancelOrder}
-      />
+      <TopNavigation />
       <RouteNavigation />
       <Banner />
       <FeaturedCategories />

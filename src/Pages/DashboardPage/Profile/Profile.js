@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import useRedux from '../../../hooks/useRedux';
 import styles from './Profile.module.css';
 
-const Profile = ({ setCart }) => {
+const Profile = () => {
   const { loggedInUser, logOut } = useAuth();
+  const { setCart } = useRedux();
 
   const signOut = () => {
     logOut();

@@ -41,3 +41,8 @@
   line-height: 20px;
   color: #6b7280;
 }
+
+.delete__icon {
+  color: #ef4444;
+   cursor: pointer;
+}

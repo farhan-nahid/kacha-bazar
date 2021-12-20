@@ -3,7 +3,6 @@ import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './contexts/AuthProvider';
-import useRedux from './hooks/useRedux';
 import IsAdmin from './Pages/AuthPage/IsAdmin/IsAdmin';
 import RequiredAuth from './Pages/AuthPage/RequiredAuth/RequiredAuth';
 import AddAdmin from './Pages/DashboardPage/AddAdmin/AddAdmin';
@@ -25,8 +24,6 @@ const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 const ResetPassword = lazy(() => import('./Pages/AuthPage/ResetPassword/ResetPassword'));
 
 function App() {
-  const { setCart } = useRedux();
-
   return (
     <AuthProvider>
       <ScrollToTop />
@@ -55,9 +52,9 @@ function App() {
               </RequiredAuth>
             }
           >
-            <Route path='/dashboard' element={<Profile setCart={setCart} />} />
-            <Route path='/dashboard/profile' element={<Profile setCart={setCart} />} />
-            <Route path='/dashboard/edit-profile' element={<Profile setCart={setCart} />} />
+            <Route path='/dashboard' element={<Profile />} />
+            <Route path='/dashboard/profile' element={<Profile />} />
+            <Route path='/dashboard/edit-profile' element={<Profile />} />
             <Route path='/dashboard/review' element={<AddReview />} />
             <Route path='/dashboard/my-orders' element={<MyOrders />} />
             <Route

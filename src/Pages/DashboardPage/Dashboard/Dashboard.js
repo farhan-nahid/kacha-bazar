@@ -13,7 +13,7 @@ import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const { logOut, isAdmin } = useAuth();
-  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
+  const { setCart } = useRedux();
 
   const signOut = () => {
     logOut();
@@ -26,17 +26,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <TopNavigation
-        cart={cart}
-        setCart={setCart}
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        totalPrice={totalPrice}
-        handleIncrease={handleIncrease}
-        handleDecrease={handleDecrease}
-        handleCancelOrder={handleCancelOrder}
-      />
+      <TopNavigation />
       <RouteNavigation />
       <section id={styles.dashboard}>
         <Container>

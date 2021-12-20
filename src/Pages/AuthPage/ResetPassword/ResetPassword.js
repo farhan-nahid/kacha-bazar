@@ -2,15 +2,12 @@ import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import emailIcon from '../../../assets/images/login/email.svg';
 import forgetPass from '../../../assets/images/login/forget-password.png';
-import useRedux from '../../../hooks/useRedux';
 import Footer from '../../SharedComponents/Footer/Footer';
 import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './ResetPassword.module.css';
 
 const ResetPassword = () => {
-  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
-
   const handelReset = (e) => {
     e.preventDefault();
     // e.target.reset()
@@ -22,17 +19,7 @@ const ResetPassword = () => {
 
   return (
     <>
-      <TopNavigation
-        cart={cart}
-        setCart={setCart}
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        totalPrice={totalPrice}
-        handleIncrease={handleIncrease}
-        handleDecrease={handleDecrease}
-        handleCancelOrder={handleCancelOrder}
-      />
+      <TopNavigation />
       <RouteNavigation />
       <Container className={styles.reset__section}>
         <div className={styles.reset__container}>

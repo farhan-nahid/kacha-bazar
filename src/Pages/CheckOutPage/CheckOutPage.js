@@ -18,7 +18,7 @@ const CheckOutPage = () => {
   const [data, setData] = useState({});
   const { loggedInUser } = useAuth();
   const navigate = useNavigate();
-  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
+  const { cart, totalPrice, setCart } = useRedux();
 
   const handelChange = (e) => {
     const newData = { ...data };
@@ -46,7 +46,6 @@ const CheckOutPage = () => {
     data.productInfo = cart;
     data.orderTime = `${day}-${monthName}-${year}`;
     data.status = 'Pending';
-    console.log(data);
     axios.post('https://kacha-bazar.herokuapp.com/order', data).then((res) => {
       if (res.status === 200) {
         swal({
@@ -68,17 +67,7 @@ const CheckOutPage = () => {
 
   return (
     <>
-      <TopNavigation
-        cart={cart}
-        setCart={setCart}
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        totalPrice={totalPrice}
-        handleIncrease={handleIncrease}
-        handleDecrease={handleDecrease}
-        handleCancelOrder={handleCancelOrder}
-      />
+      <TopNavigation />
       <RouteNavigation />
       <section id={styles.checkout}>
         <Container>
@@ -176,14 +165,7 @@ const CheckOutPage = () => {
                     {
                       // map category data
                       cart.map((pd) => (
-                        <Cart
-                          key={pd._id}
-                          pd={pd}
-                          totalPrice={totalPrice}
-                          handleDecrease={handleDecrease}
-                          handleIncrease={handleIncrease}
-                          handleCancelOrder={handleCancelOrder}
-                        />
+                        <Cart key={pd._id} pd={pd} />
                       ))
                     }
                   </div>

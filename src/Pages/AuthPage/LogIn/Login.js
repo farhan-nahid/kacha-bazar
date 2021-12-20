@@ -10,7 +10,6 @@ import gitHubIcon from '../../../assets/images/login/gitHub.svg';
 import googleIcon from '../../../assets/images/login/google.svg';
 import passwordIcon from '../../../assets/images/login/password.svg';
 import useAuth from '../../../hooks/useAuth';
-import useRedux from '../../../hooks/useRedux';
 import Footer from '../../SharedComponents/Footer/Footer';
 import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
@@ -20,7 +19,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { googleSignIn, gitHubSignIn, emailSignIn } = useAuth();
-  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,17 +37,7 @@ const Login = () => {
 
   return (
     <>
-      <TopNavigation
-        cart={cart}
-        setCart={setCart}
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        totalPrice={totalPrice}
-        handleIncrease={handleIncrease}
-        handleDecrease={handleDecrease}
-        handleCancelOrder={handleCancelOrder}
-      />
+      <TopNavigation />
       <RouteNavigation />
 
       <section id={styles.login}>

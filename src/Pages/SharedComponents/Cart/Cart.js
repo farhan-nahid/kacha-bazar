@@ -1,9 +1,11 @@
 import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import useRedux from '../../../hooks/useRedux';
 import styles from './Cart.module.css';
 
-const Cart = ({ pd, handleIncrease, handleDecrease, handleCancelOrder }) => {
+const Cart = ({ pd }) => {
+  const { handleIncrease, handleDecrease, handleCancelOrder } = useRedux();
   return (
     <div className={styles.cart__item}>
       <div className='d-flex align-self-center'>

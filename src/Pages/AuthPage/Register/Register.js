@@ -11,7 +11,6 @@ import googleIcon from '../../../assets/images/login/google.svg';
 import passwordIcon from '../../../assets/images/login/password.svg';
 import userIcon from '../../../assets/images/login/user.svg';
 import useAuth from '../../../hooks/useAuth';
-import useRedux from '../../../hooks/useRedux';
 import Footer from '../../SharedComponents/Footer/Footer';
 import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
@@ -21,7 +20,6 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { googleSignIn, gitHubSignIn, emailSignup } = useAuth();
-  const { cart, handleIncrease, handleDecrease, totalPrice, setCart, handleCancelOrder, show, handleClose, handleShow } = useRedux();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,17 +51,7 @@ const Register = () => {
 
   return (
     <>
-      <TopNavigation
-        cart={cart}
-        setCart={setCart}
-        show={show}
-        handleClose={handleClose}
-        handleShow={handleShow}
-        totalPrice={totalPrice}
-        handleIncrease={handleIncrease}
-        handleDecrease={handleDecrease}
-        handleCancelOrder={handleCancelOrder}
-      />
+      <TopNavigation />
       <RouteNavigation />
 
       <section id={styles.register}>

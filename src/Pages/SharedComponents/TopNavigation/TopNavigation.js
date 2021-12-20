@@ -7,13 +7,15 @@ import notifyIcon from '../../../assets/images/notifyIcon.svg';
 import searchIcon from '../../../assets/images/search.svg';
 import userIcon from '../../../assets/images/user.svg';
 import useAuth from '../../../hooks/useAuth';
+import useRedux from '../../../hooks/useRedux';
 import Cart from '../Cart/Cart';
 import ProfileDetails from '../ProfileDetails/ProfileDetails';
 import styles from './TopNavigation.module.css';
 
-const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, handleIncrease, totalPrice, handleCancelOrder, setCart }) => {
-  const { loggedInUser } = useAuth();
+const TopNavigation = () => {
   const navigate = useNavigate();
+  const { loggedInUser } = useAuth();
+  const { cart, totalPrice, setCart, show, handleClose, handleShow } = useRedux();
 
   const handelClick = () => {
     navigate('/checkout');
@@ -96,14 +98,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
 
                   <div className={styles.cart__item__container}>
                     {cart.map((pd) => (
-                      <Cart
-                        key={pd._id}
-                        pd={pd}
-                        totalPrice={totalPrice}
-                        handleDecrease={handleDecrease}
-                        handleIncrease={handleIncrease}
-                        handleCancelOrder={handleCancelOrder}
-                      />
+                      <Cart key={pd._id} pd={pd} />
                     ))}
                   </div>
 

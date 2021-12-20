@@ -7,6 +7,7 @@ import IsAdmin from './Pages/AuthPage/IsAdmin/IsAdmin';
 import RequiredAuth from './Pages/AuthPage/RequiredAuth/RequiredAuth';
 import AddAdmin from './Pages/DashboardPage/AddAdmin/AddAdmin';
 import AddProduct from './Pages/DashboardPage/AddProduct/AddProduct';
+import AddReview from './Pages/DashboardPage/AddReview/AddReview';
 import ManageOrders from './Pages/DashboardPage/ManageOrders/ManageOrders';
 import ManageProduct from './Pages/DashboardPage/ManageProduct/ManageProduct';
 import MyOrders from './Pages/DashboardPage/MyOrders/MyOrders';
@@ -126,7 +127,7 @@ function App() {
             <Route path='/dashboard' element={<Profile />} />
             <Route path='/dashboard/profile' element={<Profile />} />
             <Route path='/dashboard/edit-profile' element={<Profile />} />
-            <Route path='/dashboard/review' element={<Profile />} />
+            <Route path='/dashboard/review' element={<AddReview />} />
             <Route path='/dashboard/my-orders' element={<MyOrders />} />
             <Route
               path='/dashboard/manage-product'

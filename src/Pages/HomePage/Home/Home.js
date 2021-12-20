@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import CartTracker from '../CartTracker/CartTracker';
 import FeaturedCategories from '../FeaturedCategories/FeaturedCategories';
 import Products from '../Products/Products';
+import Testimonials from '../Testimonials/Testimonials';
 
 const Home = ({ handleAddToCart, cart, handleShow, handleIncrease, handleDecrease, totalPrice }) => {
   return (
@@ -12,6 +13,7 @@ const Home = ({ handleAddToCart, cart, handleShow, handleIncrease, handleDecreas
       <FeaturedCategories />
       <Products handleAddToCart={handleAddToCart} />
       <CartTracker cart={cart} handleShow={handleShow} totalPrice={totalPrice} />
+      <Testimonials />
       <DailyNeeds />
     </>
   );

@@ -13,6 +13,7 @@
   background-color: #e1e6eb;
   padding: 10px 0 0 0;
   cursor: pointer;
+  z-index: 10;
 }
 
 #cart__tracker span {

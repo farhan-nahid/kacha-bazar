@@ -1,0 +1,82 @@
+#add__review {
+  padding: 20px 37px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #333;
+  border-radius: 5px;
+}
+
+#add__review h1 {
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #000;
+}
+
+#add__review form {
+  margin-top: 30px;
+}
+
+#add__review form span {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#add__review form .inputs {
+  position: relative;
+}
+
+#add__review form .inputs label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#review__label {
+  top: 10px !important;
+  transform: translateY(0) !important;
+}
+
+#add__review form input,
+#add__review form textarea,
+#add__review form select {
+  width: 100%;
+  padding: 9px 50px;
+  border: 1px solid #10b981;
+  border-radius: 5px;
+  outline: 0;
+  font-family: inherit;
+}
+
+#add__review form select {
+  padding: 9px 35px;
+  font-weight: 700;
+}
+
+#add__review form input::-webkit-outer-spin-button,
+#add__review form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#add__review form input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+#add__review form input::placeholder {
+  color: rgba(51, 51, 51, 0.411);
+  font-family: inherit;
+}
+
+#add__review form button {
+  margin: 20px 0 50px 0;
+  padding: 13px 30px;
+  border: 0;
+  outline: 0;
+  background-color: #10b981;
+  text-align: center;
+  font-family: inherit;
+  border-radius: 7px;
+  color: #fff;
+  font-weight: 600;
+}

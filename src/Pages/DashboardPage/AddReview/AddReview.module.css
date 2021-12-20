@@ -38,8 +38,7 @@
 }
 
 #add__review form input,
-#add__review form textarea,
-#add__review form select {
+#add__review form textarea {
   width: 100%;
   padding: 9px 50px;
   border: 1px solid #10b981;
@@ -49,7 +48,12 @@
 }
 
 #add__review form select {
-  padding: 9px 35px;
+  width: 100%;
+  border: 1px solid #10b981;
+  border-radius: 5px;
+  outline: 0;
+  font-family: inherit;
+  padding: 9px;
   font-weight: 700;
 }
 

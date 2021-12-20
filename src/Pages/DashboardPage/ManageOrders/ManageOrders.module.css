@@ -1,0 +1,43 @@
+#manage__orders {
+  padding: 20px 37px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #333;
+  border-radius: 5px;
+}
+
+#manage__orders h1 {
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #000;
+}
+
+#manage__orders table {
+  margin-top: 30px;
+}
+
+.placeholder__text {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.placeholder__text .placeholder__image {
+  padding: 23px 25px;
+  border-radius: 50%;
+  background-color: #d1fae5;
+}
+
+.placeholder__text h6 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #374151;
+  margin: 15px 0 10px 0;
+}
+
+.placeholder__text p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6b7280;
+}

@@ -5,14 +5,22 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
+import LoadingSpinner from '../../SharedComponents/LoadingSpinner/LoadingSpinner';
+import styles from './ManageOrders.module.css';
 
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [nothing, setNothing] = useState('');
 
   useEffect(() => {
     axios
       .get('https://kacha-bazar.herokuapp.com/all-orders')
-      .then((res) => setOrders(res.data))
+      .then((res) => {
+        if (res.headers) {
+          JSON.stringify(res.headers).slice(19, 20) === '2' && setNothing('Nothing order');
+        }
+        setOrders(res.data);
+      })
       .catch((err) => toast.error(err.message));
   }, []);
 
@@ -33,6 +41,15 @@ const ManageOrders = () => {
               swal('This Order has been deleted!!', {
                 icon: 'success',
               });
+              axios
+                .get('https://kacha-bazar.herokuapp.com/all-orders')
+                .then((res) => {
+                  if (res.headers) {
+                    JSON.stringify(res.headers).slice(19, 20) === '2' && setNothing('Nothing order');
+                  }
+                  setOrders(res.data);
+                })
+                .catch((err) => toast.error(err.message));
               const restOrders = orders.filter((order) => order._id !== id);
               setOrders(restOrders);
             }
@@ -72,53 +89,79 @@ const ManageOrders = () => {
   };
 
   return (
-    <section>
+    <section id={styles.manage__orders}>
       <h1>Manage Order</h1>
-      <div>
-        <Table striped bordered hover size='sm'>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Email</th>
-              <th>Action</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          {orders.map((order, idx) => (
-            <tbody>
-              <tr>
-                <td>{idx + 1}</td>
-                <td>{order.email}</td>
-                <td>
-                  <select
-                    className={
-                      order.status === 'Pending'
-                        ? 'btn btn-warning'
-                        : order.status === 'Shipped'
-                        ? 'btn btn-success'
-                        : order.status === 'Processing'
-                        ? 'btn btn-primary'
-                        : 'btn btn-danger'
-                    }
-                    defaultValue={order.status}
-                    onChange={(e) => handleStatusChange(order._id, e.target.value)}
-                  >
-                    <option className='bg-white text-muted'>Pending</option>
-                    <option className='bg-white text-muted'>Rejected</option>
-                    <option className='bg-white text-muted'>Processing</option>
-                    <option className='bg-white text-muted'>Shipped</option>
-                  </select>
-                </td>
-                <td>
-                  <span onClick={() => handleDeleteOrder(order._id)}>
-                    <FontAwesomeIcon icon={faTrashAlt} />
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          ))}
-        </Table>
-      </div>
+      <>
+        {nothing ? (
+          <div className={styles.placeholder__text}>
+            <span className={styles.placeholder__image}>
+              <svg
+                stroke='currentColor'
+                fill='#10b981 '
+                strokeWidth='0'
+                viewBox='0 0 512 512'
+                height='30px'
+                width='30px'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d='M454.65 169.4A31.82 31.82 0 00432 160h-64v-16a112 112 0 00-224 0v16H80a32 32 0 00-32 32v216c0 39 33 72 72 72h272a72.22 72.22 0 0050.48-20.55 69.48 69.48 0 0021.52-50.2V192a31.75 31.75 0 00-9.35-22.6zM176 144a80 80 0 01160 0v16H176zm192 96a112 112 0 01-224 0v-16a16 16 0 0132 0v16a80 80 0 00160 0v-16a16 16 0 0132 0z'></path>
+              </svg>
+            </span>
+            <h6>Your Customers Don't Order Any Product</h6>
+            <p>Please tell your customers add product to Their Order list.</p>
+          </div>
+        ) : (
+          <>
+            {orders.length ? (
+              <Table bordered size='sm'>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>Delete</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((order, idx) => (
+                    <tr key={order._id}>
+                      <td>{idx + 1}</td>
+                      <td>{order.email}</td>
+                      <td>
+                        <span onClick={() => handleDeleteOrder(order._id)}>
+                          <FontAwesomeIcon icon={faTrashAlt} />
+                        </span>
+                      </td>
+                      <td>
+                        <select
+                          className={
+                            order.status === 'Pending'
+                              ? 'btn btn-warning'
+                              : order.status === 'Shipped'
+                              ? 'btn btn-success'
+                              : order.status === 'Processing'
+                              ? 'btn btn-primary'
+                              : 'btn btn-danger'
+                          }
+                          defaultValue={order.status}
+                          onChange={(e) => handleStatusChange(order._id, e.target.value)}
+                        >
+                          <option className='bg-white text-muted'>Pending</option>
+                          <option className='bg-white text-muted'>Rejected</option>
+                          <option className='bg-white text-muted'>Processing</option>
+                          <option className='bg-white text-muted'>Shipped</option>
+                        </select>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            ) : (
+              <LoadingSpinner />
+            )}
+          </>
+        )}
+      </>
     </section>
   );
 };

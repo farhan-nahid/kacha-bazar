@@ -67,7 +67,7 @@ const MyOrders = () => {
   return (
     <section id={styles.my__order}>
       <h1>My Orders</h1>
-      <div>
+      <>
         {nothing ? (
           <div className={styles.placeholder__text}>
             <span className={styles.placeholder__image}>
@@ -94,18 +94,18 @@ const MyOrders = () => {
                   <tr>
                     <th>#</th>
                     <th>Order Time</th>
-                    <th>Email</th>
+                    <th>Method</th>
                     <th>Status</th>
                     <th>Total Price</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                {orders.map((order, idx) => (
-                  <tbody>
-                    <tr>
+                <tbody>
+                  {orders.map((order, idx) => (
+                    <tr key={order._id}>
                       <td className='fw-bold'>{idx + 1}</td>
                       <td>{order.orderTime}</td>
-                      <td>{order.email}</td>
+                      <td>{order.payment}</td>
                       <td className={`order__${order.status.toLowerCase()}`}>{order.status}</td>
                       <td>{order.totalPrice}</td>
                       <td>
@@ -114,15 +114,15 @@ const MyOrders = () => {
                         </span>
                       </td>
                     </tr>
-                  </tbody>
-                ))}
+                  ))}
+                </tbody>
               </Table>
             ) : (
               <LoadingSpinner />
             )}
           </>
         )}
-      </div>
+      </>
     </section>
   );
 };

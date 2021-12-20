@@ -14,7 +14,7 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
   const [data, setData] = useState({});
   const { loggedInUser } = useAuth();
   const navigate = useNavigate();
-  const handelBlur = (e) => {
+  const handelChange = (e) => {
     const newData = { ...data };
     newData[e.target.name] = e.target.value;
     setData(newData);
@@ -45,10 +45,15 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
     const monthName = month[date.getMonth()];
     data.name = loggedInUser.displayName;
     data.email = loggedInUser.email;
+    data.street = e.target.street.value;
+    data.city = e.target.city.value;
+    data.country = e.target.country.value;
+    data.zip = e.target.zip.value;
     data.totalPrice = total;
     data.productInfo = cart;
     data.orderTime = `${day}-${monthName}-${year}`;
     data.status = 'Pending';
+    console.log(data);
     axios.post('https://kacha-bazar.herokuapp.com/order', data).then((res) => {
       if (res.status === 200) {
         swal({
@@ -100,35 +105,19 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
               <Row className='g-4'>
                 <Col lg={12}>
                   <label htmlFor='street'>Street Address</label>
-                  <input
-                    type='text'
-                    name='street'
-                    id='street'
-                    placeholder='123 Boulevard Rd, Beverley Hills'
-                    autoComplete='off'
-                    required
-                    onBlur={handelBlur}
-                  />
+                  <input type='text' name='street' id='street' placeholder='123 Boulevard Rd, Beverley Hills' autoComplete='off' required />
                 </Col>
                 <Col lg={4} className='mt-4'>
                   <label htmlFor='city'>Your City</label>
-                  <input type='text' name='city' id='city' placeholder='Los Angeles' autoComplete='off' required onBlur={handelBlur} />
+                  <input type='text' name='city' id='city' placeholder='Los Angeles' autoComplete='off' required />
                 </Col>
                 <Col lg={4} className='mt-4'>
                   <label htmlFor='country'>Your Country</label>
-                  <input
-                    type='text'
-                    name='country'
-                    id='country'
-                    placeholder='United State'
-                    autoComplete='off'
-                    required
-                    onBlur={handelBlur}
-                  />
+                  <input type='text' name='country' id='country' placeholder='United State' autoComplete='off' required />
                 </Col>
                 <Col lg={4} className='mt-4'>
                   <label htmlFor='zip'>Country Code</label>
-                  <input type='number' name='zip' id='zip' placeholder='12345' autoComplete='off' required onBlur={handelBlur} />
+                  <input type='number' name='zip' id='zip' placeholder='12345' autoComplete='off' required />
                 </Col>
               </Row>
               <h4 className='my-5'>03. Shipping method</h4>
@@ -143,17 +132,16 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
                       </small>
                     </span>
                   </label>
-                  <input type='radio' name='shipping' id='fexEx' required value='15' onChange={handelBlur} />
+                  <input type='radio' name='shipping' id='fexEx' required value='15' onChange={handelChange} />
                 </Col>
                 <Col lg={6} className={styles.shipping__methods}>
                   <label htmlFor='ups'>
-                    {' '}
                     <FontAwesomeIcon icon={faUps} />
                     <small className='ms-3 mt-1' style={{ position: 'absolute' }}>
                       Delivery 7 Days Cost $7
                     </small>
                   </label>
-                  <input type='radio' name='shipping' id='ups' required value='7' onChange={handelBlur} />
+                  <input type='radio' name='shipping' id='ups' required value='7' onChange={handelChange} />
                 </Col>
               </Row>
               <h4 className='my-5'>04. Payment Details</h4>
@@ -164,7 +152,7 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
                     <FontAwesomeIcon icon={faMoneyBillWave} />
                     <span className='ms-3'>Cash On Delivery</span>
                   </label>
-                  <input type='radio' name='payment' id='money' required />
+                  <input type='radio' name='payment' id='money' required onChange={handelChange} value='COD' />
                 </Col>
               </Row>
               <span className='d-flex justify-content-center'>

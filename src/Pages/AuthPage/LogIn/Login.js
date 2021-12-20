@@ -2,6 +2,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import emailIcon from '../../../assets/images/login/email.svg';
 import facebookIcon from '../../../assets/images/login/facebook.svg';
@@ -14,11 +15,17 @@ import styles from './Login.module.css';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { googleSignIn, gitHubSignIn } = useAuth();
+  const { googleSignIn, gitHubSignIn, emailSignIn } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // e.target.reset()
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error('Please Enter a valid Email Address..');
+    } else {
+      emailSignIn(email, password, navigate, location, e);
+    }
   };
 
   useEffect(() => {

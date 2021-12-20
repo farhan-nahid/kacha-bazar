@@ -2,19 +2,44 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import emailIcon from '../../../assets/images/login/email.svg';
 import facebookIcon from '../../../assets/images/login/facebook.svg';
 import gitHubIcon from '../../../assets/images/login/gitHub.svg';
 import googleIcon from '../../../assets/images/login/google.svg';
 import passwordIcon from '../../../assets/images/login/password.svg';
 import userIcon from '../../../assets/images/login/user.svg';
+import useAuth from '../../../hooks/useAuth';
 import styles from './Register.module.css';
 
 const Register = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { googleSignIn, gitHubSignIn, emailSignup } = useAuth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // e.target.reset()
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error('Please Enter a valid Email Address..');
+    } else if (password !== confirmPassword) {
+      toast.error('Password not matched...');
+    } else if (password.length < 8) {
+      toast.error('Your Password must have 8 characters...');
+    } else if (!/(?=.*?[A-Z])/.test(password)) {
+      toast.error('Password should be at least 1 Uppercase');
+    } else if (!/(?=.*?[0-9])/.test(password)) {
+      toast.error('Password should be at least 1 Number');
+    } else if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+      toast.error('Password should be at least 1 Spacial character');
+    } else {
+      emailSignup(name, email, password, navigate);
+    }
   };
 
   useEffect(() => {
@@ -28,7 +53,7 @@ const Register = () => {
 
         <Row className={styles.third__party}>
           <Col lg={4} className='g-4'>
-            <div className={styles.method1}>
+            <div className={styles.method1} onClick={() => googleSignIn(navigate, location)}>
               <img src={googleIcon} alt='googleIcon' />
               <h5>Google</h5>
             </div>
@@ -40,7 +65,7 @@ const Register = () => {
             </div>
           </Col>
           <Col lg={4} className='g-4'>
-            <div className={styles.method3}>
+            <div className={styles.method3} onClick={() => gitHubSignIn(navigate, location)}>
               <img src={gitHubIcon} alt='gitHubIcon' />
               <h5>GitHub</h5>
             </div>
@@ -86,7 +111,7 @@ const Register = () => {
           <span className={styles.inputs}>
             <input
               type='password'
-              name='password'
+              name='confirmPassword'
               id='password2'
               autoComplete='off'
               spellCheck='false'

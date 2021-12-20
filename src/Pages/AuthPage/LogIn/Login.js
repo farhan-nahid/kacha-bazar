@@ -1,6 +1,6 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import emailIcon from '../../../assets/images/login/email.svg';
@@ -12,14 +12,18 @@ import useAuth from '../../../hooks/useAuth';
 import styles from './Login.module.css';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { googleSignIn, gitHubSignIn } = useAuth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // e.target.reset()
   };
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { googleSignIn, gitHubSignIn } = useAuth();
+  useEffect(() => {
+    document.title = 'Login | Kacha Bazar';
+  }, []);
 
   return (
     <section id={styles.login}>

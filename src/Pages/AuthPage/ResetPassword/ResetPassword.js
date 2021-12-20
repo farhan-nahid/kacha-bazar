@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import emailIcon from '../../../assets/images/login/email.svg';
 import forgetPass from '../../../assets/images/login/forget-password.png';
@@ -9,6 +9,10 @@ const ResetPassword = () => {
     e.preventDefault();
     // e.target.reset()
   };
+
+  useEffect(() => {
+    document.title = 'Reset Password | Kacha Bazar';
+  }, []);
 
   return (
     <Container className={styles.reset__section}>

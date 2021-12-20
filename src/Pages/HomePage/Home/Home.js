@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Banner from '../Banner/Banner';
 import CartTracker from '../CartTracker/CartTracker';
@@ -7,6 +7,9 @@ import Products from '../Products/Products';
 import Testimonials from '../Testimonials/Testimonials';
 
 const Home = ({ handleAddToCart, cart, handleShow, handleIncrease, handleDecrease, totalPrice }) => {
+  useEffect(() => {
+    document.title = 'Home | Kacha Bazar';
+  }, []);
   return (
     <>
       <Banner />

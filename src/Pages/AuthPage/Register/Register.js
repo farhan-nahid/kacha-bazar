@@ -1,6 +1,6 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import emailIcon from '../../../assets/images/login/email.svg';
@@ -16,6 +16,10 @@ const Register = () => {
     e.preventDefault();
     // e.target.reset()
   };
+
+  useEffect(() => {
+    document.title = 'Register | Kacha Bazar';
+  }, []);
 
   return (
     <section id={styles.register}>
@@ -46,15 +50,7 @@ const Register = () => {
         <p className={styles.another}>OR</p>
         <form onSubmit={handleSubmit} autoComplete='off'>
           <span className={styles.inputs}>
-            <input
-              type='text'
-              name='name'
-              id='name1'
-              autoComplete='off'
-              spellCheck='false'
-              placeholder='Enter Your Full Name'
-              required
-            />
+            <input type='text' name='name' id='name1' autoComplete='off' spellCheck='false' placeholder='Enter Your Full Name' required />
             <label htmlFor='name1'>
               <img src={userIcon} alt='userIcon' />
             </label>

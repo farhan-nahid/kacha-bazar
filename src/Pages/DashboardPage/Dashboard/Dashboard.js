@@ -10,7 +10,7 @@ import {
   faUserTie,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -24,6 +24,10 @@ const Dashboard = ({ setCart }) => {
     logOut();
     setCart([]);
   };
+
+  useEffect(() => {
+    document.title = 'Dashboard | Kacha Bazar';
+  }, []);
 
   return (
     <>

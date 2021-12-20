@@ -5,7 +5,7 @@ import styles from './NotFoundPage.module.css';
 
 const NotFoundPage = () => {
   useEffect(() => {
-    document.title = 'Not Found | Mobile Store';
+    document.title = 'Not Found | Kacha Bazar';
   }, []);
 
   return (

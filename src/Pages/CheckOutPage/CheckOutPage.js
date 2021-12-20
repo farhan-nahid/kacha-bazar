@@ -2,7 +2,7 @@ import { faFedex, faUps } from '@fortawesome/free-brands-svg-icons';
 import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -63,6 +63,10 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
       }
     });
   };
+
+  useEffect(() => {
+    document.title = 'Checkout | Kacha Bazar';
+  }, []);
 
   return (
     <section id={styles.checkout}>

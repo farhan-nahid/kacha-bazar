@@ -28,22 +28,36 @@ function App() {
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
 
-  const handleIncrease = (id) => {
-    const selected = cart.find((pd) => pd._id === id);
-    selected.quantity = selected.quantity + 1;
-    selected.totalPrice = Number(selected.quantity) * Number(selected.price);
-    const rest = cart.filter((pd) => pd._id !== id);
-    setCart([selected, ...rest]);
+  const handleIncrease = (pd) => {
+    setCart((prev) => {
+      if (pd) {
+        return prev.map((item) => {
+          let items = item;
+          if (item._id === pd._id) {
+            item.quantity = item.quantity + 1;
+            item.totalPrice = Number(item.quantity) * Number(item.price);
+            items = { ...item };
+          }
+          return items;
+        });
+      }
+    });
   };
 
-  const handleDecrease = (id) => {
-    const selected = cart.find((pd) => pd._id === id);
-    if (selected.quantity > 1) {
-      selected.quantity = selected.quantity - 1;
-      selected.totalPrice = Number(selected.quantity) * Number(selected.price);
-    }
-    const rest = cart.filter((pd) => pd._id !== id);
-    setCart([selected, ...rest]);
+  const handleDecrease = (pd) => {
+    setCart((prev) => {
+      if (pd) {
+        return prev.map((item) => {
+          let items = item;
+          if (item._id === pd._id && item.quantity > 1) {
+            item.quantity = item.quantity - 1;
+            item.totalPrice = Number(item.quantity) * Number(item.price);
+            items = { ...item };
+          }
+          return items;
+        });
+      }
+    });
   };
 
   const handleCancelOrder = (id) => {
@@ -139,7 +153,73 @@ function App() {
 }
 
 export default App;
-/* 
+
+/*
+
+  /*   const handleIncrease = (id) => {
+    const selected = cart.find((pd) => pd._id === id);
+    selected.quantity = selected.quantity + 1;
+    selected.totalPrice = ;
+    const rest = cart.filter((pd) => pd._id !== id);
+    setCart([selected, ...rest]);
+
+
+         // { ...item, quantity: item.quantity + 1, totalPrice: Number(item.quantity) * Number(item.price) }
+            // : item;
+            // a = { ...item, quantity: item.quantity + 1, totalPrice: Number(a.quantity) * Number(item.price) };
+  }; 
+
+
+    /*  const selected = cart.find((pd) => pd._id === id);
+    if (selected.quantity > 1) {
+      selected.quantity = selected.quantity - 1;
+      selected.totalPrice = Number(selected.quantity) * Number(selected.price);
+    }
+    const rest = cart.filter((pd) => pd._id !== id);
+    setCart([selected, ...rest]); 
+
+
+  // const handleIncrease = (pd) => {
+  //   setCart(() => {
+  //     // 1 is the item already added in the cart?
+  //     const isItemInCart = cart.find((item) => item._id === pd.id);
+
+  //     if (isItemInCart) {
+  //       return cart.map((item) => (item._id === pd._id ? { ...item, amount: item.amount + 1 } : item));
+  //     }
+  //   });
+  //   // const selected = cart.find((pd) => pd._id === id);
+  //   // selected.quantity = selected.quantity + 1;
+  //   // selected.totalPrice = Number(selected.quantity) * Number(selected.price);
+  //   // const rest = cart.filter((pd) => pd._id !== id);
+  //   // setCart([...rest, selected]);
+  //   // cart.map((pd) => {
+  //   //   if (pd.id === selected._id) {
+  //   //     return selected;
+  //   //   }
+  //   //   return pd;
+  //   // });
+  // };
+
+  // const handleIncrease = (pd) => {
+  //   setCart((prev) => {
+  //     // 1 is the item already added in the cart?
+  //     const isItemInCart = prev.find((item) => item._id === pd._id);
+  //     console.log(prev);
+  //     if (isItemInCart) {
+  //       return prev.map((item) => {
+  //         console.log('item', item, 'isItemInCart', pd);
+  //         return item._id === pd._id ? { ...item, quantity: item.quantity + 1 } : item;
+  //       });
+  //     } else {
+  //       // first time the item is added
+  //       return [...prev, { ...pd, quantity: 1 }];
+  //     }
+  //   });
+  // };
+
+
+
     // for (const pd of newCart) {
     //   // console.log(pd._id);
     //   // console.log(id);

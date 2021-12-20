@@ -14,6 +14,11 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
   const { loggedInUser } = useAuth();
   const navigate = useNavigate();
 
+  const handelClick = () => {
+    navigate('/checkout');
+    handleClose();
+  };
+
   return (
     <header id={styles.header__top}>
       <Container>
@@ -118,7 +123,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                     ))}
                   </div>
 
-                  <button className={styles.cart__button} onClick={() => navigate('/checkout')}>
+                  <button className={styles.cart__button} onClick={handelClick} disabled={totalPrice ? false : true}>
                     Proceed To Checkout
                     <span>${totalPrice}.00</span>
                   </button>

@@ -118,6 +118,11 @@
   align-items: center;
 }
 
+.cart__button:disabled {
+  cursor: not-allowed;
+  background-color: #10b981bb;
+}
+
 .cart__button span {
   background-color: #fff;
   color: #10b981;

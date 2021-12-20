@@ -15,11 +15,11 @@ const Cart = ({ pd, handleIncrease, handleDecrease, handleCancelOrder }) => {
         </span>
       </div>
       <div className={styles.counter}>
-        <span onClick={() => handleDecrease(pd._id)}>
+        <span onClick={() => handleDecrease(pd)}>
           <FontAwesomeIcon icon={faMinus} />
         </span>
         <span>{pd.quantity}</span>
-        <span onClick={() => handleIncrease(pd._id)}>
+        <span onClick={() => handleIncrease(pd)}>
           <FontAwesomeIcon icon={faPlus} />
         </span>
       </div>

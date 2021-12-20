@@ -89,7 +89,6 @@
 #checkout button:disabled {
   cursor: not-allowed;
   background-color: #10b98171;
-  /* color: #10b981; */
 }
 
 .order__summery {

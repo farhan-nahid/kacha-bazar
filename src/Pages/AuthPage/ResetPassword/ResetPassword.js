@@ -29,7 +29,9 @@ const ResetPassword = () => {
               <img src={emailIcon} alt='emailIcon' />
             </label>
           </span>
-          <button type='submit'>Reset</button>
+          <div className='d-flex justify-content-end'>
+            <button type='submit'>Reset</button>
+          </div>
         </form>
       </div>
     </Container>

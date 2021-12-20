@@ -146,7 +146,7 @@
 }
 
 #register form button {
-  background-color: #21263b;
+  background-color: #10b981;
   border: 2px solid transparent;
   color: #fff;
   outline: 0;
@@ -163,13 +163,6 @@
 
 #register .fa-arrow-right {
   width: 150px;
-}
-
-#register form button:hover {
-  border: 2px solid #21263b;
-  color: #21263b;
-  background: #fff;
-  font-weight: 900;
 }
 
 @media only screen and (max-width: 700px) {

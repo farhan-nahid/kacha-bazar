@@ -13,7 +13,7 @@ const AddAdmin = () => {
     } else {
       const user = { email: admin };
       axios
-        .put('http://localhost:5000/user/admin', user, {
+        .put('https://kacha-bazar.herokuapp.com/user/admin', user, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('kacha_bazar_token')}`,
           },

@@ -78,6 +78,7 @@ function App() {
       <Toaster />
       <TopNavigation
         cart={cart}
+        setCart={setCart}
         show={show}
         handleClose={handleClose}
         handleShow={handleShow}
@@ -124,9 +125,9 @@ function App() {
               </RequiredAuth>
             }
           >
-            <Route path='/dashboard' element={<Profile />} />
-            <Route path='/dashboard/profile' element={<Profile />} />
-            <Route path='/dashboard/edit-profile' element={<Profile />} />
+            <Route path='/dashboard' element={<Profile setCart={setCart} />} />
+            <Route path='/dashboard/profile' element={<Profile setCart={setCart} />} />
+            <Route path='/dashboard/edit-profile' element={<Profile setCart={setCart} />} />
             <Route path='/dashboard/review' element={<AddReview />} />
             <Route path='/dashboard/my-orders' element={<MyOrders />} />
             <Route

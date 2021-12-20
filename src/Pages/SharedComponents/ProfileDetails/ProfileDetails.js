@@ -5,7 +5,7 @@ import { Overlay, Popover } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import styles from './ProfileDetails.module.css';
 
-const ProfileDetails = () => {
+const ProfileDetails = ({ setCart }) => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
@@ -14,6 +14,11 @@ const ProfileDetails = () => {
   const handleClick = (event) => {
     setShow(!show);
     setTarget(event.target);
+  };
+
+  const signOut = () => {
+    logOut();
+    setCart([]);
   };
 
   return (
@@ -41,7 +46,7 @@ const ProfileDetails = () => {
             <p>
               <strong>{loggedInUser.email}</strong>
             </p>
-            <button onClick={logOut}>
+            <button onClick={signOut}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
             </button>
           </Popover.Body>

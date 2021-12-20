@@ -11,7 +11,7 @@ import Cart from '../Cart/Cart';
 import ProfileDetails from '../ProfileDetails/ProfileDetails';
 import styles from './TopNavigation.module.css';
 
-const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, handleIncrease, totalPrice, handleCancelOrder }) => {
+const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, handleIncrease, totalPrice, handleCancelOrder, setCart }) => {
   const { loggedInUser } = useAuth();
   const navigate = useNavigate();
 
@@ -47,7 +47,13 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                 <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
                 <span>{cart.length}</span>
               </li>
-              <li>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails />}</li>
+              <li>
+                {!loggedInUser ? (
+                  <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} />
+                ) : (
+                  <ProfileDetails setCart={setCart} />
+                )}
+              </li>
               <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true}>
                 <Offcanvas.Header closeButton className='offCanvas__header'>
                   <Offcanvas.Title>

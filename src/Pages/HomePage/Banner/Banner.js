@@ -20,13 +20,8 @@ const Banner = () => {
               <img className='img-fluid w-100' src={first} alt='First' />
               <div className={styles.overlay}>
                 <h3> The Best Quality Products Guaranteed!</h3>
-                <p>
-                  Dramatically facilitate effective total linkage for go forward
-                  processes...
-                </p>
-                <button onClick={() => navigate('/all-products')}>
-                  Learn More
-                </button>
+                <p>Dramatically facilitate effective total linkage for go forward processes...</p>
+                <button onClick={() => navigate('/all-products')}>Learn More</button>
               </div>
             </Carousel.Item>
 
@@ -34,13 +29,8 @@ const Banner = () => {
               <img className='img-fluid w-100' src={second} alt='Second' />
               <div className={styles.overlay}>
                 <h3> Best Different Type of Grocery Store </h3>
-                <p>
-                  Quickly aggregate empowered networks after emerging
-                  products...
-                </p>
-                <button onClick={() => navigate('/all-products')}>
-                  Learn More
-                </button>
+                <p>Quickly aggregate empowered networks after emerging products...</p>
+                <button onClick={() => navigate('/all-products')}>Learn More</button>
               </div>
             </Carousel.Item>
 
@@ -48,20 +38,15 @@ const Banner = () => {
               <img className='img-fluid w-100' src={third} alt='Third' />
               <div className={styles.overlay}>
                 <h3> Quality Freshness Guaranteed!</h3>
-                <p>
-                  intrinsically fashion performance based products rather than
-                  accurate benefits...
-                </p>
-                <button onClick={() => navigate('/all-products')}>
-                  Learn More
-                </button>
+                <p>intrinsically fashion performance based products rather than accurate benefits...</p>
+                <button onClick={() => navigate('/all-products')}>Learn More</button>
               </div>
             </Carousel.Item>
           </Carousel>
         </Col>
         <Col lg={6} className={styles.banner__side}>
-          <img src={banner1} className='img-fluid w-100' alt='' />
-          <img src={banner2} className='img-fluid w-100' alt='' />
+          <img src={banner1} alt='banner1' />
+          <img src={banner2} alt='banner2' />
         </Col>
       </Row>
     </Container>

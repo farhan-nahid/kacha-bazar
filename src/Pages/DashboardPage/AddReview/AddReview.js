@@ -21,7 +21,7 @@ const AddReview = () => {
     reviewData.reviewText = e.target.reviewText.value;
 
     axios
-      .post('http://localhost:5000/add-reviews', reviewData)
+      .post('https://kacha-bazar.herokuapp.com/add-reviews', reviewData)
       .then((res) => {
         if (res.data.insertedId) {
           swal({

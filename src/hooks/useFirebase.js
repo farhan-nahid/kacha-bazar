@@ -108,7 +108,7 @@ const useFirebase = () => {
   const saveUserForEmail = (email, displayName) => {
     const user = { email, displayName };
     axios
-      .post('http://localhost:5000/user', user)
+      .post('https://kacha-bazar.herokuapp.com/user', user)
       .then((res) => {
         if (res.data.upsertedId) {
           toast.success('User Added in our Database Successfully!');
@@ -122,7 +122,7 @@ const useFirebase = () => {
   const saveUserForOthers = (email, displayName) => {
     const user = { email, displayName };
     axios
-      .put('http://localhost:5000/user', user)
+      .put('https://kacha-bazar.herokuapp.com/user', user)
       .then((res) => {
         if (res.data.upsertedId) {
           toast.success('User Added in our Database Successfully!');
@@ -176,7 +176,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/user/${loggedInUser?.email}`)
+      .get(`https://kacha-bazar.herokuapp.com/user/${loggedInUser?.email}`)
       .then((res) => setIsAdmin(res.data.admin))
       .catch((err) => toast.error(err.message))
       .finally(() => setIsLoading(false));

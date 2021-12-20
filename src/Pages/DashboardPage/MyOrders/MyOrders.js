@@ -16,7 +16,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/all-orders?email=${loggedInUser.email}`)
+      .get(`https://kacha-bazar.herokuapp.com/all-orders?email=${loggedInUser.email}`)
       .then((res) => {
         if (res.headers) {
           JSON.stringify(res.headers).slice(19, 20) === '2' && setNothing('Nothing order');
@@ -37,14 +37,14 @@ const MyOrders = () => {
       if (willDelete) {
         const loading = toast.loading('Deleting...Please Wait!!');
         axios
-          .delete(`http://localhost:5000/order/${id}`)
+          .delete(`https://kacha-bazar.herokuapp.com/order/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               swal('This Order has been deleted!!', {
                 icon: 'success',
               });
               axios
-                .get(`http://localhost:5000/all-orders?email=${loggedInUser.email}`)
+                .get(`https://kacha-bazar.herokuapp.com/all-orders?email=${loggedInUser.email}`)
                 .then((res) => {
                   if (res.headers) {
                     JSON.stringify(res.headers).slice(19, 20) === '2' && setNothing('Nothing order');

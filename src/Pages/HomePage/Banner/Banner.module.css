@@ -46,6 +46,8 @@
 
 .banner .banner__side img {
   height: 142px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .banner .banner__side img:nth-child(1) {

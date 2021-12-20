@@ -11,7 +11,7 @@ const ManageOrders = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/all-orders')
+      .get('https://kacha-bazar.herokuapp.com/all-orders')
       .then((res) => setOrders(res.data))
       .catch((err) => toast.error(err.message));
   }, []);
@@ -27,7 +27,7 @@ const ManageOrders = () => {
       if (willDelete) {
         const loading = toast.loading('Deleting...Please Wait!!');
         axios
-          .delete(`http://localhost:5000/order/${id}`)
+          .delete(`https://kacha-bazar.herokuapp.com/order/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               swal('This Order has been deleted!!', {
@@ -58,7 +58,7 @@ const ManageOrders = () => {
     const modifiedStatus = { id, status };
     const loading = toast.loading('Updating....Please wait!');
     axios
-      .put(`http://localhost:5000/order/${id}`, modifiedStatus)
+      .put(`https://kacha-bazar.herokuapp.com/order/${id}`, modifiedStatus)
       .then((res) => {
         if (res.status === 200) {
           toast.dismiss(loading);

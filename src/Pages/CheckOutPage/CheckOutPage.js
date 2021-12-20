@@ -49,7 +49,7 @@ const CheckOutPage = ({ cart, handleIncrease, totalPrice, handleDecrease, handle
     data.productInfo = cart;
     data.orderTime = `${day}-${monthName}-${year}`;
     data.status = 'Pending';
-    axios.post('http://localhost:5000/order', data).then((res) => {
+    axios.post('https://kacha-bazar.herokuapp.com/order', data).then((res) => {
       if (res.status === 200) {
         swal({
           title: `Well Done ${loggedInUser.displayName}!!`,

@@ -1,0 +1,38 @@
+.notFound__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.notFound__container div {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.notFound__container div h2 {
+  font-size: 50px;
+}
+
+.notFound__container div h3 {
+  margin-bottom: 15px;
+}
+
+.notFound__container div a {
+  border: 0;
+  outline: 0;
+  background-color: #10b981;
+  padding: 12px 35px;
+  text-align: center;
+  font-family: inherit;
+  border-radius: 7px;
+  color: #fff;
+  font-weight: 600;
+}

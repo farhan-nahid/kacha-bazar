@@ -8,6 +8,7 @@ import searchIcon from '../../../assets/images/search.svg';
 import userIcon from '../../../assets/images/user.svg';
 import useAuth from '../../../hooks/useAuth';
 import Cart from '../Cart/Cart';
+import ProfileDetails from '../ProfileDetails/ProfileDetails';
 import styles from './TopNavigation.module.css';
 
 const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, handleIncrease, totalPrice, handleCancelOrder }) => {
@@ -25,7 +26,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
         <Row>
           <Col lg={2} className='d-flex align-self-center'>
             <NavLink to='/'>
-              <img src={headerLogo} alt='headerLogo' />
+              <img src={headerLogo} alt='headerLogo' style={{ width: '110px' }} />
             </NavLink>
           </Col>
           <Col lg={7}>
@@ -46,18 +47,7 @@ const TopNavigation = ({ cart, handleShow, handleClose, show, handleDecrease, ha
                 <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
                 <span>{cart.length}</span>
               </li>
-              <li>
-                {!loggedInUser ? (
-                  <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} />
-                ) : (
-                  <img
-                    src={loggedInUser.photoURL}
-                    alt={loggedInUser.displayName}
-                    className='rounded-circle'
-                    onClick={() => navigate('/dashboard/profile')}
-                  />
-                )}
-              </li>
+              <li>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails />}</li>
               <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true}>
                 <Offcanvas.Header closeButton className='offCanvas__header'>
                   <Offcanvas.Title>

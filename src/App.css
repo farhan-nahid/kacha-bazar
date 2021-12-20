@@ -114,6 +114,10 @@ strong {
   margin-right: 10px;
 }
 
+.popover-body {
+  padding: 10px !important;
+}
+
 .fa-fedex,
 .fa-ups {
   font-size: 27px !important;

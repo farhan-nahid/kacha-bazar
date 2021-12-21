@@ -1,11 +1,4 @@
-import {
-  faFacebook,
-  faGithub,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-  faWhatsapp,
-} from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faInstagram, faLinkedin, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -20,48 +13,30 @@ const Footer = () => {
       <footer className={styles.footer}>
         <Container>
           <Row>
-            <Col lg={6} className={styles.logo}>
+            <Col lg={6} md={12} className={styles.logo}>
               <img src={footerLogo} alt='footerLogo' />
               <p>
-                There are many popular products you will find our shop, Choose
-                your daily necessary product from our KachaBazar shop and get
-                some special offer.
+                There are many popular products you will find our shop, Choose your daily necessary product from our KachaBazar shop and get some special offer.
               </p>
               <h6>Follow Us</h6>
               <ul className={styles.social__link}>
                 <li>
-                  <a
-                    href='https://www.facebook.com/dev.farhanNahid'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
+                  <a href='https://www.facebook.com/dev.farhanNahid' target='_blank' rel='noopener noreferrer'>
                     <FontAwesomeIcon icon={faFacebook} />
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='https://twitter.com/farhan__nahid'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
+                  <a href='https://twitter.com/farhan__nahid' target='_blank' rel='noopener noreferrer'>
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='https://www.instagram.com/farhan__nahid/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
+                  <a href='https://www.instagram.com/farhan__nahid/' target='_blank' rel='noopener noreferrer'>
                     <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='https://www.linkedin.com/in/farhan-nahid/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
+                  <a href='https://www.linkedin.com/in/farhan-nahid/' target='_blank' rel='noopener noreferrer'>
                     <FontAwesomeIcon icon={faLinkedin} />
                   </a>
                 </li>
@@ -71,17 +46,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='https://github.com/farhan-nahid'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
+                  <a href='https://github.com/farhan-nahid' target='_blank' rel='noopener noreferrer'>
                     <FontAwesomeIcon icon={faGithub} />
                   </a>
                 </li>
               </ul>
             </Col>
-            <Col lg={2} className={styles.footer__column}>
+            <Col lg={2} md={4} sm={6} xs={6} className={styles.footer__column}>
               <h5>Company</h5>
               <ul>
                 <li>
@@ -101,7 +72,7 @@ const Footer = () => {
                 </li>
               </ul>
             </Col>
-            <Col lg={2} className={styles.footer__column}>
+            <Col lg={2} md={4} sm={6} xs={6} className={styles.footer__column}>
               <h5>Top Category</h5>
               <ul>
                 <li>
@@ -121,7 +92,7 @@ const Footer = () => {
                 </li>
               </ul>
             </Col>
-            <Col lg={2} className={styles.footer__column}>
+            <Col lg={2} md={4} sm={6} xs={6} className={styles.footer__column}>
               <h5>My Account</h5>
               <ul>
                 <li>
@@ -144,25 +115,15 @@ const Footer = () => {
           </Row>
         </Container>
       </footer>
-      <section className='border-top'>
-        <Container className='d-flex justify-content-between p-4'>
-          <small>
-            Copyright 2021 @{' '}
-            <a
-              href='https://github.com/farhan-nahid'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Farhan
-            </a>
-            , All rights reserved.
-          </small>
-          <img
-            src={paymentLogo}
-            alt='paymentLogo'
-            style={{ width: '220px', height: '40px' }}
-          />
-        </Container>
+      <section id={styles.copyright__area} className='container'>
+        <small>
+          Copyright 2021 @
+          <a href='https://github.com/farhan-nahid' target='_blank' rel='noopener noreferrer'>
+            Farhan
+          </a>
+          , All rights reserved.
+        </small>
+        <img src={paymentLogo} alt='paymentLogo' />
       </section>
     </>
   );

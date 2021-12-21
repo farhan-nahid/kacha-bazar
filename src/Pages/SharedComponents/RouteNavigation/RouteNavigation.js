@@ -9,6 +9,7 @@ import contactUsIcon from '../../../assets/images/contactUs.svg';
 import errorIcon from '../../../assets/images/error.svg';
 import faqIcon from '../../../assets/images/faq.svg';
 import offerIcon from '../../../assets/images/gift.svg';
+import menuIcon from '../../../assets/images/icons/menu.svg';
 import privacyIcon from '../../../assets/images/privacy.svg';
 import termsIcon from '../../../assets/images/terms.svg';
 import styles from './RouteNavigation.module.css';
@@ -17,8 +18,8 @@ const RouteNavigation = () => {
   return (
     <nav className={styles.nav__items}>
       <Container>
-        <Row>
-          <Col lg={6}>
+        <Row className={styles.nav__links}>
+          <Col lg={8} md={8} sm={12}>
             <ul className={styles.left__item}>
               <li>
                 <NavLink to='/about-us' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
@@ -28,20 +29,18 @@ const RouteNavigation = () => {
                   Contact Us
                 </NavLink>
                 <span className={styles.dropdown}>
-                  Pages{' '}
+                  Pages
                   <span>
                     <FontAwesomeIcon icon={faChevronDown} />
                   </span>
                   <ul>
                     <li>
                       <NavLink to='/offer' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={offerIcon} alt='offerIcon' /> Offer
                       </NavLink>
                     </li>
                     <li>
                       <NavLink to='/checkout' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={checkoutIcon} alt='checkoutIcon' />
                         Checkout
                       </NavLink>
@@ -49,21 +48,18 @@ const RouteNavigation = () => {
 
                     <li>
                       <NavLink to='/faq' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={faqIcon} alt='faqIcon' /> FAQ
                       </NavLink>
                     </li>
 
                     <li>
                       <NavLink to='/about-us' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={aboutUsIcon} alt='aboutUsIcon' /> About Us
                       </NavLink>
                     </li>
 
                     <li>
                       <NavLink to='/contact-us' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={contactUsIcon} alt='contactUsIcon' />
                         Contact Us
                       </NavLink>
@@ -71,7 +67,6 @@ const RouteNavigation = () => {
 
                     <li>
                       <NavLink to='/privacy-and-policy' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={privacyIcon} alt='privacyIcon' />
                         Privacy Policy
                       </NavLink>
@@ -79,7 +74,6 @@ const RouteNavigation = () => {
 
                     <li>
                       <NavLink to='/terms-and-condition' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={termsIcon} alt='termsIcon' />
                         Terms & Conditions
                       </NavLink>
@@ -87,7 +81,6 @@ const RouteNavigation = () => {
 
                     <li>
                       <NavLink to='/not-found' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                        {' '}
                         <img src={errorIcon} alt='errorIcon' /> 404
                       </NavLink>
                     </li>
@@ -102,7 +95,7 @@ const RouteNavigation = () => {
               </li>
             </ul>
           </Col>
-          <Col lg={6}>
+          <Col lg={4} md={4} sm={12}>
             <ul className={styles.right__item}>
               <li>
                 <NavLink to='/privacy-policy' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
@@ -115,6 +108,9 @@ const RouteNavigation = () => {
             </ul>
           </Col>
         </Row>
+        <div className={styles.menu__bar}>
+          <img src={menuIcon} alt='menuIcon' />
+        </div>
       </Container>
     </nav>
   );

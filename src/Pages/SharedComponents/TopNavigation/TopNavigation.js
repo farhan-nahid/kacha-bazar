@@ -26,20 +26,20 @@ const TopNavigation = () => {
     <header id={styles.header__top}>
       <Container>
         <Row>
-          <Col lg={2} className='d-flex align-self-center'>
-            <NavLink to='/'>
-              <img src={headerLogo} alt='headerLogo' style={{ width: '110px' }} />
+          <Col lg={2} md={2} className='d-flex align-self-center'>
+            <NavLink to='/' className={styles.logo}>
+              <img src={headerLogo} alt='headerLogo' />
             </NavLink>
           </Col>
-          <Col lg={7}>
-            <form onSubmit={(e) => e.preventDefault()}>
+          <Col lg={7} md={7} sm={10} xs={10}>
+            <form onSubmit={(e) => e.preventDefault()} className={styles.input}>
               <input type='text' placeholder='Search for products (e.g. fish, apple, oil)' autoComplete='off' spellCheck='false' />
               <button type='submit'>
                 <img src={searchIcon} alt='searchIcon' />
               </button>
             </form>
           </Col>
-          <Col lg={3} className='d-flex justify-content-end align-self-center'>
+          <Col lg={3} md={3} sm={2} xs={2} className='d-flex justify-content-end align-self-center'>
             <ul className={styles.top__nav__icon}>
               <li>
                 <img src={notifyIcon} alt='notifyIcon' />
@@ -53,7 +53,6 @@ const TopNavigation = () => {
               <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true}>
                 <Offcanvas.Header closeButton className='offCanvas__header'>
                   <Offcanvas.Title>
-                    {' '}
                     <svg
                       stroke='currentColor'
                       fill='currentColor'
@@ -71,7 +70,7 @@ const TopNavigation = () => {
                         strokeWidth='32'
                         d='M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zm80 0v-32a96 96 0 0196-96h0a96 96 0 0196 96v32'
                       ></path>
-                    </svg>{' '}
+                    </svg>
                     Shopping Cart
                   </Offcanvas.Title>
                 </Offcanvas.Header>

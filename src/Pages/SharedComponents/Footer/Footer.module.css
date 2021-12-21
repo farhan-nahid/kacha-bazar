@@ -135,3 +135,30 @@
 .footer .footer__column ul li a:hover {
   color: #10b981;
 }
+
+#copyright__area {
+  border-top: 1px solid #ebe5e5;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+
+#copyright__area img {
+  width: 250px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 991px) {
+  .footer .footer__column {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  #copyright__area {
+    justify-content: center;
+  }
+  #copyright__area img {
+    display: none;
+  }
+}

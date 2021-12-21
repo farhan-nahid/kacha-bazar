@@ -46,10 +46,6 @@
 }
 
 @media only screen and (max-width: 580px) {
-  #products .products__container {
-    grid-template-columns: 1fr;
-  }
-
   #products p {
     width: 90%;
   }

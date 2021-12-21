@@ -148,3 +148,40 @@
 .cart__item__container::-webkit-scrollbar-track {
   background: #f6f1f1;
 }
+
+.logo img {
+  width: 110px;
+}
+
+@media only screen and (max-width: 767px) {
+  .logo {
+    display: none;
+  }
+
+  .top__nav__icon li:nth-child(1) {
+    display: none;
+  }
+
+  #header__top .top__nav__icon li {
+    margin-right: 30px;
+    margin-left: 0;
+  }
+  #header__top .top__nav__icon li:nth-child(3) {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .input {
+    width: 95%;
+  }
+  #header__top form button {
+    right: 30px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .input {
+    width: 90%;
+  }
+}

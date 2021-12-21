@@ -53,3 +53,14 @@
 .banner .banner__side img:nth-child(1) {
   margin-bottom: 16px;
 }
+
+@media only screen and (max-width: 500px) {
+  .banner .banner__side {
+    display: none;
+  }
+
+  .banner .carousel__item .overlay {
+    left: 20px;
+    width: 100%;
+  }
+}

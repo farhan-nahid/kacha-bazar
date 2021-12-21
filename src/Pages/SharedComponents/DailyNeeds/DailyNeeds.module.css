@@ -32,3 +32,19 @@
 #daily__needs .daily__needs__content img:nth-child(1) {
   margin-right: 20px;
 }
+
+#daily__needs .deal__image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 767px) {
+  #daily__needs .deal__image {
+    display: none;
+  }
+
+  #daily__needs .daily__needs__content img {
+    margin-right: 0;
+    display: block;
+  }
+}

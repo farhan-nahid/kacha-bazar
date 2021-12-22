@@ -45,12 +45,11 @@ https://kacha-bazar.herokuapp.com
 - [x] React Router Dom (6.0)
 - [x] Axios
 - [x] JWT Token
-- [x] Hooks (useState, useEffect, useHistory, useLocation, useRef)
-- [x] Custom Hooks (useAuth, useFirebase, useProducts)
+- [x] Hooks (useState, useEffect, useNavigate, useLocation, useRef)
+- [x] Custom Hooks (useAuth, useFirebase, useRedux)
 - [x] Context API
 - [x] Font Awesome Icons
-- [x] React Hot Toast
-- [x] Sweet Alert
+- [x] SVG
 - [x] Firebase
 - [x] Firebase Admin SDK
 - [x] NodeJS

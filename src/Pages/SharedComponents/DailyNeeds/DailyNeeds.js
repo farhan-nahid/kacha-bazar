@@ -11,7 +11,7 @@ const DailyNeeds = () => {
       <Container>
         <Row>
           <Col lg={6} md={6} className={styles.daily__needs__content}>
-            <h5>Get Your Daily Needs From Our KachaBazar Store</h5>
+            <h5>Get Your Daily Needs From Our Kacha Bazar Store</h5>
             <p>There are many products you will find our shop, Choose your daily necessary product from our KachaBazar shop and get some special offer.</p>
             <span>
               <img src={appStore} alt='appStore' />

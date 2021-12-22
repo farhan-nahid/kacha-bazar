@@ -17,3 +17,9 @@
   margin-top: 20px;
   color: #4b5563;
 }
+
+@media only screen and (max-width: 500px) {
+  #categories {
+    margin-top: 50px;
+  }
+}

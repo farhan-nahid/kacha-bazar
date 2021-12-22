@@ -1,5 +1,5 @@
 #daily__needs {
-  background-color: #eef2ff;
+  background-color: #198754;
   padding: 50px 0;
 }
 
@@ -13,7 +13,7 @@
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
-  color: #000;
+  color: #fff;
   margin-bottom: 20px;
 }
 
@@ -21,7 +21,7 @@
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #4b5563;
+  color: #fff;
 }
 
 #daily__needs .daily__needs__content img {

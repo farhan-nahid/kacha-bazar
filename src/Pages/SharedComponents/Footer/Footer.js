@@ -118,7 +118,7 @@ const Footer = () => {
       <section id={styles.copyright__area} className='container'>
         <small>
           Copyright 2021 @
-          <a href='https://github.com/farhan-nahid' target='_blank' rel='noopener noreferrer'>
+          <a href='https://www.facebook.com/dev.farhanNahid' target='_blank' rel='noopener noreferrer' className='mx-1'>
             Farhan
           </a>
           , All rights reserved.

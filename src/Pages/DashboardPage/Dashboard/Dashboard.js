@@ -7,7 +7,6 @@ import useAuth from '../../../hooks/useAuth';
 import useRedux from '../../../hooks/useRedux';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Footer from '../../SharedComponents/Footer/Footer';
-import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Dashboard.module.css';
 
@@ -27,7 +26,6 @@ const Dashboard = () => {
   return (
     <>
       <TopNavigation />
-      <RouteNavigation />
       <section id={styles.dashboard}>
         <Container>
           <Row>

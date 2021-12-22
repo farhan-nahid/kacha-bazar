@@ -12,7 +12,6 @@ import passwordIcon from '../../../assets/images/login/password.svg';
 import userIcon from '../../../assets/images/login/user.svg';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../SharedComponents/Footer/Footer';
-import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Register.module.css';
 
@@ -52,7 +51,6 @@ const Register = () => {
   return (
     <>
       <TopNavigation />
-      <RouteNavigation />
 
       <section id={styles.register}>
         <Container>

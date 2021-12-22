@@ -6,6 +6,7 @@ import styles from './Cart.module.css';
 
 const Cart = ({ pd }) => {
   const { handleIncrease, handleDecrease, handleCancelOrder } = useRedux();
+  
   return (
     <div className={styles.cart__item}>
       <div className='d-flex align-self-center'>

@@ -13,8 +13,8 @@ const Banner = () => {
 
   return (
     <Container id='banner' className={styles.banner}>
-      <Row>
-        <Col lg={6}>
+      <Row className='mt-5 pt-5 pt-md-0 mt-md-0'>
+        <Col lg={6} md={12}>
           <Carousel pause='false'>
             <Carousel.Item className={styles.carousel__item}>
               <img className='img-fluid w-100' src={first} alt='First' />
@@ -26,7 +26,7 @@ const Banner = () => {
             </Carousel.Item>
 
             <Carousel.Item className={styles.carousel__item}>
-              <img className='img-fluid w-100' src={second} alt='Second' />
+              <img src={second} alt='Second' />
               <div className={styles.overlay}>
                 <h3> Best Different Type of Grocery Store </h3>
                 <p>Quickly aggregate empowered networks after emerging products...</p>
@@ -35,7 +35,7 @@ const Banner = () => {
             </Carousel.Item>
 
             <Carousel.Item className={styles.carousel__item}>
-              <img className='img-fluid w-100' src={third} alt='Third' />
+              <img src={third} alt='Third' />
               <div className={styles.overlay}>
                 <h3> Quality Freshness Guaranteed!</h3>
                 <p>intrinsically fashion performance based products rather than accurate benefits...</p>
@@ -44,7 +44,7 @@ const Banner = () => {
             </Carousel.Item>
           </Carousel>
         </Col>
-        <Col lg={6} className={styles.banner__side}>
+        <Col lg={6} md={12} className={styles.banner__side}>
           <img src={banner1} alt='banner1' />
           <img src={banner2} alt='banner2' />
         </Col>

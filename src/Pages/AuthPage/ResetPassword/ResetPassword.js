@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import emailIcon from '../../../assets/images/login/email.svg';
 import forgetPass from '../../../assets/images/login/forget-password.png';
 import Footer from '../../SharedComponents/Footer/Footer';
-import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './ResetPassword.module.css';
 
@@ -20,7 +19,6 @@ const ResetPassword = () => {
   return (
     <>
       <TopNavigation />
-      <RouteNavigation />
       <Container className={styles.reset__section}>
         <div className={styles.reset__container}>
           <img src={forgetPass} alt='forgetPass' className={styles.reset__img} />

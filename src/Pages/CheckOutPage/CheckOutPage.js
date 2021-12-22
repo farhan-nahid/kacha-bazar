@@ -10,7 +10,6 @@ import useAuth from '../../hooks/useAuth';
 import useRedux from '../../hooks/useRedux';
 import Cart from '../SharedComponents/Cart/Cart';
 import Footer from '../SharedComponents/Footer/Footer';
-import RouteNavigation from '../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../SharedComponents/TopNavigation/TopNavigation';
 import styles from './CheckoutPage.module.css';
 
@@ -68,7 +67,6 @@ const CheckOutPage = () => {
   return (
     <>
       <TopNavigation />
-      <RouteNavigation />
       <section id={styles.checkout}>
         <Container>
           <Row>

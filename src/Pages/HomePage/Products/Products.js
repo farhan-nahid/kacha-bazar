@@ -2,14 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import toast from 'react-hot-toast';
-import useRedux from '../../../hooks/useRedux';
 import LoadingSpinner from '../../SharedComponents/LoadingSpinner/LoadingSpinner';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './Products.module.css';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const { handleAddToCart } = useRedux();
 
   useEffect(() => {
     axios
@@ -28,7 +26,7 @@ const Products = () => {
             {
               // map category data
               products.map((product) => (
-                <ProductCard key={product._id} product={product} handleAddToCart={handleAddToCart} />
+                <ProductCard key={product._id} product={product} />
               ))
             }
           </div>

@@ -18,6 +18,7 @@
   color: #4b5563;
   width: 500px;
   margin: 20px auto;
+  text-align: justify;
 }
 
 #products .products__container {
@@ -48,5 +49,13 @@
 @media only screen and (max-width: 580px) {
   #products p {
     width: 90%;
+  }
+
+  #products {
+    padding: 50px 0;
+  }
+
+  #products .products__container {
+    margin: 40px 0;
   }
 }

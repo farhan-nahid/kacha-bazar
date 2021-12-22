@@ -1,5 +1,6 @@
 .footer {
   margin: 100px 0;
+  position: relative;
 }
 
 .footer .logo img {
@@ -148,16 +149,26 @@
   object-fit: cover;
 }
 
+#copyright__area a {
+  color: #10b981;
+  font-weight: 500;
+}
+
 @media only screen and (max-width: 991px) {
   .footer .footer__column {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 768px) {
+  .footer {
+    margin: 50px 0;
+  }
+
   #copyright__area {
     justify-content: center;
   }
+
   #copyright__area img {
     display: none;
   }

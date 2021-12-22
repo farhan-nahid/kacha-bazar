@@ -1,5 +1,7 @@
 .banner {
   margin-top: 30px;
+  height: 300px;
+  overflow: hidden;
 }
 
 .banner .carousel__item {
@@ -7,7 +9,7 @@
 }
 
 .banner .carousel__item img {
-  border-radius: 6px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
 }
@@ -23,19 +25,19 @@
 .banner .carousel__item .overlay h3 {
   font-weight: 700;
   color: #1f2937;
-  size: 30px;
+  font-size: 30px;
   line-height: 36px;
 }
 
 .banner .carousel__item .overlay p {
   color: #4b5563;
-  size: 16px;
+  font-size: 16px;
   line-height: 24px;
   margin: 10px 0;
 }
 
 .banner .carousel__item .overlay button {
-  border-radius: 9px;
+  border-radius: 5px;
   color: #fff;
   border: 0;
   outline: 0;
@@ -45,20 +47,52 @@
 }
 
 .banner .banner__side img {
-  height: 142px;
   width: 100%;
+  height: 140px;
   object-fit: cover;
 }
 
 .banner .banner__side img:nth-child(1) {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .banner .carousel__item .overlay {
+    width: 90%;
+  }
+
+  .banner .carousel__item .overlay h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .banner .carousel__item .overlay p {
+    font-size: 13px;
+    line-height: 18px;
+    margin: 6px 0;
+  }
+
+  .banner .carousel__item .overlay button {
+    padding: 5px 15px;
+    margin-top: 6px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .banner__side {
+    margin-top: 30px;
+  }
+
+  .banner {
+    height: auto;
+  }
+
+  .banner .carousel__item img {
+    height: 100%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-  .banner .banner__side {
-    display: none;
-  }
-
   .banner .carousel__item .overlay {
     left: 20px;
     width: 100%;

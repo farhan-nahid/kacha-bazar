@@ -11,7 +11,6 @@ import googleIcon from '../../../assets/images/login/google.svg';
 import passwordIcon from '../../../assets/images/login/password.svg';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../SharedComponents/Footer/Footer';
-import RouteNavigation from '../../SharedComponents/RouteNavigation/RouteNavigation';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Login.module.css';
 
@@ -38,8 +37,6 @@ const Login = () => {
   return (
     <>
       <TopNavigation />
-      <RouteNavigation />
-
       <section id={styles.login}>
         <Container>
           <h3>Sign In!</h3>

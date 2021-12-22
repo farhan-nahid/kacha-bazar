@@ -10,10 +10,6 @@
   border-radius: 5px;
 }
 
-.card:hover {
-  transform: scale(1.02);
-}
-
 .card img {
   height: 35px;
   width: 35px;

@@ -1,0 +1,22 @@
+.card {
+  padding: 20px;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.card p {
+  font-size: 14px !important;
+  width: 100% !important;
+}
+
+.card h6 {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1f2937;
+  margin: 10px 0 5px 0;
+}

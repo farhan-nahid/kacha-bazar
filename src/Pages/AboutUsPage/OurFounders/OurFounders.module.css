@@ -1,0 +1,17 @@
+.founders h3 {
+  font-weight: 600;
+  font-size: 28px;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.founders p {
+  font-size: 16px;
+  list-style: 28px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .founders p {
+    width: 100% !important;
+  }
+}

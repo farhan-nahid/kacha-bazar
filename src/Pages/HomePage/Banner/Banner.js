@@ -13,7 +13,7 @@ const Banner = () => {
 
   return (
     <Container id='banner' className={styles.banner}>
-      <Row className='mt-5 pt-5 pt-md-0 mt-md-0'>
+      <Row className='mt-5 mt-md-0'>
         <Col lg={6} md={12}>
           <Carousel pause='false'>
             <Carousel.Item className={styles.carousel__item}>
@@ -21,7 +21,7 @@ const Banner = () => {
               <div className={styles.overlay}>
                 <h3> The Best Quality Products Guaranteed!</h3>
                 <p>Dramatically facilitate effective total linkage for go forward processes...</p>
-                <button onClick={() => navigate('/all-products')}>Learn More</button>
+                <button onClick={() => navigate('/categories')}>Learn More</button>
               </div>
             </Carousel.Item>
 
@@ -30,7 +30,7 @@ const Banner = () => {
               <div className={styles.overlay}>
                 <h3> Best Different Type of Grocery Store </h3>
                 <p>Quickly aggregate empowered networks after emerging products...</p>
-                <button onClick={() => navigate('/all-products')}>Learn More</button>
+                <button onClick={() => navigate('/categories')}>Learn More</button>
               </div>
             </Carousel.Item>
 
@@ -39,7 +39,7 @@ const Banner = () => {
               <div className={styles.overlay}>
                 <h3> Quality Freshness Guaranteed!</h3>
                 <p>intrinsically fashion performance based products rather than accurate benefits...</p>
-                <button onClick={() => navigate('/all-products')}>Learn More</button>
+                <button onClick={() => navigate('/categories')}>Learn More</button>
               </div>
             </Carousel.Item>
           </Carousel>

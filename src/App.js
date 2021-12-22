@@ -19,6 +19,7 @@ const Login = lazy(() => import('./Pages/AuthPage/LogIn/Login'));
 const AboutUs = lazy(() => import('./Pages/AboutUsPage/AboutUs/AboutUs'));
 const Register = lazy(() => import('./Pages/AuthPage/Register/Register'));
 const Dashboard = lazy(() => import('./Pages/DashboardPage/Dashboard/Dashboard'));
+const Categories = lazy(() => import('./Pages/CategoriesPage/Categories/Categories'));
 const CheckOutPage = lazy(() => import('./Pages/CheckOutPage/CheckOutPage'));
 const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 const ResetPassword = lazy(() => import('./Pages/AuthPage/ResetPassword/ResetPassword'));
@@ -36,6 +37,7 @@ function App() {
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/register' element={<Register />} />
           <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/categories' element={<Categories />} />
           <Route
             path='/checkout'
             element={

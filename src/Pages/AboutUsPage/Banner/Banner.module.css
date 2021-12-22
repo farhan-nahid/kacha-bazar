@@ -1,5 +1,7 @@
 #about__banner {
-  background: url('../../../assets/images/page-header-bg.jpg') no-repeat center / cover;
+  background: url('../../../assets/images/page-header-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 200px;
   display: flex;
   justify-content: center;

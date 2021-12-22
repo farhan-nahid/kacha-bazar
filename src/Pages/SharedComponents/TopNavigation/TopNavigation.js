@@ -137,6 +137,9 @@ const TopNavigation = () => {
               <Col lg={8} md={7} sm={12} className='p-0'>
                 <ul className={styles.left__item}>
                   <li>
+                    <NavLink to='/categories' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
+                      Categories
+                    </NavLink>
                     <NavLink to='/about-us' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                       About Us
                     </NavLink>
@@ -201,9 +204,6 @@ const TopNavigation = () => {
                     </span>
                     <NavLink to='/offers' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                       Offers
-                    </NavLink>
-                    <NavLink to='/dashboard' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                      Dashboard
                     </NavLink>
                   </li>
                 </ul>

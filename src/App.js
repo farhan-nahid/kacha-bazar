@@ -92,7 +92,6 @@ function App() {
               }
             />
           </Route>
-          <Route path='/not-found' element={<NotFoundPage />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Suspense>

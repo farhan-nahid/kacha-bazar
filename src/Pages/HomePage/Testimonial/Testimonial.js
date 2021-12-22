@@ -1,4 +1,4 @@
-import { faQuoteLeft, faQuoteRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styles from './Testimonial.module.css';
@@ -15,16 +15,16 @@ const showRating = (star) => {
 const Testimonial = ({ review: { star, image, reviewText, email } }) => {
   return (
     <div className={styles.testimonial__card}>
-      <div className={styles.testimonial__image}>
+      <h6>Our Happy Clients</h6>
+      <h3>What Clients Say ?</h3>
+      <p>{reviewText}</p>
+      <div className='d-flex align-items-center mt-5'>
         <img src={image} alt={email} />
+        <div className='ms-3 text-start'>
+          <span>{email}</span> <br />
+          <span> {showRating(star)}</span>
+        </div>
       </div>
-      <FontAwesomeIcon icon={faQuoteRight} className={styles.quote__icon__right} />
-      <FontAwesomeIcon icon={faQuoteLeft} className={styles.quote__icon__left} />
-      <div className={styles.testimonial__description}>
-        <p>{reviewText}</p>
-      </div>
-      {showRating(star)}
-      <h6>{email}</h6>
     </div>
   );
 };

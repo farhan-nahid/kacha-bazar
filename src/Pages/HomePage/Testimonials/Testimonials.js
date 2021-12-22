@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/components/navigation/navigation.min.css';
@@ -16,21 +16,9 @@ SwiperCore.use([Pagination, Autoplay]);
 const swiperSettings = {
   loop: true,
   autoplay: { delay: 2500, disableOnInteraction: false },
-  spaceBetween: 20,
-  slidesPerView: 3,
+  slidesPerView: 1,
   pagination: {
     clickable: true,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    992: {
-      slidesPerView: 3,
-    },
   },
 };
 
@@ -46,20 +34,28 @@ const Testimonials = () => {
 
   return (
     <section id={styles.testimonials}>
-      <Container>
-        <h3>Testimonials</h3>
-        {testimonials.length ? (
-          <Swiper {...swiperSettings}>
-            {testimonials.map((review) => (
-              <SwiperSlide key={review._id}>
-                <Testimonial review={review} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <LoadingSpinner />
-        )}
-      </Container>
+      <div className={styles.transparent}>
+        <Container>
+          <Row>
+            <Col lg={7} md={5} className='d-flex align-self-center'>
+              <h1>So that's us.There's no other way to put it.</h1>
+            </Col>
+            <Col lg={5} md={7}>
+              {testimonials.length ? (
+                <Swiper {...swiperSettings}>
+                  {testimonials.map((review) => (
+                    <SwiperSlide key={review._id}>
+                      <Testimonial review={review} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <LoadingSpinner />
+              )}
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </section>
   );
 };

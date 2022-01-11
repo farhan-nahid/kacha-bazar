@@ -63,21 +63,21 @@ const TopNavigation = () => {
   const categories = [
     {
       id: 1,
-      name: 'Fish & Meat',
-      image: fish,
-      link: '/categories/Fish%20and%20Meat',
-    },
-    {
-      id: 2,
       name: 'Fruits & Vegetable',
       image: fruits,
       link: '/categories/Fresh%20Vegetable',
     },
     {
+      id: 2,
+      name: 'Fish & Meat',
+      image: fish,
+      link: '/categories/Fish%20and%20Meat',
+    },
+    {
       id: 3,
-      name: 'Sauces',
-      image: shrimp,
-      link: '/categories/Sauces',
+      name: 'Organic Food',
+      image: apple,
+      link: '/categories/Organic%20Food',
     },
     {
       id: 4,
@@ -103,31 +103,39 @@ const TopNavigation = () => {
       image: milk,
       link: '/categories/Milk%20and%20Dairy',
     },
+
     {
       id: 8,
-      name: 'Organic Food',
-      image: apple,
-      link: '/categories/Organic%20Food',
-    },
-    {
-      id: 9,
       name: 'Honey',
       image: honey,
       link: '/categories/Honey',
     },
     {
-      id: 10,
-      name: 'Sauces & Pickles',
-      image: chili,
-    },
-    {
-      id: 11,
+      id: 9,
       name: 'Jam & Jelly',
       image: jam,
       link: '/categories/Jam%20and%20Jelly',
     },
     {
+      id: 10,
+      name: 'Beauty & health',
+      image: beauty,
+      link: '/categories/Beauty%20and%20Health',
+    },
+    {
+      id: 11,
+      name: 'Sauces',
+      image: shrimp,
+      link: '/categories/Sauces',
+    },
+    {
       id: 12,
+      name: 'Pickles & Condiments',
+      image: chili,
+      link: '/categories/Pickles%20and%20Condiments',
+    },
+    {
+      id: 21,
       name: 'Snacks & Instant',
       image: chips,
     },
@@ -151,12 +159,7 @@ const TopNavigation = () => {
       name: 'Pet Care',
       image: cat,
     },
-    {
-      id: 17,
-      name: 'Beauty & health',
-      image: beauty,
-      link: '/categories/Beauty%20and%20Health',
-    },
+
     {
       id: 18,
       name: 'Sports & Fitness',

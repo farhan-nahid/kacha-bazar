@@ -8,6 +8,7 @@ import beauty from '../../../assets/images/categories/beauty.webp';
 import breakfast from '../../../assets/images/categories/Breakfast.webp';
 import vegetable from '../../../assets/images/categories/cabbage.webp';
 import fish from '../../../assets/images/categories/carp-fish.webp';
+import chili from '../../../assets/images/categories/chili-sauce.webp';
 import cooking from '../../../assets/images/categories/Cooking.webp';
 import honey from '../../../assets/images/categories/honey.webp';
 import milk from '../../../assets/images/categories/milk.webp';
@@ -17,7 +18,6 @@ import jam from '../../../assets/images/categories/strawberry-jam.webp';
 /*
 import baby from '../../../assets/images/categories/baby.webp';
 import cat from '../../../assets/images/categories/cat.webp';
-import chili from '../../../assets/images/categories/chili-sauce.webp';
 import chips from '../../../assets/images/categories/chips.webp';
 import cleaner from '../../../assets/images/categories/cleaner.webp';
 import cookie from '../../../assets/images/categories/cookie.webp';
@@ -76,6 +76,9 @@ const Categories = () => {
     }
     if (pd === 'Sauces') {
       allPd.push({ name: 'Sauces', img: shrimp });
+    }
+    if (pd === 'Pickles and Condiments') {
+      allPd.push({ name: 'Pickles and Condiments', img: chili });
     }
   }
 

@@ -67,42 +67,21 @@ const AddProduct = () => {
       <h3>Add Product</h3>
       <form onSubmit={handleProductSubmit}>
         <span className={styles.inputs}>
-          <input
-            type='text'
-            placeholder='Product Name'
-            id='pdName'
-            onBlur={handelBlur}
-            autoComplete='off'
-            name='name'
-          />
+          <input type='text' placeholder='Product Name' id='pdName' onBlur={handelBlur} autoComplete='off' name='name' />
           <label htmlFor='pdName'>
             <img src={product} alt='product' />
           </label>
         </span>
 
         <span className={styles.inputs}>
-          <input
-            type='number'
-            placeholder='Product Price'
-            id='pdPrice'
-            onBlur={handelBlur}
-            autoComplete='off'
-            name='price'
-          />
+          <input type='number' placeholder='Product Price' id='pdPrice' onBlur={handelBlur} autoComplete='off' name='price' />
           <label htmlFor='pdPrice'>
             <img src={price} alt='price' />
           </label>
         </span>
 
         <span className={styles.inputs}>
-          <input
-            type='text'
-            placeholder='Product Category'
-            id='pdCategory'
-            onBlur={handelBlur}
-            autoComplete='off'
-            name='category'
-          />
+          <input type='text' placeholder='Product Category' id='pdCategory' onBlur={handelBlur} autoComplete='off' name='category' />
           <label htmlFor='pdCategory'>
             <img src={category} alt='category' />
           </label>

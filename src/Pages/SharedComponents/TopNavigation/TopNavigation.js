@@ -75,28 +75,33 @@ const TopNavigation = () => {
     },
     {
       id: 3,
-      name: 'Fresh Seafood',
+      name: 'Sauces',
       image: shrimp,
+      link: '/categories/Sauces',
     },
     {
       id: 4,
       name: 'Cooking Essentials',
       image: cooking,
+      link: '/categories/Cooking%20Essentials',
     },
     {
       id: 5,
       name: 'Breakfast',
       image: breakfast,
+      link: '/categories/Breakfast',
     },
     {
       id: 6,
       name: 'Drinks',
       image: drink,
+      link: '/categories/Drinks',
     },
     {
       id: 7,
       name: 'Milk & Dairy',
       image: milk,
+      link: '/categories/Milk%20and%20Dairy',
     },
     {
       id: 8,
@@ -108,6 +113,7 @@ const TopNavigation = () => {
       id: 9,
       name: 'Honey',
       image: honey,
+      link: '/categories/Honey',
     },
     {
       id: 10,
@@ -118,6 +124,7 @@ const TopNavigation = () => {
       id: 11,
       name: 'Jam & Jelly',
       image: jam,
+      link: '/categories/Jam%20and%20Jelly',
     },
     {
       id: 12,
@@ -148,6 +155,7 @@ const TopNavigation = () => {
       id: 17,
       name: 'Beauty & health',
       image: beauty,
+      link: '/categories/Beauty%20and%20Health',
     },
     {
       id: 18,
@@ -189,15 +197,7 @@ const TopNavigation = () => {
                   <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true} style={{ zIndex: 10000000 }}>
                     <Offcanvas.Header closeButton className='offCanvas__header'>
                       <Offcanvas.Title>
-                        <svg
-                          stroke='currentColor'
-                          fill='currentColor'
-                          strokeWidth='0'
-                          viewBox='0 0 512 512'
-                          height='1em'
-                          width='1em'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
+                        <svg stroke='currentColor' fill='currentColor' strokeWidth='0' viewBox='0 0 512 512' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'>
                           <path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M320 264l-89.6 112-38.4-44.88'></path>
                           <path
                             fill='none'
@@ -214,15 +214,7 @@ const TopNavigation = () => {
                       {!cart.length && (
                         <div className={styles.placeholder__text}>
                           <span className={styles.placeholder__image}>
-                            <svg
-                              stroke='currentColor'
-                              fill='#10b981 '
-                              strokeWidth='0'
-                              viewBox='0 0 512 512'
-                              height='30px'
-                              width='30px'
-                              xmlns='http://www.w3.org/2000/svg'
-                            >
+                            <svg stroke='currentColor' fill='#10b981 ' strokeWidth='0' viewBox='0 0 512 512' height='30px' width='30px' xmlns='http://www.w3.org/2000/svg'>
                               <path d='M454.65 169.4A31.82 31.82 0 00432 160h-64v-16a112 112 0 00-224 0v16H80a32 32 0 00-32 32v216c0 39 33 72 72 72h272a72.22 72.22 0 0050.48-20.55 69.48 69.48 0 0021.52-50.2V192a31.75 31.75 0 00-9.35-22.6zM176 144a80 80 0 01160 0v16H176zm192 96a112 112 0 01-224 0v-16a16 16 0 0132 0v16a80 80 0 00160 0v-16a16 16 0 0132 0z'></path>
                             </svg>
                           </span>
@@ -370,21 +362,11 @@ const TopNavigation = () => {
               <span>{cart.length}</span>
             </span>
 
-            <span className={styles.mobile__menu__icons}>
-              {!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails setCart={setCart} />}
-            </span>
+            <span className={styles.mobile__menu__icons}>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails setCart={setCart} />}</span>
             <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true}>
               <Offcanvas.Header closeButton className='offCanvas__header'>
                 <Offcanvas.Title>
-                  <svg
-                    stroke='currentColor'
-                    fill='currentColor'
-                    strokeWidth='0'
-                    viewBox='0 0 512 512'
-                    height='1em'
-                    width='1em'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
+                  <svg stroke='currentColor' fill='currentColor' strokeWidth='0' viewBox='0 0 512 512' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'>
                     <path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M320 264l-89.6 112-38.4-44.88'></path>
                     <path
                       fill='none'
@@ -401,15 +383,7 @@ const TopNavigation = () => {
                 {!cart.length && (
                   <div className={styles.placeholder__text}>
                     <span className={styles.placeholder__image}>
-                      <svg
-                        stroke='currentColor'
-                        fill='#10b981 '
-                        strokeWidth='0'
-                        viewBox='0 0 512 512'
-                        height='30px'
-                        width='30px'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
+                      <svg stroke='currentColor' fill='#10b981 ' strokeWidth='0' viewBox='0 0 512 512' height='30px' width='30px' xmlns='http://www.w3.org/2000/svg'>
                         <path d='M454.65 169.4A31.82 31.82 0 00432 160h-64v-16a112 112 0 00-224 0v16H80a32 32 0 00-32 32v216c0 39 33 72 72 72h272a72.22 72.22 0 0050.48-20.55 69.48 69.48 0 0021.52-50.2V192a31.75 31.75 0 00-9.35-22.6zM176 144a80 80 0 01160 0v16H176zm192 96a112 112 0 01-224 0v-16a16 16 0 0132 0v16a80 80 0 00160 0v-16a16 16 0 0132 0z'></path>
                       </svg>
                     </span>

@@ -1,5 +1,4 @@
 #testimonials {
-  margin-top: 100px;
   background-image: url('../../../assets/images/testimonials.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,14 +24,12 @@
     width: 100%;
     text-align: center;
     margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 40px;
   }
 }
 
 @media only screen and (max-width: 580px) {
-  #testimonials {
-    margin-top: 50px;
-  }
-
   .transparent {
     padding: 50px 0;
   }

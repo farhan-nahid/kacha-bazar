@@ -12,14 +12,16 @@ const showRating = (star) => {
   return <div>{stars}</div>;
 };
 
-const Testimonial = ({ review: { star, image, reviewText, email } }) => {
+const Testimonial = (props) => {
+  const { star, image, reviewText, email } = props?.review;
+ 
   return (
     <div className={styles.testimonial__card}>
       <h6>Our Happy Clients</h6>
       <h3>What Clients Say ?</h3>
       <p>{reviewText}</p>
       <div className='d-flex align-items-center mt-5'>
-        <img src={image} alt={email} />
+        <img src={image} alt='..' />
         <div className='ms-3 text-start'>
           <span>{email}</span> <br />
           <span> {showRating(star)}</span>

@@ -31,7 +31,7 @@ const OurFounders = () => {
     },
     {
       id: 4,
-      name: '  Dara Frazier',
+      name: 'Dara Frazier',
       image: team4,
       post: 'Chief Strategy Officer',
     },
@@ -55,7 +55,7 @@ const OurFounders = () => {
       <p className='w-75'>We’re impartial and independent, and every day we create distinctive, world-class re intermediate backend supply programmes.</p>
       <Row className='g-4 my-3 my-md-4'>
         {founders.map((founder) => (
-          <FounderCard id={founder.id} founder={founder} />
+          <FounderCard key={founder.id} founder={founder} />
         ))}
       </Row>
     </Container>

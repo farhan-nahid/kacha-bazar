@@ -1,15 +1,15 @@
-#dashboard {
+#categories {
   padding: 50px 0;
   background-color: #f9fafb;
 }
 
-#dashboard aside {
+#categories aside {
   background-color: #fff;
   padding: 20px;
   margin-bottom: 40px;
 }
 
-#dashboard aside a {
+#categories aside a {
   display: block;
   padding: 8px;
   margin-bottom: 10px;
@@ -18,16 +18,21 @@
   transition: all linear 0.3s;
 }
 
-#dashboard aside a:hover {
+#categories aside a img {
+  height: 30px;
+  width: 30px;
+}
+
+#categories aside a:hover {
   color: #10b981;
   background-color: #f9fafb;
 }
 
-#dashboard aside .active {
-  color: #10b981;
-  background-color: #f9fafb;
+#aside.active {
+  color: #628579 !important;
+  background-color: #f9fafb !important;
 }
 
-#dashboard aside a span {
+#categories aside a span {
   margin: 0 20px;
 }

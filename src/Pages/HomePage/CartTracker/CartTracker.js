@@ -5,6 +5,11 @@ import styles from './CartTracker.module.css';
 const CartTracker = () => {
   const { cart, handleShow, totalPrice } = useRedux();
 
+  let total = 0;
+  for (const pd of cart) {
+    total = total + Number(pd.quantity);
+  }
+
   return (
     <section id={styles.cart__tracker} onClick={handleShow}>
       <span>
@@ -18,7 +23,7 @@ const CartTracker = () => {
           ></path>
           <path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M160 224v16a96 96 0 0096 96h0a96 96 0 0096-96v-16'></path>
         </svg>
-        <p>{cart.length}</p>
+        <p>{total}</p>
       </span>
       <h6>{totalPrice ? totalPrice : '00'}.00</h6>
     </section>

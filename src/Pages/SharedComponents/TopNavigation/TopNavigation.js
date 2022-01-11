@@ -5,6 +5,24 @@ import { Col, Container, Offcanvas, Row } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
 import aboutUsIcon from '../../../assets/images/aboutUs.svg';
 import cartIcon from '../../../assets/images/cart.svg';
+import apple from '../../../assets/images/categories/apple.webp';
+import baby from '../../../assets/images/categories/baby.webp';
+import beauty from '../../../assets/images/categories/beauty.webp';
+import breakfast from '../../../assets/images/categories/Breakfast.webp';
+import fruits from '../../../assets/images/categories/cabbage.webp';
+import fish from '../../../assets/images/categories/carp-fish.webp';
+import cat from '../../../assets/images/categories/cat.webp';
+import chili from '../../../assets/images/categories/chili-sauce.webp';
+import chips from '../../../assets/images/categories/chips.webp';
+import cleaner from '../../../assets/images/categories/cleaner.webp';
+import cookie from '../../../assets/images/categories/cookie.webp';
+import cooking from '../../../assets/images/categories/Cooking.webp';
+import dumbbell from '../../../assets/images/categories/dumbbell.webp';
+import honey from '../../../assets/images/categories/honey.webp';
+import milk from '../../../assets/images/categories/milk.webp';
+import shrimp from '../../../assets/images/categories/shrimp.webp';
+import drink from '../../../assets/images/categories/soft-drink.webp';
+import jam from '../../../assets/images/categories/strawberry-jam.webp';
 import checkoutIcon from '../../../assets/images/checkout.svg';
 import contactUsIcon from '../../../assets/images/contactUs.svg';
 import errorIcon from '../../../assets/images/error.svg';
@@ -30,12 +48,113 @@ const TopNavigation = () => {
   const { loggedInUser } = useAuth();
   const { cart, totalPrice, setCart, show, handleClose, handleShow } = useRedux();
 
+  let total = 0;
+  for (const pd of cart) {
+    total = total + Number(pd.quantity);
+  }
+
   const handleMenuShow = () => setMenuShow(true);
   const handleMenuClose = () => setMenuShow(false);
   const handelClick = () => {
     navigate('/checkout');
     handleClose();
   };
+
+  const categories = [
+    {
+      id: 1,
+      name: 'Fish & Meat',
+      image: fish,
+      link: '/categories/Fish%20and%20Meat',
+    },
+    {
+      id: 2,
+      name: 'Fruits & Vegetable',
+      image: fruits,
+      link: '/categories/Fresh%20Vegetable',
+    },
+    {
+      id: 3,
+      name: 'Fresh Seafood',
+      image: shrimp,
+    },
+    {
+      id: 4,
+      name: 'Cooking Essentials',
+      image: cooking,
+    },
+    {
+      id: 5,
+      name: 'Breakfast',
+      image: breakfast,
+    },
+    {
+      id: 6,
+      name: 'Drinks',
+      image: drink,
+    },
+    {
+      id: 7,
+      name: 'Milk & Dairy',
+      image: milk,
+    },
+    {
+      id: 8,
+      name: 'Organic Food',
+      image: apple,
+      link: '/categories/Organic%20Food',
+    },
+    {
+      id: 9,
+      name: 'Honey',
+      image: honey,
+    },
+    {
+      id: 10,
+      name: 'Sauces & Pickles',
+      image: chili,
+    },
+    {
+      id: 11,
+      name: 'Jam & Jelly',
+      image: jam,
+    },
+    {
+      id: 12,
+      name: 'Snacks & Instant',
+      image: chips,
+    },
+    {
+      id: 13,
+      name: 'Biscuits & Cakes',
+      image: cookie,
+    },
+    {
+      id: 14,
+      name: 'Household Tools',
+      image: cleaner,
+    },
+    {
+      id: 15,
+      name: 'Baby Care',
+      image: baby,
+    },
+    {
+      id: 16,
+      name: 'Pet Care',
+      image: cat,
+    },
+    {
+      id: 17,
+      name: 'Beauty & health',
+      image: beauty,
+    },
+    {
+      id: 18,
+      name: 'Sports & Fitness',
+      image: dumbbell,
+    },
+  ];
 
   return (
     <>
@@ -64,7 +183,7 @@ const TopNavigation = () => {
 
                   <li className={styles.cart__icon}>
                     <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
-                    <span>{cart.length}</span>
+                    <span>{total}</span>
                   </li>
                   <li>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails setCart={setCart} />}</li>
                   <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true} style={{ zIndex: 10000000 }}>
@@ -137,9 +256,18 @@ const TopNavigation = () => {
               <Col lg={8} md={7} sm={12} className='p-0'>
                 <ul className={styles.left__item}>
                   <li>
-                    <NavLink to='/categories' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
+                    <span className={styles.category}>
                       Categories
-                    </NavLink>
+                      <FontAwesomeIcon icon={faChevronDown} style={{ fontSize: '10px', margin: '0 0 0 8px' }} />
+                      <ul>
+                        {categories.map((category) => (
+                          <NavLink to={!category.link ? '/' : category.link} key={category.id}>
+                            <img src={category.image} alt={category.name} />
+                            {category.name}
+                          </NavLink>
+                        ))}
+                      </ul>
+                    </span>
                     <NavLink to='/about-us' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                       About Us
                     </NavLink>
@@ -204,6 +332,10 @@ const TopNavigation = () => {
                     </span>
                     <NavLink to='/offers' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                       Offers
+                    </NavLink>
+
+                    <NavLink to='/dashboard' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
+                      Dashboard
                     </NavLink>
                   </li>
                 </ul>
@@ -307,7 +439,6 @@ const TopNavigation = () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className={styles.mobile__offCanvas__body}>
-                <h3>Pages</h3>
                 <ul>
                   <li>
                     <NavLink to='/offer' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>

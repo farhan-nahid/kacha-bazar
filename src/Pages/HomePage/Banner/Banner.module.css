@@ -52,10 +52,6 @@
   object-fit: cover;
 }
 
-.banner .banner__side img:nth-child(1) {
-  margin-bottom: 20px;
-}
-
 @media only screen and (max-width: 1300px) {
   .banner .carousel__item .overlay {
     width: 90%;
@@ -96,5 +92,8 @@
   .banner .carousel__item .overlay {
     left: 20px;
     width: 100%;
+  }
+  .banner .banner__side img {
+    object-fit: contain;
   }
 }

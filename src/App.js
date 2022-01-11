@@ -5,6 +5,7 @@ import './App.css';
 import AuthProvider from './contexts/AuthProvider';
 import IsAdmin from './Pages/AuthPage/IsAdmin/IsAdmin';
 import RequiredAuth from './Pages/AuthPage/RequiredAuth/RequiredAuth';
+import SingleCategory from './Pages/CategoriesPage/SingleCategory/SingleCategory';
 import AddAdmin from './Pages/DashboardPage/AddAdmin/AddAdmin';
 import AddProduct from './Pages/DashboardPage/AddProduct/AddProduct';
 import AddReview from './Pages/DashboardPage/AddReview/AddReview';
@@ -19,10 +20,13 @@ const Login = lazy(() => import('./Pages/AuthPage/LogIn/Login'));
 const AboutUs = lazy(() => import('./Pages/AboutUsPage/AboutUs/AboutUs'));
 const Register = lazy(() => import('./Pages/AuthPage/Register/Register'));
 const Dashboard = lazy(() => import('./Pages/DashboardPage/Dashboard/Dashboard'));
+const ContactUs = lazy(() => import('./Pages/ContactUsPage/ContactUs'));
 const Categories = lazy(() => import('./Pages/CategoriesPage/Categories/Categories'));
 const CheckOutPage = lazy(() => import('./Pages/CheckOutPage/CheckOutPage'));
 const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
+const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicyPage/PrivacyPolicy'));
 const ResetPassword = lazy(() => import('./Pages/AuthPage/ResetPassword/ResetPassword'));
+const TermsAndCondition = lazy(() => import('./Pages/TearmsAndConditionPage/TermsAndCondition'));
 
 function App() {
   return (
@@ -33,11 +37,16 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/login' element={<Login />} />
           <Route path='/about-us' element={<AboutUs />} />
+          <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path='/terms-and-conditions' element={<TermsAndCondition />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/reset-password' element={<ResetPassword />} />
-          <Route path='/categories' element={<Categories />} />
+          <Route path='/categories' element={<Categories />}>
+            <Route path='/categories/:searchString' element={<SingleCategory />} />
+          </Route>
           <Route
             path='/checkout'
             element={

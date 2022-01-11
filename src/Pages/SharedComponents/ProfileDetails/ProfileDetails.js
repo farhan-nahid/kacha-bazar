@@ -23,28 +23,17 @@ const ProfileDetails = ({ setCart }) => {
 
   return (
     <div ref={ref}>
-      <img
-        style={{ width: '47px', height: '45px', borderRadius: '50%' }}
-        onClick={handleClick}
-        src={loggedInUser.photoURL}
-        alt={loggedInUser.name}
-      />
+      <img style={{ width: '47px', height: '45px', borderRadius: '50%' }} onClick={handleClick} src={loggedInUser?.photoURL} alt={loggedInUser.displayName} />
 
       <Overlay show={show} target={target} placement='bottom' container={ref}>
         <Popover id='popover-contained' className={styles.profile__body}>
           <Popover.Body>
-            <img
-              onClick={handleClick}
-              style={{ border: '3px solid #10b981', width: '47px', height: '45px', borderRadius: '50%' }}
-              src={loggedInUser.photoURL}
-              alt={loggedInUser.name}
-              className={styles.profile__popper}
-            />
+            <img onClick={handleClick} style={{ border: '3px solid #10b981', width: '47px', height: '45px', borderRadius: '50%' }} src={loggedInUser?.photoURL} alt={loggedInUser?.displayName} className={styles.profile__popper} />
             <h6>
-              <strong>{loggedInUser.displayName}</strong>
+              <strong>{loggedInUser?.displayName}</strong>
             </h6>
             <p>
-              <strong>{loggedInUser.email}</strong>
+              <strong>{loggedInUser?.email}</strong>
             </p>
             <button onClick={signOut}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Log Out

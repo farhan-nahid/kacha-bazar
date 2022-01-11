@@ -1,0 +1,14 @@
+.about__us {
+  margin: 50px auto;
+}
+
+.about__us h6 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #383633;
+}
+
+.about__us p {
+  font-size: 14px;
+  color: #383633;
+}

@@ -1,9 +1,9 @@
 .cart__item {
   display: grid;
-  grid-template-columns: 3.5fr 1.5fr 1fr;
+  grid-template-columns: 4fr 2fr 0fr;
   padding: 10px;
   border-bottom: 1px solid #21263b36;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -46,6 +46,10 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.counter span:nth-child(1),
+.counter span:nth-child(3) {
   cursor: pointer;
 }
 

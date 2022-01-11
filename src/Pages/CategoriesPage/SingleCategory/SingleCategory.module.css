@@ -1,0 +1,31 @@
+.category__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px 14px;
+}
+
+form select {
+  border: 1px solid #21263b36;
+  outline: 0;
+  border-radius: 5px;
+  padding: 7px 20px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+}
+
+form select:focus {
+  border: 1px solid #10b981;
+}
+
+@media only screen and (max-width: 1100px) {
+  .category__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .category__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

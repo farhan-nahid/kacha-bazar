@@ -14,7 +14,7 @@ const AboutUs = () => {
   return (
     <>
       <TopNavigation />
-      <Banner />
+      <Banner text='About Us' />
       <WelcomeText />
       <OurFounders />
       <DailyNeeds />

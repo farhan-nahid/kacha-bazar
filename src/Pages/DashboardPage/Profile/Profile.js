@@ -14,17 +14,21 @@ const Profile = () => {
   };
 
   return (
-    <section id={styles.my__profile}>
-      <Container>
-        <h1>My Profile</h1>
-        <div className={styles.profile}>
-          <img src={loggedInUser.photoURL} alt={loggedInUser.displayName} />
-          <h4>{loggedInUser.displayName}</h4>
-          <p>{loggedInUser.email}</p>
-          <button onClick={signOut}>Logout</button>
-        </div>
-      </Container>
-    </section>
+    <>
+      {loggedInUser && (
+        <section id={styles.my__profile}>
+          <Container>
+            <h1>My Profile</h1>
+            <div className={styles.profile}>
+              <img src={loggedInUser?.photoURL} alt={loggedInUser.displayName} />
+              <h4>{loggedInUser.displayName}</h4>
+              <p>{loggedInUser.email}</p>
+              <button onClick={signOut}>Logout</button>
+            </div>
+          </Container>
+        </section>
+      )}
+    </>
   );
 };
 

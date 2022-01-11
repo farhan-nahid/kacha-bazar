@@ -21,7 +21,7 @@ const Banner = () => {
               <div className={styles.overlay}>
                 <h3> The Best Quality Products Guaranteed!</h3>
                 <p>Dramatically facilitate effective total linkage for go forward processes...</p>
-                <button onClick={() => navigate('/categories')}>Learn More</button>
+                <button onClick={() => navigate('/categories/Fish%20and%20Meat')}>Learn More</button>
               </div>
             </Carousel.Item>
 
@@ -30,7 +30,7 @@ const Banner = () => {
               <div className={styles.overlay}>
                 <h3> Best Different Type of Grocery Store </h3>
                 <p>Quickly aggregate empowered networks after emerging products...</p>
-                <button onClick={() => navigate('/categories')}>Learn More</button>
+                <button onClick={() => navigate('/categories/Fish%20and%20Meat')}>Learn More</button>
               </div>
             </Carousel.Item>
 
@@ -39,14 +39,16 @@ const Banner = () => {
               <div className={styles.overlay}>
                 <h3> Quality Freshness Guaranteed!</h3>
                 <p>intrinsically fashion performance based products rather than accurate benefits...</p>
-                <button onClick={() => navigate('/categories')}>Learn More</button>
+                <button onClick={() => navigate('/categories/Fish%20and%20Meat')}>Learn More</button>
               </div>
             </Carousel.Item>
           </Carousel>
         </Col>
         <Col lg={6} md={12} className={styles.banner__side}>
           <img src={banner1} alt='banner1' />
-          <img src={banner2} alt='banner2' />
+          <div className='mt-3'>
+            <img src={banner2} alt='banner2' />
+          </div>
         </Col>
       </Row>
     </Container>

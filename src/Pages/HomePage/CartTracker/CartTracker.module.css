@@ -22,15 +22,17 @@
 
 #cart__tracker p {
   position: absolute;
-  top: 0px;
+  top: -2px;
   background-color: #ef4444;
   color: #fff;
-  font-weight: 700;
-  height: 23px;
-  width: 23px;
-  right: -3px;
+  font-weight: 500;
+  height: 27px;
+  width: 27px;
+  right: -7px;
   border-radius: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cart__tracker h6 {

@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import useRedux from '../../../hooks/useRedux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../../redux/feathers/productsSlice';
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product }) => {
   const [isDisable, setIsDisable] = useState(false);
-  const { handleAddToCart, cart } = useRedux();
+  const dispatch = useDispatch();
   const { image, name, price, _id } = product;
+  const cart = useSelector((state) => state.products.cart);
 
   useEffect(() => {
-    const pd = cart.find((pd) => pd._id === _id);
+    const pd = cart.find((pd) => pd.item._id === _id);
     if (pd) {
       setIsDisable(true);
     }
   }, [_id, cart]);
 
   const handleClick = (item) => {
-    item.quantity = 1;
-    item.totalPrice = price;
-    handleAddToCart(item);
+    const pd = {};
+    pd.item = item;
+    pd.quantity = 1;
+    pd.totalPrice = pd.item.price;
+    dispatch(addToCart(pd));
   };
 
   return (

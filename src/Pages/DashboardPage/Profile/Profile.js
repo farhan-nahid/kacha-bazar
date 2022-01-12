@@ -1,16 +1,17 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import useAuth from '../../../hooks/useAuth';
-import useRedux from '../../../hooks/useRedux';
+import { emptyCart } from '../../../redux/feathers/productsSlice';
 import styles from './Profile.module.css';
 
 const Profile = () => {
   const { loggedInUser, logOut } = useAuth();
-  const { setCart } = useRedux();
+  const dispatch = useDispatch();
 
   const signOut = () => {
     logOut();
-    setCart([]);
+    dispatch(emptyCart());
   };
 
   return (

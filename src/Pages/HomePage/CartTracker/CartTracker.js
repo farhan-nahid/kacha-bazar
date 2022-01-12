@@ -1,13 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import useRedux from '../../../hooks/useRedux';
 import styles from './CartTracker.module.css';
 
 const CartTracker = () => {
-  const { cart, handleShow, totalPrice } = useRedux();
+  const { handleShow } = useRedux();
+  const cart = useSelector((state) => state.products.cart);
 
   let total = 0;
   for (const pd of cart) {
     total = total + Number(pd.quantity);
+  }
+
+  let totalPrice = 0;
+  for (const pd of cart) {
+    totalPrice = totalPrice + Number(pd.totalPrice);
   }
 
   return (

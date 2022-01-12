@@ -2,6 +2,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Col, Container, Offcanvas, Row } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import aboutUsIcon from '../../../assets/images/aboutUs.svg';
 import cartIcon from '../../../assets/images/cart.svg';
@@ -45,11 +46,17 @@ const TopNavigation = () => {
   const [menuShow, setMenuShow] = useState(false);
   const navigate = useNavigate();
   const { loggedInUser } = useAuth();
-  const { cart, totalPrice, setCart, show, handleClose, handleShow } = useRedux();
+  const { show, handleClose, handleShow } = useRedux();
+  const cart = useSelector((state) => state.products.cart);
 
   let total = 0;
   for (const pd of cart) {
     total = total + Number(pd.quantity);
+  }
+
+  let totalPrice = 0;
+  for (const pd of cart) {
+    totalPrice = totalPrice + Number(pd.totalPrice);
   }
 
   const handleMenuShow = () => setMenuShow(true);
@@ -194,7 +201,7 @@ const TopNavigation = () => {
                     <img src={cartIcon} alt='cartIcon' onClick={handleShow} />
                     <span>{total}</span>
                   </li>
-                  <li>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails setCart={setCart} />}</li>
+                  <li>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails />}</li>
                   <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true} style={{ zIndex: 10000000 }}>
                     <Offcanvas.Header closeButton className='offCanvas__header'>
                       <Offcanvas.Title>
@@ -226,7 +233,7 @@ const TopNavigation = () => {
 
                       <div className={styles.cart__item__container}>
                         {cart.map((pd) => (
-                          <Cart key={pd._id} pd={pd} />
+                          <Cart key={pd.item._id} pd={pd} />
                         ))}
                       </div>
 
@@ -363,7 +370,7 @@ const TopNavigation = () => {
               <span>{cart.length}</span>
             </span>
 
-            <span className={styles.mobile__menu__icons}>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails setCart={setCart} />}</span>
+            <span className={styles.mobile__menu__icons}>{!loggedInUser ? <img src={userIcon} alt='userIcon' onClick={() => navigate('/login')} /> : <ProfileDetails />}</span>
             <Offcanvas show={show} onHide={handleClose} placement='end' scroll={true}>
               <Offcanvas.Header closeButton className='offCanvas__header'>
                 <Offcanvas.Title>
@@ -395,7 +402,7 @@ const TopNavigation = () => {
 
                 <div className={styles.cart__item__container}>
                   {cart.map((pd) => (
-                    <Cart key={pd._id} pd={pd} />
+                    <Cart key={pd.item._id} pd={pd} />
                   ))}
                 </div>
 

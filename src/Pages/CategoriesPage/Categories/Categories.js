@@ -24,7 +24,6 @@ import { loadProductsAsync } from '../../../redux/feathers/productsSlice';
 import CartTracker from '../../HomePage/CartTracker/CartTracker';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Footer from '../../SharedComponents/Footer/Footer';
-import LoadingSpinner from '../../SharedComponents/LoadingSpinner/LoadingSpinner';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Categories.module.css';
 
@@ -108,6 +107,7 @@ const Categories = () => {
       <section id={styles.categories}>
         <Container>
           <Row>
+            {state.error && toast.error(state.error)}
             <Col lg={3}>
               <h3 className='mb-4'>Categories</h3>
               <aside id={styles.aside}>
@@ -120,8 +120,6 @@ const Categories = () => {
                   </NavLink>
                 ))}
               </aside>
-              {state.status === 'Pending' && <LoadingSpinner />}
-              {state.error && toast.error(state.error)}
             </Col>
             <Col lg={9}>
               <Outlet />

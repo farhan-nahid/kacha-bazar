@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
-import useRedux from '../../hooks/useRedux';
+import { emptyCart } from '../../redux/feathers/productsSlice';
 import Cart from '../SharedComponents/Cart/Cart';
 import Footer from '../SharedComponents/Footer/Footer';
 import TopNavigation from '../SharedComponents/TopNavigation/TopNavigation';
@@ -17,13 +18,19 @@ const CheckOutPage = () => {
   const [data, setData] = useState({});
   const { loggedInUser } = useAuth();
   const navigate = useNavigate();
-  const { cart, totalPrice, setCart } = useRedux();
+  const cart = useSelector((state) => state.products.cart);
+  const dispatch = useDispatch();
 
   const handelChange = (e) => {
     const newData = { ...data };
     newData[e.target.name] = e.target.value;
     setData(newData);
   };
+
+  let totalPrice = 0;
+  for (const pd of cart) {
+    totalPrice = totalPrice + Number(pd.totalPrice);
+  }
 
   const shipping = data.shipping ? data.shipping : 0;
   const total = totalPrice + Number(shipping);
@@ -55,7 +62,7 @@ const CheckOutPage = () => {
           position: 'center',
         });
         navigate('/dashboard/my-orders');
-        setCart([]);
+        dispatch(emptyCart());
       }
     });
   };
@@ -165,7 +172,7 @@ const CheckOutPage = () => {
                     {
                       // map category data
                       cart.map((pd) => (
-                        <Cart key={pd._id} pd={pd} />
+                        <Cart key={pd.item._id} pd={pd} />
                       ))
                     }
                   </div>

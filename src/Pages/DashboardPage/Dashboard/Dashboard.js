@@ -2,9 +2,10 @@ import { faClipboardList, faHome, faPlus, faQuoteLeft, faSignOutAlt, faTasks, fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import useRedux from '../../../hooks/useRedux';
+import { emptyCart } from '../../../redux/feathers/productsSlice';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Footer from '../../SharedComponents/Footer/Footer';
 import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
@@ -12,11 +13,11 @@ import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const { logOut, isAdmin } = useAuth();
-  const { setCart } = useRedux();
+  const dispatch = useDispatch();
 
   const signOut = () => {
     logOut();
-    setCart([]);
+    dispatch(emptyCart());
   };
 
   useEffect(() => {

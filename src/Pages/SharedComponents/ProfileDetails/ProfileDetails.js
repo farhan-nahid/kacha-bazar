@@ -2,14 +2,17 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef, useState } from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import useAuth from '../../../hooks/useAuth';
+import { emptyCart } from '../../../redux/feathers/productsSlice';
 import styles from './ProfileDetails.module.css';
 
-const ProfileDetails = ({ setCart }) => {
+const ProfileDetails = () => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
   const { loggedInUser, logOut } = useAuth();
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setShow(!show);
@@ -18,7 +21,7 @@ const ProfileDetails = ({ setCart }) => {
 
   const signOut = () => {
     logOut();
-    setCart([]);
+    dispatch(emptyCart());
   };
 
   return (

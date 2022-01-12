@@ -40,7 +40,7 @@ const Testimonials = () => {
             <Col lg={7} md={5} className='d-flex align-self-center'>
               <h1>So that's us.There's no other way to put it.</h1>
             </Col>
-            <Col lg={5} md={7}>
+            <Col lg={5} md={7} id='testimonial__slider__container'>
               {testimonials.length ? (
                 <Swiper {...swiperSettings}>
                   {testimonials.map((review) => (

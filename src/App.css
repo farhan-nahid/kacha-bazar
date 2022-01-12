@@ -61,6 +61,10 @@ strong {
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .order__pending {
   color: #f97316 !important;
   font-weight: 500;
@@ -133,4 +137,17 @@ table tbody {
 
 table tbody tr td {
   padding: 11px 0 !important;
+}
+
+#testimonial__slider__container .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 8px !important;
+}
+
+#testimonial__slider__container .swiper-pagination .swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+#testimonial__slider__container .swiper-pagination-bullet-active {
+  background-color: green !important;
 }

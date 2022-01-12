@@ -12,9 +12,7 @@ const showRating = (star) => {
   return <div>{stars}</div>;
 };
 
-const Testimonial = (props) => {
-  const { star, image, reviewText, email } = props?.review;
- 
+const Testimonial = ({ review: { star, image, reviewText, email } }) => {
   return (
     <div className={styles.testimonial__card}>
       <h6>Our Happy Clients</h6>

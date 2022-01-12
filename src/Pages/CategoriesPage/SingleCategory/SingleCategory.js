@@ -15,26 +15,27 @@ const SingleCategory = () => {
   const handleChange = (e) => setIsHigh(e.target.value);
 
   if (isHigh === 'low') {
-    const eitherSort = (arr = []) => {
+    const eitherSort = (arr) => {
       const sorter = (a, b) => {
         return +a.price - +b.price;
       };
-      arr.sort(sorter);
+      arr?.sort(sorter);
     };
     eitherSort(products);
   }
 
   if (isHigh === 'high') {
-    const eitherSort = (arr = []) => {
+    const eitherSort = (arr) => {
       const sorter = (a, b) => {
         return +b.price - +a.price;
       };
-      arr.sort(sorter);
+      arr?.sort(sorter);
     };
     eitherSort(products);
   }
 
   useEffect(() => {
+    setProducts([]);
     axios
       .get(`https://kacha-bazar.herokuapp.com/all-products?category=${searchString}`)
       .then((res) => setProducts(res.data))

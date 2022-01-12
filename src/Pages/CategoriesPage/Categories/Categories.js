@@ -4,26 +4,25 @@ import { Col, Container, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { NavLink, Outlet } from 'react-router-dom';
 import apple from '../../../assets/images/categories/apple.webp';
+import baby from '../../../assets/images/categories/baby.webp';
 import beauty from '../../../assets/images/categories/beauty.webp';
 import breakfast from '../../../assets/images/categories/Breakfast.webp';
 import vegetable from '../../../assets/images/categories/cabbage.webp';
 import fish from '../../../assets/images/categories/carp-fish.webp';
-import chili from '../../../assets/images/categories/chili-sauce.webp';
-import cooking from '../../../assets/images/categories/Cooking.webp';
-import honey from '../../../assets/images/categories/honey.webp';
-import milk from '../../../assets/images/categories/milk.webp';
-import shrimp from '../../../assets/images/categories/shrimp.webp';
-import drink from '../../../assets/images/categories/soft-drink.webp';
-import jam from '../../../assets/images/categories/strawberry-jam.webp';
-/*
-import baby from '../../../assets/images/categories/baby.webp';
 import cat from '../../../assets/images/categories/cat.webp';
+import chili from '../../../assets/images/categories/chili-sauce.webp';
 import chips from '../../../assets/images/categories/chips.webp';
 import cleaner from '../../../assets/images/categories/cleaner.webp';
 import cookie from '../../../assets/images/categories/cookie.webp';
+import cooking from '../../../assets/images/categories/Cooking.webp';
 import dumbbell from '../../../assets/images/categories/dumbbell.webp';
-
-*/
+import honey from '../../../assets/images/categories/honey.webp';
+import milk from '../../../assets/images/categories/milk.webp';
+// import shrimp from '../../../assets/images/categories/shrimp.webp';
+import drink from '../../../assets/images/categories/soft-drink.webp';
+import jam from '../../../assets/images/categories/strawberry-jam.webp';
+/*
+ */
 import CartTracker from '../../HomePage/CartTracker/CartTracker';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Footer from '../../SharedComponents/Footer/Footer';
@@ -75,10 +74,25 @@ const Categories = () => {
       allPd.push({ name: 'Beauty and Health', img: beauty });
     }
     if (pd === 'Sauces') {
-      allPd.push({ name: 'Sauces', img: shrimp });
+      allPd.push({ name: 'Sauces', img: dumbbell });
     }
     if (pd === 'Pickles and Condiments') {
       allPd.push({ name: 'Pickles and Condiments', img: chili });
+    }
+    if (pd === 'Snacks and Instant') {
+      allPd.push({ name: 'Snacks and Instant', img: chips });
+    }
+    if (pd === 'Biscuits and Cakes') {
+      allPd.push({ name: 'Biscuits and Cakes', img: cookie });
+    }
+    if (pd === 'Household Tools') {
+      allPd.push({ name: 'Household Tools', img: cleaner });
+    }
+    if (pd === 'Baby Care') {
+      allPd.push({ name: 'Baby Care', img: baby });
+    }
+    if (pd === 'Pet Care') {
+      allPd.push({ name: 'Pet Care', img: cat });
     }
   }
 

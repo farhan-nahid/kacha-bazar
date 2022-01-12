@@ -54,7 +54,7 @@ const AddProduct = () => {
               icon: 'success',
               button: 'OK!',
             });
-            e.target.reset();
+            // e.target.reset();
           }
         })
         .catch((err) => toast.error(err.message))

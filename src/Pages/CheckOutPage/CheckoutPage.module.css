@@ -46,6 +46,15 @@
   margin-bottom: 10px;
 }
 
+#checkout .shipping__methods input[type='radio'],
+#checkout .payment__methods input[type='radio'] {
+  accent-color: #2c9a76;
+  border: 0 !important;
+  outline: 0 !important;
+  height: 17px;
+  width: 17px;
+}
+
 #checkout .shipping__methods,
 .payment__methods {
   border: 1px solid #21263b36;
@@ -56,11 +65,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-#checkout .shipping__methods input,
-.payment__methods input {
-  width: 20px !important;
 }
 
 #checkout .shipping__methods label,

@@ -20,7 +20,6 @@ import cooking from '../../../assets/images/categories/Cooking.webp';
 import dumbbell from '../../../assets/images/categories/dumbbell.webp';
 import honey from '../../../assets/images/categories/honey.webp';
 import milk from '../../../assets/images/categories/milk.webp';
-import shrimp from '../../../assets/images/categories/shrimp.webp';
 import drink from '../../../assets/images/categories/soft-drink.webp';
 import jam from '../../../assets/images/categories/strawberry-jam.webp';
 import checkoutIcon from '../../../assets/images/checkout.svg';
@@ -125,7 +124,7 @@ const TopNavigation = () => {
     {
       id: 11,
       name: 'Sauces',
-      image: shrimp,
+      image: dumbbell,
       link: '/categories/Sauces',
     },
     {
@@ -135,35 +134,34 @@ const TopNavigation = () => {
       link: '/categories/Pickles%20and%20Condiments',
     },
     {
-      id: 21,
+      id: 13,
       name: 'Snacks & Instant',
       image: chips,
-    },
-    {
-      id: 13,
-      name: 'Biscuits & Cakes',
-      image: cookie,
+      link: '/categories/Snacks%20and%20Instant',
     },
     {
       id: 14,
-      name: 'Household Tools',
-      image: cleaner,
+      name: 'Biscuits & Cakes',
+      link: '/categories/Biscuits%20and%20Cakes',
+      image: cookie,
     },
     {
       id: 15,
-      name: 'Baby Care',
-      image: baby,
+      name: 'Household Tools',
+      link: '/categories/Household%20Tools',
+      image: cleaner,
     },
     {
       id: 16,
+      name: 'Baby Care',
+      image: baby,
+      link: '/categories/Baby%20Care',
+    },
+    {
+      id: 17,
       name: 'Pet Care',
       image: cat,
-    },
-
-    {
-      id: 18,
-      name: 'Sports & Fitness',
-      image: dumbbell,
+      link: '/categories/Pet%20Care',
     },
   ];
 

@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
 import apple from '../../../assets/images/categories/apple.webp';
 import baby from '../../../assets/images/categories/baby.webp';
@@ -18,11 +18,9 @@ import cooking from '../../../assets/images/categories/Cooking.webp';
 import dumbbell from '../../../assets/images/categories/dumbbell.webp';
 import honey from '../../../assets/images/categories/honey.webp';
 import milk from '../../../assets/images/categories/milk.webp';
-// import shrimp from '../../../assets/images/categories/shrimp.webp';
 import drink from '../../../assets/images/categories/soft-drink.webp';
 import jam from '../../../assets/images/categories/strawberry-jam.webp';
-/*
- */
+import { loadProductsAsync } from '../../../redux/feathers/productsSlice';
 import CartTracker from '../../HomePage/CartTracker/CartTracker';
 import DailyNeeds from '../../SharedComponents/DailyNeeds/DailyNeeds';
 import Footer from '../../SharedComponents/Footer/Footer';
@@ -31,10 +29,17 @@ import TopNavigation from '../../SharedComponents/TopNavigation/TopNavigation';
 import styles from './Categories.module.css';
 
 const Categories = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadProductsAsync());
+  }, [dispatch]);
+
+  const state = useSelector((state) => state.products);
+
   let category = [];
 
-  for (const pd of products) {
+  for (const pd of state.productsState) {
     category = [...category, pd.category];
   }
 
@@ -96,13 +101,6 @@ const Categories = () => {
     }
   }
 
-  useEffect(() => {
-    axios
-      .get('https://kacha-bazar.herokuapp.com/all-products')
-      .then((res) => setProducts(res.data))
-      .catch((err) => toast.error(err.message));
-  }, []);
-
   return (
     <>
       <TopNavigation />
@@ -112,20 +110,18 @@ const Categories = () => {
           <Row>
             <Col lg={3}>
               <h3 className='mb-4'>Categories</h3>
-              {allPd.length ? (
-                <aside id={styles.aside}>
-                  {allPd.map((pd, idx) => (
-                    <NavLink key={idx} to={`/categories/${pd.name}`} className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
-                      <span>
-                        <img src={pd.img} alt={pd.name} />
-                      </span>
-                      {pd.name}
-                    </NavLink>
-                  ))}
-                </aside>
-              ) : (
-                <LoadingSpinner />
-              )}
+              <aside id={styles.aside}>
+                {allPd.map((pd, idx) => (
+                  <NavLink key={idx} to={`/categories/${pd.name}`} className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
+                    <span>
+                      <img src={pd.img} alt={pd.name} />
+                    </span>
+                    {pd.name}
+                  </NavLink>
+                ))}
+              </aside>
+              {state.status === 'Pending' && <LoadingSpinner />}
+              {state.error && toast.error(state.error)}
             </Col>
             <Col lg={9}>
               <Outlet />

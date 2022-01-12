@@ -14,8 +14,6 @@ const MyOrders = () => {
   const [nothing, setNothing] = useState('');
   const { loggedInUser } = useAuth();
 
-  // console.log(orders);
-  console.log(nothing);
   useEffect(() => {
     axios
       .get(`https://kacha-bazar.herokuapp.com/all-orders?email=${loggedInUser.email}`)

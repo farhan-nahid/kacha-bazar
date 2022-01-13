@@ -57,6 +57,16 @@ export const productsSlice = createSlice({
         return items;
       });
     },
+    productSorting: (state, { payload }) => {
+      const sorter = (pd1, pd2) => {
+        if (payload === 'low') {
+          return +pd1.price - +pd2.price;
+        } else if (payload === 'high') {
+          return +pd2.price - +pd1.price;
+        }
+      };
+      state.queryProductsState.sort(sorter);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(loadProductsAsync.pending, (state, action) => {
@@ -84,6 +94,6 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { addToCart, emptyCart, emptyPrev, handleCancelOrder, handleIncrease, handleDecrease } = productsSlice.actions;
+export const { addToCart, emptyCart, emptyPrev, handleCancelOrder, handleIncrease, handleDecrease, productSorting } = productsSlice.actions;
 
 export default productsSlice.reducer;

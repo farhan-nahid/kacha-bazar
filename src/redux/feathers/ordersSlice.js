@@ -7,6 +7,11 @@ const initialState = {
   status: 'idle',
 };
 
+export const postOrdersAsync = createAsyncThunk('orders/postOrdersAsync', async (payload) => {
+  const response = await axios.post(`https://kacha-bazar.herokuapp.com/order`, payload);
+  return response.data;
+});
+
 export const loadOrdersAsync = createAsyncThunk('orders/loadOrdersAsync', async (payload) => {
   if (payload) {
     const response = await axios.get(`https://kacha-bazar.herokuapp.com/all-orders?email=${payload}`);
@@ -43,6 +48,17 @@ export const ordersSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(postOrdersAsync.pending, (state, action) => {
+      toast.loading('Processing... Please Wait!!');
+    });
+    builder.addCase(postOrdersAsync.fulfilled, (state, { payload }) => {
+      toast.dismiss();
+      toast.success('Your Order is Successfully post!!!');
+    });
+    builder.addCase(postOrdersAsync.rejected, (state, { error: { message } }) => {
+      toast.dismiss();
+      toast.error(message);
+    });
     builder.addCase(loadOrdersAsync.pending, (state, action) => {
       state.status = 'Pending';
     });
@@ -56,7 +72,7 @@ export const ordersSlice = createSlice({
       toast.error(message);
     });
     builder.addCase(cancelOrdersAsync.pending, (state, action) => {
-      toast.loading('Deleting...Please Wait!!');
+      toast.loading('Deleting... Please Wait!!');
     });
     builder.addCase(cancelOrdersAsync.fulfilled, (state, { payload, meta: { arg } }) => {
       toast.dismiss();
@@ -68,12 +84,12 @@ export const ordersSlice = createSlice({
       toast.error(message);
     });
     builder.addCase(updateOrdersAsync.pending, (state, action) => {
-      toast.loading('updating...Please Wait!!');
+      toast.loading('updating... Please Wait!!');
     });
     builder.addCase(updateOrdersAsync.fulfilled, (state, { payload }) => {
       toast.dismiss();
-      const a = JSON.parse(payload?.config?.data);
-      toast.success(`Order is ${a.status}`);
+      const data = JSON.parse(payload?.config?.data);
+      toast.success(`Order is ${data.status}`);
     });
 
     builder.addCase(updateOrdersAsync.rejected, (state, { error: { message } }) => {

@@ -1,16 +1,19 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import swal from 'sweetalert';
 import category from '../../../assets/images/icons/category.svg';
 import price from '../../../assets/images/icons/price.svg';
 import product from '../../../assets/images/icons/product.svg';
 import upload from '../../../assets/images/upload.png';
+import { postProductAsync } from '../../../redux/feathers/productsSlice';
 import styles from './AddProduct.module.css';
 
 const AddProduct = () => {
   const [data, setData] = useState({});
   const [image, setImage] = useState('');
+  const dispatch = useDispatch();
 
   const handelBlur = (e) => {
     const newData = { ...data };
@@ -44,21 +47,17 @@ const AddProduct = () => {
     } else {
       const product = data;
       product.image = image;
-      axios
-        .post('https://kacha-bazar.herokuapp.com/add-product', product)
-        .then((res) => {
-          if (res.data.insertedId) {
-            swal({
-              title: 'Good job!',
-              text: `${product.name} is successfully Added!`,
-              icon: 'success',
-              button: 'OK!',
-            });
-            // e.target.reset();
-          }
-        })
-        .catch((err) => toast.error(err.message))
-        .finally(() => toast.dismiss(loading));
+      dispatch(postProductAsync(product)).then((res) => {
+        if (res.payload.insertedId) {
+          swal({
+            title: 'Good job!',
+            text: `${product.name} is successfully Added!`,
+            icon: 'success',
+            button: 'OK!',
+          });
+          e.target.reset();
+        }
+      });
     }
   };
 

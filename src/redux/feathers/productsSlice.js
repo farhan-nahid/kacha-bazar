@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const initialState = {
   productsState: [],
@@ -8,6 +9,11 @@ const initialState = {
   status: 'idle',
   error: '',
 };
+
+export const postProductAsync = createAsyncThunk('products/postProductAsync', async (payload) => {
+  const response = await axios.post(`https://kacha-bazar.herokuapp.com/add-product`, payload);
+  return response.data;
+});
 
 export const loadProductsAsync = createAsyncThunk('products/loadProductsAsync', async () => {
   const response = await axios.get('https://kacha-bazar.herokuapp.com/all-products');
@@ -69,6 +75,17 @@ export const productsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(postProductAsync.pending, (state, action) => {
+      toast.loading('Processing... Please Wait!!');
+    });
+    builder.addCase(postProductAsync.fulfilled, (state, { payload }) => {
+      toast.dismiss();
+      toast.success('Your Product is Successfully added!!!');
+    });
+    builder.addCase(postProductAsync.rejected, (state, { error: { message } }) => {
+      toast.dismiss();
+      toast.error(message);
+    });
     builder.addCase(loadProductsAsync.pending, (state, action) => {
       state.status = 'Pending';
     });

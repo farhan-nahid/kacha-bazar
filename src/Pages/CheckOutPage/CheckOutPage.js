@@ -1,13 +1,13 @@
 import { faFedex, faUps } from '@fortawesome/free-brands-svg-icons';
 import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
+import { postOrdersAsync } from '../../redux/feathers/ordersSlice';
 import { emptyCart } from '../../redux/feathers/productsSlice';
 import Cart from '../SharedComponents/Cart/Cart';
 import Footer from '../SharedComponents/Footer/Footer';
@@ -52,8 +52,8 @@ const CheckOutPage = () => {
     data.productInfo = cart;
     data.orderTime = `${day}-${monthName}-${year}`;
     data.status = 'Pending';
-    axios.post('https://kacha-bazar.herokuapp.com/order', data).then((res) => {
-      if (res.status === 200) {
+    dispatch(postOrdersAsync(data)).then((res) => {
+      if (res.payload.insertedId) {
         swal({
           title: `Well Done ${loggedInUser.displayName}!!`,
           text: `You Have To Pay Us ${total}$!`,

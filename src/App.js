@@ -26,7 +26,7 @@ const CheckOutPage = lazy(() => import('./Pages/CheckOutPage/CheckOutPage'));
 const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicyPage/PrivacyPolicy'));
 const ResetPassword = lazy(() => import('./Pages/AuthPage/ResetPassword/ResetPassword'));
-const TermsAndCondition = lazy(() => import('./Pages/TearmsAndConditionPage/TermsAndCondition'));
+const TermsAndCondition = lazy(() => import('./Pages/TermsAndConditionPage/TermsAndCondition'));
 
 function App() {
   return (

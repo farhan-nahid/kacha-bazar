@@ -1,21 +1,21 @@
-#privacy__policy {
+#terms__condition {
   margin: 100px auto;
 }
 
-#privacy__policy h3 {
+#terms__condition h3 {
   font-size: 24px;
   font-weight: 600;
   color: #000;
   margin: 40px 0 20px 0;
 }
 
-#privacy__policy p {
+#terms__condition p {
   font-size: 16px;
   line-height: 28px;
   color: #6b7280;
 }
 
-#privacy__policy p a {
+#terms__condition p a {
   color: #10b981;
   font-weight: 600;
   margin-left: 20px;

@@ -100,6 +100,10 @@ const Categories = () => {
     }
   }
 
+  useEffect(() => {
+    document.title = 'All Categories | Kacha Bazar';
+  }, []);
+
   return (
     <>
       <TopNavigation />

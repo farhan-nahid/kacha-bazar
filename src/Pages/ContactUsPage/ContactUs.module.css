@@ -1,0 +1,82 @@
+#contact__page {
+  margin: 100px auto;
+}
+
+#contact__page img {
+  width: 90%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+#contact__page h4 {
+  font-size: 30px;
+  color: #000;
+  list-style: 36px;
+  font-weight: 600;
+}
+
+#contact__page p {
+  margin: 15px 0;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+#contact__page form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 50px 0;
+}
+
+#contact__page form label {
+  display: block;
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+#contact__page form input,
+#contact__page form textarea {
+  border: 1px solid #6b728047;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+#contact__page form input:focus,
+#contact__page form textarea:focus {
+  outline: 0;
+  border: 1px solid #10b981;
+}
+
+#contact__page form input::placeholder,
+#contact__page form textarea::placeholder {
+  font-weight: 400;
+  color: #6b7280a6;
+  font-size: 16px;
+}
+
+#contact__page form .span__input {
+  grid-column: span 2;
+}
+
+#contact__page form button {
+  display: block;
+  background: #10b981;
+  padding: 15px 0;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  width: 200px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 767px) {
+  #contact__page form .span__input__name {
+    grid-column: span 2;
+  }
+}

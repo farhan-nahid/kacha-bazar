@@ -330,9 +330,9 @@ const TopNavigation = () => {
                         </li>
                       </ul>
                     </span>
-                    <NavLink to='/offers' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
+                    {/* <NavLink to='/offers' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                       Offers
-                    </NavLink>
+                    </NavLink> */}
 
                     <NavLink to='/dashboard' className={(navInfo) => (navInfo.isActive ? styles.active : '')}>
                       Dashboard

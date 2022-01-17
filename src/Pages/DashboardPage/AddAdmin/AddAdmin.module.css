@@ -1,0 +1,54 @@
+#add__admin {
+  padding: 20px 37px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #333;
+  border-radius: 5px;
+}
+
+#add__admin h1 {
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #000;
+}
+
+#add__admin form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 20px;
+  width: 95%;
+  margin: 50px auto;
+  background-color: #fff;
+}
+
+#add__admin form .inputs {
+  position: relative;
+}
+
+#add__admin form .inputs label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#add__admin form input {
+  width: 100%;
+  padding: 9px 50px;
+  border: 1px solid #10b981;
+  border-radius: 5px;
+  outline: 0;
+  font-family: inherit;
+}
+
+#add__admin form button {
+  width: 150px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  background-color: #10b981;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 10px;
+  font-weight: 700;
+}

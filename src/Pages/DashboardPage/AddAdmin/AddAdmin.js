@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
+import category from '../../../assets/images/icons/category.svg';
+import styles from './AddAdmin.module.css';
 
 const AddAdmin = () => {
   const handelSubmit = (e) => {
@@ -37,13 +40,20 @@ const AddAdmin = () => {
   };
 
   return (
-    <div>
-      <h1>Add Admin</h1>
-      <form onSubmit={handelSubmit}>
-        <input type='text' autoComplete='off' name='adminEmail' />
-        <button type='submit'>Add</button>
-      </form>
-    </div>
+    <section id={styles.add__admin}>
+      <Container>
+        <h1>Add Admin</h1>
+        <form onSubmit={handelSubmit}>
+          <span className={styles.inputs}>
+            <input type='text' placeholder='Add a New Admin' id='addAdmin' autoComplete='off' name='category' />
+            <label htmlFor='addAdmin'>
+              <img src={category} alt='category' />
+            </label>
+          </span>
+          <button type='submit'>Add Admin</button>
+        </form>
+      </Container>
+    </section>
   );
 };
 

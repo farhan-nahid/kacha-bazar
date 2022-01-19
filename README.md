@@ -24,6 +24,10 @@
 
 ---
 
+### `Demo Video`
+
+[link](https://drive.google.com/file/d/17WIL48SDXCa8-HNk2wwv8SVYPoni_BMd/view?usp=sharing)
+
 ### `Live Site`
 
 https://kacha--bazar.web.app/
@@ -51,6 +55,7 @@ https://kacha-bazar.herokuapp.com
 - [x] Font Awesome Icons
 - [x] SVG
 - [x] Firebase
+- [x] Redux Toolkit
 - [x] Firebase Admin SDK
 - [x] NodeJS
 - [x] ExpressJs
@@ -65,5 +70,7 @@ https://kacha-bazar.herokuapp.com
 - [x] GIT
 - [x] GITHUB
 - [x] dotenv
+
+You can see Server side code in [Kacha Bazar Server](https://github.com/farhan-nahid/kacha-bazar-server)
 
 ## _Thank You So Much_.

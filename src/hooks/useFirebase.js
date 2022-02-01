@@ -19,6 +19,7 @@ import initializeAuthentication from '../Pages/AuthPage/Firebase/firebase.init';
 const useFirebase = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDisable, setIsDisable] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
   initializeAuthentication();
@@ -29,6 +30,7 @@ const useFirebase = () => {
   // google signIn/signUp function
 
   const googleSignIn = (navigate, location) => {
+    setIsDisable(true);
     signInWithPopup(auth, googleProvider)
       .then((userCredential) => {
         toast.success('Logged in successfully...');
@@ -37,15 +39,17 @@ const useFirebase = () => {
         const redirect_URI = location.state?.from || '/';
         navigate(redirect_URI);
       })
-      .catch((error) => {
-        toast.error(error.message);
-      })
-      .finally(() => setIsLoading(false));
+      .catch((error) => toast.error(error.message))
+      .finally(() => {
+        setIsDisable(false);
+        setIsLoading(false);
+      });
   };
 
   // gitHub signIn/signUp function
 
   const gitHubSignIn = (navigate, location) => {
+    setIsDisable(true);
     signInWithPopup(auth, gitHubProvider)
       .then((userCredential) => {
         toast.success('Logged in successfully...');
@@ -54,15 +58,17 @@ const useFirebase = () => {
         const redirect_URI = location.state?.from || '/';
         navigate(redirect_URI);
       })
-      .catch((error) => {
-        toast.error(error.message);
-      })
-      .finally(() => setIsLoading(false));
+      .catch((error) => toast.error(error.message))
+      .finally(() => {
+        setIsDisable(false);
+        setIsLoading(false);
+      });
   };
 
   // email password signUp function
 
   const emailSignup = (name, email, password, navigate) => {
+    setIsDisable(true);
     const loading = toast.loading('Creating User... Please wait!!!');
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -80,12 +86,16 @@ const useFirebase = () => {
         toast.dismiss(loading);
         toast.error(error.message);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsDisable(false);
+        setIsLoading(false);
+      });
   };
 
   // email password signIn function
 
   const emailSignIn = (email, password, navigate, location, e) => {
+    setIsDisable(true);
     const loading = toast.loading('Finding Account... Please wait!!!');
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -100,12 +110,16 @@ const useFirebase = () => {
         toast.dismiss(loading);
         toast.error(error.message);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsDisable(false);
+        setIsLoading(false);
+      });
   };
 
   // save user to mongoDB (Email)
 
   const saveUserForEmail = (email, displayName) => {
+    setIsDisable(true);
     const user = { email, displayName };
     axios
       .post('https://kacha-bazar.herokuapp.com/user', user)
@@ -114,12 +128,14 @@ const useFirebase = () => {
           toast.success('User Added in our Database Successfully!');
         }
       })
-      .catch((err) => toast.error(err.message));
+      .catch((err) => toast.error(err.message))
+      .finally(() => setIsDisable(false));
   };
 
   // save user to mongoDB (Gmail, GitHub)
 
   const saveUserForOthers = (email, displayName) => {
+    setIsDisable(true);
     const user = { email, displayName };
     axios
       .put('https://kacha-bazar.herokuapp.com/user', user)
@@ -128,19 +144,24 @@ const useFirebase = () => {
           toast.success('User Added in our Database Successfully!');
         }
       })
-      .catch((err) => toast.error(err.message));
+      .catch((err) => toast.error(err.message))
+      .finally(() => setIsDisable(false));
   };
 
   // Reset Password Function
 
   const resetPassword = (email, e) => {
+    setIsDisable(true);
     sendPasswordResetEmail(auth, email)
       .then(() => {
         toast.success('Check your gmail inbox. We send an verification email');
         e.target.reset();
       })
       .catch((err) => toast.error(err.message))
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsDisable(false);
+        setIsLoading(false);
+      });
   };
 
   // signOut function
@@ -184,6 +205,7 @@ const useFirebase = () => {
     isLoading,
     loggedInUser,
     isAdmin,
+    isDisable,
     googleSignIn,
     gitHubSignIn,
     emailSignup,

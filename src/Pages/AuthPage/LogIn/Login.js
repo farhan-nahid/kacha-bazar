@@ -17,7 +17,7 @@ import styles from './Login.module.css';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { googleSignIn, gitHubSignIn, emailSignIn } = useAuth();
+  const { googleSignIn, gitHubSignIn, emailSignIn, isDisable } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +32,9 @@ const Login = () => {
 
   useEffect(() => {
     document.title = 'Login | Kacha Bazar';
+    window.scrollTo({
+      top: 0,
+    });
   }, []);
 
   return (
@@ -43,22 +46,22 @@ const Login = () => {
 
           <Row className={styles.third__party}>
             <Col lg={4} className='g-4'>
-              <div className={styles.method1} onClick={() => googleSignIn(navigate, location)}>
+              <button className={styles.method1} onClick={() => googleSignIn(navigate, location)}>
                 <img src={googleIcon} alt='googleIcon' />
                 <h5>Google</h5>
-              </div>
+              </button>
             </Col>
             <Col lg={4} className='g-4'>
-              <div className={styles.method2}>
+              <button className={styles.method2} onClick={() => toast.error('Sorry Facebook auth not work in deployment')}>
                 <img src={facebookIcon} alt='facebookIcon' />
                 <h5>Facebook</h5>
-              </div>
+              </button>
             </Col>
             <Col lg={4} className='g-4'>
-              <div className={styles.method3} onClick={() => gitHubSignIn(navigate, location)}>
+              <button className={styles.method3} onClick={() => gitHubSignIn(navigate, location)}>
                 <img src={gitHubIcon} alt='gitHubIcon' />
                 <h5>GitHub</h5>
-              </div>
+              </button>
             </Col>
           </Row>
 
@@ -71,7 +74,15 @@ const Login = () => {
               </label>
             </span>
             <span className={styles.inputs}>
-              <input type='password' name='password' id='password' autoComplete='off' spellCheck='false' placeholder='Enter Your Secret Password' required />
+              <input
+                type='password'
+                name='password'
+                id='password'
+                autoComplete='off'
+                spellCheck='false'
+                placeholder='Enter Your Secret Password'
+                required
+              />
               <label htmlFor='password'>
                 <img src={passwordIcon} alt='passwordIcon' />
               </label>
@@ -80,8 +91,8 @@ const Login = () => {
               <NavLink to='/reset-password'>Forget Password?</NavLink>
               <NavLink to='/register'>New User?</NavLink>
             </span>
-            <button type='submit'>
-              Sign In <FontAwesomeIcon icon={faArrowRight} />
+            <button type='submit' disabled={isDisable}>
+              {isDisable ? 'Signing....' : 'Sign In'} <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </form>
         </Container>

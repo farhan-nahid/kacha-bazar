@@ -22,6 +22,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     document.title = 'Dashboard | Kacha Bazar';
+    window.scrollTo({
+      top: 0,
+    });
   }, []);
 
   return (

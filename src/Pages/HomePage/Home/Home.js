@@ -12,6 +12,9 @@ import Testimonials from '../Testimonials/Testimonials';
 const Home = () => {
   useEffect(() => {
     document.title = 'Home | Kacha Bazar';
+    window.scrollTo({
+      top: 0,
+    });
   }, []);
 
   return (

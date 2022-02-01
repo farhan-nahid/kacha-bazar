@@ -160,6 +160,11 @@
   align-items: center;
 }
 
+#login form button:disabled {
+  cursor: not-allowed;
+  background-color: #10b98171;
+}
+
 #login .fa-arrow-right {
   width: 150px;
 }

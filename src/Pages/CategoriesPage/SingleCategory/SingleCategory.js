@@ -14,6 +14,9 @@ const SingleCategory = () => {
   const products = useSelector((state) => state.products);
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
     dispatch(emptyPrev());
     dispatch(loadQueryProductsAsync(searchString));
   }, [dispatch, searchString]);

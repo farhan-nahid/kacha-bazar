@@ -102,6 +102,9 @@ const Categories = () => {
 
   useEffect(() => {
     document.title = 'All Categories | Kacha Bazar';
+    window.scrollTo({
+      top: 0,
+    });
   }, []);
 
   return (

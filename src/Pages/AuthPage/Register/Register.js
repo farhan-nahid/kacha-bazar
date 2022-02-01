@@ -18,7 +18,7 @@ import styles from './Register.module.css';
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { googleSignIn, gitHubSignIn, emailSignup } = useAuth();
+  const { googleSignIn, gitHubSignIn, emailSignup, isDisable } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,6 +46,9 @@ const Register = () => {
 
   useEffect(() => {
     document.title = 'Register | Kacha Bazar';
+    window.scrollTo({
+      top: 0,
+    });
   }, []);
 
   return (
@@ -64,7 +67,7 @@ const Register = () => {
               </div>
             </Col>
             <Col lg={4} className='g-4'>
-              <div className={styles.method2}>
+              <div className={styles.method2} onClick={() => toast.error('Sorry Facebook auth not work in deployment')}>
                 <img src={facebookIcon} alt='facebookIcon' />
                 <h5>Facebook</h5>
               </div>
@@ -86,19 +89,43 @@ const Register = () => {
               </label>
             </span>
             <span className={styles.inputs}>
-              <input type='email' name='email' id='email2' autoComplete='new-password' spellCheck='false' placeholder='Enter Your Email Address' required />
+              <input
+                type='email'
+                name='email'
+                id='email2'
+                autoComplete='new-password'
+                spellCheck='false'
+                placeholder='Enter Your Email Address'
+                required
+              />
               <label htmlFor='email2'>
                 <img src={emailIcon} alt='emailIcon' />
               </label>
             </span>
             <span className={styles.inputs}>
-              <input type='password' name='password' id='password1' autoComplete='off' spellCheck='false' placeholder='Enter Your Password' required />
+              <input
+                type='password'
+                name='password'
+                id='password1'
+                autoComplete='off'
+                spellCheck='false'
+                placeholder='Enter Your Password'
+                required
+              />
               <label htmlFor='password1'>
                 <img src={passwordIcon} alt='passwordIcon' />
               </label>
             </span>
             <span className={styles.inputs}>
-              <input type='password' name='confirmPassword' id='password2' autoComplete='off' spellCheck='false' placeholder='Confirm Your Password' required />
+              <input
+                type='password'
+                name='confirmPassword'
+                id='password2'
+                autoComplete='off'
+                spellCheck='false'
+                placeholder='Confirm Your Password'
+                required
+              />
               <label htmlFor='password2'>
                 <img src={passwordIcon} alt='passwordIcon' />
               </label>
@@ -107,7 +134,7 @@ const Register = () => {
               <NavLink to='/login'>Already Have Account?</NavLink>
             </span>
             <button type='submit'>
-              Get Started Now <FontAwesomeIcon icon={faArrowRight} />
+              {isDisable ? 'Registering....' : 'Get Started Now'} <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </form>
         </Container>

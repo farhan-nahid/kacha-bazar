@@ -9,6 +9,9 @@ import styles from './ContactUs.module.css';
 
 const ContactUs = () => {
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
     document.title = 'Contact Us | Kacha Bazar';
   }, []);
 
@@ -23,7 +26,10 @@ const ContactUs = () => {
           </Col>
           <Col lg={6} md={6} className='mt-5 mt-md-0 pt-4 pt-md-0'>
             <h4>For any support just send your query</h4>
-            <p>Collaboratively promote client-focused convergence vis-a-vis customer directed alignments via plagiarize strategic users and standardized infrastructures.</p>
+            <p>
+              Collaboratively promote client-focused convergence vis-a-vis customer directed alignments via plagiarize strategic users and
+              standardized infrastructures.
+            </p>
             <form onSubmit={(e) => e.preventDefault()}>
               <div className={styles.span__input__name}>
                 <label htmlFor='customerFirstName'>First Name</label>

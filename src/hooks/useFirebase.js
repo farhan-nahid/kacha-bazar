@@ -122,7 +122,7 @@ const useFirebase = () => {
     setIsDisable(true);
     const user = { email, displayName };
     axios
-      .post('https://kacha-bazar.herokuapp.com/user', user)
+      .post('https://kacha-bazar.up.railway.app/user', user)
       .then((res) => {
         if (res.data.upsertedId) {
           toast.success('User Added in our Database Successfully!');
@@ -138,7 +138,7 @@ const useFirebase = () => {
     setIsDisable(true);
     const user = { email, displayName };
     axios
-      .put('https://kacha-bazar.herokuapp.com/user', user)
+      .put('https://kacha-bazar.up.railway.app/user', user)
       .then((res) => {
         if (res.data.upsertedId) {
           toast.success('User Added in our Database Successfully!');
@@ -195,7 +195,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     axios
-      .get(`https://kacha-bazar.herokuapp.com/user/${loggedInUser?.email}`)
+      .get(`https://kacha-bazar.up.railway.app/user/${loggedInUser?.email}`)
       .then((res) => setIsAdmin(res.data.admin))
       .catch((err) => toast.error(err.message))
       .finally(() => setIsLoading(false));

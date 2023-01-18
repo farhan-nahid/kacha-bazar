@@ -21,7 +21,7 @@ const AddReview = () => {
     reviewData.reviewText = e.target.reviewText.value;
 
     axios
-      .post('https://kacha-bazar.herokuapp.com/add-reviews', reviewData)
+      .post('https://kacha-bazar.up.railway.app/add-reviews', reviewData)
       .then((res) => {
         if (res.data.insertedId) {
           swal({
@@ -45,7 +45,13 @@ const AddReview = () => {
           <Row className='g-4'>
             <Col lg={10}>
               <div className={styles.inputs}>
-                <input type='email' id='reviewEmail' name='email' value={loggedInUser.email} readOnly />
+                <input
+                  type='email'
+                  id='reviewEmail'
+                  name='email'
+                  value={loggedInUser.email}
+                  readOnly
+                />
                 <label htmlFor='reviewEmail'>
                   <img src={userIcon} alt='userIcon' />
                 </label>
@@ -62,7 +68,14 @@ const AddReview = () => {
             </Col>
             <Col lg={12}>
               <div className={styles.inputs}>
-                <textarea name='reviewText' id='review' cols='30' rows='10' placeholder='Enter Your Valuable Review' required></textarea>
+                <textarea
+                  name='reviewText'
+                  id='review'
+                  cols='30'
+                  rows='10'
+                  placeholder='Enter Your Valuable Review'
+                  required
+                ></textarea>
                 <label htmlFor='review' id={styles.review__label}>
                   <img src={emailIcon} alt='emailIcon' />
                 </label>

@@ -10,7 +10,7 @@
 
 # production
 /build
-/src/assets/images
+# /src/assets/images
 
 # misc
 .DS_Store

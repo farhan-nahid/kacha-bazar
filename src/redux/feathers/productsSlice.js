@@ -10,20 +10,34 @@ const initialState = {
   error: '',
 };
 
-export const postProductAsync = createAsyncThunk('products/postProductAsync', async (payload) => {
-  const response = await axios.post(`https://kacha-bazar.herokuapp.com/add-product`, payload);
-  return response.data;
-});
+export const postProductAsync = createAsyncThunk(
+  'products/postProductAsync',
+  async (payload) => {
+    const response = await axios.post(
+      `https://kacha-bazar.up.railway.app/add-product`,
+      payload
+    );
+    return response.data;
+  }
+);
 
-export const loadProductsAsync = createAsyncThunk('products/loadProductsAsync', async () => {
-  const response = await axios.get('https://kacha-bazar.herokuapp.com/all-products');
-  return response.data;
-});
+export const loadProductsAsync = createAsyncThunk(
+  'products/loadProductsAsync',
+  async () => {
+    const response = await axios.get('https://kacha-bazar.up.railway.app/all-products');
+    return response.data;
+  }
+);
 
-export const loadQueryProductsAsync = createAsyncThunk('products/loadQueryProductsAsync', async (payload) => {
-  const response = await axios.get(`https://kacha-bazar.herokuapp.com/all-products?category=${payload}`);
-  return response.data;
-});
+export const loadQueryProductsAsync = createAsyncThunk(
+  'products/loadQueryProductsAsync',
+  async (payload) => {
+    const response = await axios.get(
+      `https://kacha-bazar.up.railway.app/all-products?category=${payload}`
+    );
+    return response.data;
+  }
+);
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -111,6 +125,14 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { addToCart, emptyCart, emptyPrev, handleCancelOrder, handleIncrease, handleDecrease, productSorting } = productsSlice.actions;
+export const {
+  addToCart,
+  emptyCart,
+  emptyPrev,
+  handleCancelOrder,
+  handleIncrease,
+  handleDecrease,
+  productSorting,
+} = productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -7,30 +7,52 @@ const initialState = {
   status: 'idle',
 };
 
-export const postOrdersAsync = createAsyncThunk('orders/postOrdersAsync', async (payload) => {
-  const response = await axios.post(`https://kacha-bazar.herokuapp.com/order`, payload);
-  return response.data;
-});
-
-export const loadOrdersAsync = createAsyncThunk('orders/loadOrdersAsync', async (payload) => {
-  if (payload) {
-    const response = await axios.get(`https://kacha-bazar.herokuapp.com/all-orders?email=${payload}`);
-    return response.data;
-  } else {
-    const response = await axios.get(`https://kacha-bazar.herokuapp.com/all-orders`);
+export const postOrdersAsync = createAsyncThunk(
+  'orders/postOrdersAsync',
+  async (payload) => {
+    const response = await axios.post(
+      `https://kacha-bazar.up.railway.app/order`,
+      payload
+    );
     return response.data;
   }
-});
+);
 
-export const updateOrdersAsync = createAsyncThunk('orders/updateOrdersAsync', async (payload) => {
-  const response = await axios.put(`https://kacha-bazar.herokuapp.com/order/${payload.id}`, payload);
-  return response;
-});
+export const loadOrdersAsync = createAsyncThunk(
+  'orders/loadOrdersAsync',
+  async (payload) => {
+    if (payload) {
+      const response = await axios.get(
+        `https://kacha-bazar.up.railway.app/all-orders?email=${payload}`
+      );
+      return response.data;
+    } else {
+      const response = await axios.get(`https://kacha-bazar.up.railway.app/all-orders`);
+      return response.data;
+    }
+  }
+);
 
-export const cancelOrdersAsync = createAsyncThunk('orders/cancelOrdersAsync', async (payload) => {
-  const response = await axios.delete(`https://kacha-bazar.herokuapp.com/order/${payload}`);
-  return response.data;
-});
+export const updateOrdersAsync = createAsyncThunk(
+  'orders/updateOrdersAsync',
+  async (payload) => {
+    const response = await axios.put(
+      `https://kacha-bazar.up.railway.app/order/${payload.id}`,
+      payload
+    );
+    return response;
+  }
+);
+
+export const cancelOrdersAsync = createAsyncThunk(
+  'orders/cancelOrdersAsync',
+  async (payload) => {
+    const response = await axios.delete(
+      `https://kacha-bazar.up.railway.app/order/${payload}`
+    );
+    return response.data;
+  }
+);
 
 export const ordersSlice = createSlice({
   name: 'orders',

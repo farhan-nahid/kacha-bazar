@@ -16,7 +16,7 @@ const AddAdmin = () => {
     } else {
       const user = { email: admin };
       axios
-        .put('https://kacha-bazar.herokuapp.com/user/admin', user, {
+        .put('https://kacha-bazar.up.railway.app/user/admin', user, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('kacha_bazar_token')}`,
           },
@@ -45,7 +45,13 @@ const AddAdmin = () => {
         <h1>Add Admin</h1>
         <form onSubmit={handelSubmit}>
           <span className={styles.inputs}>
-            <input type='text' placeholder='Add a New Admin' id='addAdmin' autoComplete='off' name='category' />
+            <input
+              type='text'
+              placeholder='Add a New Admin'
+              id='addAdmin'
+              autoComplete='off'
+              name='category'
+            />
             <label htmlFor='addAdmin'>
               <img src={category} alt='category' />
             </label>

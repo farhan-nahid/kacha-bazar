@@ -27,7 +27,7 @@ const Testimonials = () => {
 
   useEffect(() => {
     axios
-      .get('https://kacha-bazar.herokuapp.com/all-reviews')
+      .get('https://kacha-bazar.up.railway.app/all-reviews')
       .then((res) => setTestimonials(res.data))
       .catch((err) => toast.error(err.message));
   }, []);

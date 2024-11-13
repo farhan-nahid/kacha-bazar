@@ -10,10 +10,7 @@ const initialState = {
 export const postOrdersAsync = createAsyncThunk(
   'orders/postOrdersAsync',
   async (payload) => {
-    const response = await axios.post(
-      `https://kacha-bazar.up.railway.app/order`,
-      payload
-    );
+    const response = await axios.post(`https://kacha--bazar.vercel.app/order`, payload);
     return response.data;
   }
 );
@@ -23,11 +20,11 @@ export const loadOrdersAsync = createAsyncThunk(
   async (payload) => {
     if (payload) {
       const response = await axios.get(
-        `https://kacha-bazar.up.railway.app/all-orders?email=${payload}`
+        `https://kacha--bazar.vercel.app/all-orders?email=${payload}`
       );
       return response.data;
     } else {
-      const response = await axios.get(`https://kacha-bazar.up.railway.app/all-orders`);
+      const response = await axios.get(`https://kacha--bazar.vercel.app/all-orders`);
       return response.data;
     }
   }
@@ -37,7 +34,7 @@ export const updateOrdersAsync = createAsyncThunk(
   'orders/updateOrdersAsync',
   async (payload) => {
     const response = await axios.put(
-      `https://kacha-bazar.up.railway.app/order/${payload.id}`,
+      `https://kacha--bazar.vercel.app/order/${payload.id}`,
       payload
     );
     return response;
@@ -48,7 +45,7 @@ export const cancelOrdersAsync = createAsyncThunk(
   'orders/cancelOrdersAsync',
   async (payload) => {
     const response = await axios.delete(
-      `https://kacha-bazar.up.railway.app/order/${payload}`
+      `https://kacha--bazar.vercel.app/order/${payload}`
     );
     return response.data;
   }

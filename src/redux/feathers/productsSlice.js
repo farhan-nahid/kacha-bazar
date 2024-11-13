@@ -14,7 +14,7 @@ export const postProductAsync = createAsyncThunk(
   'products/postProductAsync',
   async (payload) => {
     const response = await axios.post(
-      `https://kacha-bazar.up.railway.app/add-product`,
+      `https://kacha--bazar.vercel.app/add-product`,
       payload
     );
     return response.data;
@@ -24,7 +24,7 @@ export const postProductAsync = createAsyncThunk(
 export const loadProductsAsync = createAsyncThunk(
   'products/loadProductsAsync',
   async () => {
-    const response = await axios.get('https://kacha-bazar.up.railway.app/all-products');
+    const response = await axios.get('https://kacha--bazar.vercel.app/all-products');
     return response.data;
   }
 );
@@ -33,7 +33,7 @@ export const loadQueryProductsAsync = createAsyncThunk(
   'products/loadQueryProductsAsync',
   async (payload) => {
     const response = await axios.get(
-      `https://kacha-bazar.up.railway.app/all-products?category=${payload}`
+      `https://kacha--bazar.vercel.app/all-products?category=${payload}`
     );
     return response.data;
   }

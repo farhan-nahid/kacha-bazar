@@ -1,3 +1,18 @@
 {
-  "cSpell.words": ["browserslist", "CCPA", "fontawesome", "fortawesome", "kacha", "noopener", "noreferrer", "offcanvas", "reduxjs", "swal", "sweetalert", "swiper", "upserted"]
+  "prettier.singleQuote": true,
+  "cSpell.words": [
+    "browserslist",
+    "CCPA",
+    "fontawesome",
+    "fortawesome",
+    "kacha",
+    "noopener",
+    "noreferrer",
+    "offcanvas",
+    "reduxjs",
+    "swal",
+    "sweetalert",
+    "swiper",
+    "upserted"
+  ]
 }

@@ -21,7 +21,7 @@ const AddReview = () => {
     reviewData.reviewText = e.target.reviewText.value;
 
     axios
-      .post('https://kacha-bazar.up.railway.app/add-reviews', reviewData)
+      .post('https://kacha--bazar.vercel.app/add-reviews', reviewData)
       .then((res) => {
         if (res.data.insertedId) {
           swal({
@@ -42,23 +42,23 @@ const AddReview = () => {
       <Container>
         <h1>Review</h1>
         <form onSubmit={handleSubmit}>
-          <Row className='g-4'>
+          <Row className="g-4">
             <Col lg={10}>
               <div className={styles.inputs}>
                 <input
-                  type='email'
-                  id='reviewEmail'
-                  name='email'
+                  type="email"
+                  id="reviewEmail"
+                  name="email"
                   value={loggedInUser.email}
                   readOnly
                 />
-                <label htmlFor='reviewEmail'>
-                  <img src={userIcon} alt='userIcon' />
+                <label htmlFor="reviewEmail">
+                  <img src={userIcon} alt="userIcon" />
                 </label>
               </div>
             </Col>
             <Col lg={2}>
-              <select name='star'>
+              <select name="star">
                 <option value={5}>5</option>
                 <option value={4}>4</option>
                 <option value={3}>3</option>
@@ -69,21 +69,21 @@ const AddReview = () => {
             <Col lg={12}>
               <div className={styles.inputs}>
                 <textarea
-                  name='reviewText'
-                  id='review'
-                  cols='30'
-                  rows='10'
-                  placeholder='Enter Your Valuable Review'
+                  name="reviewText"
+                  id="review"
+                  cols="30"
+                  rows="10"
+                  placeholder="Enter Your Valuable Review"
                   required
                 ></textarea>
-                <label htmlFor='review' id={styles.review__label}>
-                  <img src={emailIcon} alt='emailIcon' />
+                <label htmlFor="review" id={styles.review__label}>
+                  <img src={emailIcon} alt="emailIcon" />
                 </label>
               </div>
             </Col>
           </Row>
           <span>
-            <button type='submit'>Add Review</button>
+            <button type="submit">Add Review</button>
           </span>
         </form>
       </Container>

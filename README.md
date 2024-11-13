@@ -36,7 +36,7 @@ https://kacha--bazar.web.app/
 
 ### `API Link`
 
-https://kacha-bazar.up.railway.app/
+https://kacha--bazar.vercel.app/
 
 ---
 

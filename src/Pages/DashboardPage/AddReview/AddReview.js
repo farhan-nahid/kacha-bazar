@@ -21,7 +21,7 @@ const AddReview = () => {
     reviewData.reviewText = e.target.reviewText.value;
 
     axios
-      .post('https://kacha--bazar.vercel.app/add-reviews', reviewData)
+      .post('https://kacha-bazar.onrender.com/add-reviews', reviewData)
       .then((res) => {
         if (res.data.insertedId) {
           swal({

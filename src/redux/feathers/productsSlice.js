@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import toast from 'react-hot-toast';
+import publicRequest from '../../configs/axios';
 
 const initialState = {
   productsState: [],
@@ -13,10 +13,7 @@ const initialState = {
 export const postProductAsync = createAsyncThunk(
   'products/postProductAsync',
   async (payload) => {
-    const response = await axios.post(
-      `https://kacha--bazar.vercel.app/add-product`,
-      payload
-    );
+    const response = await publicRequest.post(`/add-product`, payload);
     return response.data;
   }
 );
@@ -24,7 +21,7 @@ export const postProductAsync = createAsyncThunk(
 export const loadProductsAsync = createAsyncThunk(
   'products/loadProductsAsync',
   async () => {
-    const response = await axios.get('https://kacha--bazar.vercel.app/all-products');
+    const response = await publicRequest.get('/all-products');
     return response.data;
   }
 );
@@ -32,9 +29,7 @@ export const loadProductsAsync = createAsyncThunk(
 export const loadQueryProductsAsync = createAsyncThunk(
   'products/loadQueryProductsAsync',
   async (payload) => {
-    const response = await axios.get(
-      `https://kacha--bazar.vercel.app/all-products?category=${payload}`
-    );
+    const response = await publicRequest.get(`/all-products?category=${payload}`);
     return response.data;
   }
 );

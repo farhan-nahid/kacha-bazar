@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import toast from 'react-hot-toast';
+import publicRequest from '../../configs/axios';
 
 const initialState = {
   ordersState: [],
@@ -10,7 +10,7 @@ const initialState = {
 export const postOrdersAsync = createAsyncThunk(
   'orders/postOrdersAsync',
   async (payload) => {
-    const response = await axios.post(`https://kacha--bazar.vercel.app/order`, payload);
+    const response = await publicRequest.post('/order', payload);
     return response.data;
   }
 );
@@ -19,12 +19,10 @@ export const loadOrdersAsync = createAsyncThunk(
   'orders/loadOrdersAsync',
   async (payload) => {
     if (payload) {
-      const response = await axios.get(
-        `https://kacha--bazar.vercel.app/all-orders?email=${payload}`
-      );
+      const response = await publicRequest.get(`/all-orders?email=${payload}`);
       return response.data;
     } else {
-      const response = await axios.get(`https://kacha--bazar.vercel.app/all-orders`);
+      const response = await publicRequest.get('/all-orders');
       return response.data;
     }
   }
@@ -33,10 +31,7 @@ export const loadOrdersAsync = createAsyncThunk(
 export const updateOrdersAsync = createAsyncThunk(
   'orders/updateOrdersAsync',
   async (payload) => {
-    const response = await axios.put(
-      `https://kacha--bazar.vercel.app/order/${payload.id}`,
-      payload
-    );
+    const response = await publicRequest.put(`/order/${payload.id}`, payload);
     return response;
   }
 );
@@ -44,9 +39,7 @@ export const updateOrdersAsync = createAsyncThunk(
 export const cancelOrdersAsync = createAsyncThunk(
   'orders/cancelOrdersAsync',
   async (payload) => {
-    const response = await axios.delete(
-      `https://kacha--bazar.vercel.app/order/${payload}`
-    );
+    const response = await publicRequest.delete(`/order/${payload}`);
     return response.data;
   }
 );

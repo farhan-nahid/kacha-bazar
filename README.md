@@ -36,7 +36,7 @@ https://kacha--bazar.web.app/
 
 ### `API Link`
 
-https://kacha--bazar.vercel.app/
+https://kacha-bazar.onrender.com/
 
 ---
 

@@ -29,7 +29,7 @@ const Testimonials = () => {
 
   useEffect(() => {
     axios
-      .get('https://kacha--bazar.vercel.app/all-reviews')
+      .get('https://kacha-bazar.onrender.com/all-reviews')
       .then((res) => {
         setTestimonials(res.data);
         setIsLoading(false);
